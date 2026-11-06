@@ -1,5 +1,5 @@
-@charset "UTF-8";
-/* ===== INICIO DE SESIÓN ===== */
+﻿@charset "UTF-8";
+/* ===== INICIO DE SESIÃ“N ===== */
 .acceso {
   margin: 56px auto 0;
 }
@@ -43,7 +43,7 @@ body:has(.contenido-solo) {
   margin-top: 36px;
 }
 .acceso-caja {
-  border-top: 4px solid #1355c2;
+  border-top: 4px solid #0f766e;
   padding: 28px;
 }
 .acceso-marca img {
@@ -59,3 +59,4 @@ body:has(.contenido-solo) {
 body:has(.contenido-solo) {
   background: #f1f4f8;
 }
+

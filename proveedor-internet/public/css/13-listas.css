@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* ===== LISTAS ===== */
 .filas {
   list-style: none;
@@ -64,7 +64,7 @@ a.fila-titulo:hover {
 /* ===== AJUSTES DEL TEMA (antes en 18, 19 y 20) ===== */
 .fila:hover,
 .contador:hover {
-  border-color: #1355c2;
+  border-color: #0f766e;
 }
 .filas {
   gap: 12px;
@@ -107,7 +107,7 @@ a.fila-titulo:hover {
   border-color: #8ba9d0;
 }
 .fila:focus-within {
-  border-color: #1355c2;
+  border-color: #0f766e;
 }
 .fila-cabeza {
   display: flex;
@@ -164,3 +164,4 @@ a.fila-titulo {
   padding: 24px;
   color: #52677d;
 }
+

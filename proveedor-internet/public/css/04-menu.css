@@ -1,5 +1,5 @@
-@charset "UTF-8";
-/* ===== MENÚ ===== */
+﻿@charset "UTF-8";
+/* ===== MENÃš ===== */
 .nav {
   display: flex;
   flex-direction: column;
@@ -97,9 +97,10 @@
 .menu-movil .nav-enlace[aria-current="page"] {
   background: #e7efff;
   color: #0b3e94 !important;
-  box-shadow: inset 3px 0 #1355c2;
+  box-shadow: inset 3px 0 #0f766e;
   font-weight: 750;
 }
 .nav-inicio {
   margin-top: 0;
 }
+

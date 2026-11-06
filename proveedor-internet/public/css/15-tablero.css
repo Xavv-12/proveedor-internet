@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* ===== TABLERO ===== */
 .contadores {
   display: grid;
@@ -85,7 +85,7 @@
   display: block;
   width: 28px;
   height: 3px;
-  background: #1355c2;
+  background: #0f766e;
   border-radius: 3px;
 }
 .contador-numero {
@@ -107,3 +107,4 @@
 .contador-alerta .contador-texto {
   color: #991b1b;
 }
+

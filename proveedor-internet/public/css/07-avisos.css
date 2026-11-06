@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* ===== AVISOS ===== */
 .aviso {
   display: flex;
@@ -28,4 +28,5 @@
   background: var(--azul-claro);
   color: var(--azul-oscuro);
 }
+
 

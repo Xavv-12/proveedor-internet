@@ -1,5 +1,5 @@
-@charset "UTF-8";
-/* ===== MARCO: MENÚ LATERAL OSCURO + ÁREA ===== */
+﻿@charset "UTF-8";
+/* ===== MARCO: MENÃš LATERAL OSCURO + ÃREA ===== */
 .marco {
   display: grid;
   grid-template-columns: var(--ancho-lateral) 1fr;
@@ -95,6 +95,7 @@ body:has(.contenido-solo) {
   height: 38px;
   padding: 7px;
   color: white;
-  background: #1355c2;
+  background: #0f766e;
   border-radius: 11px;
 }
+

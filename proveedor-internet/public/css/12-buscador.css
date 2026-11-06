@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* ===== BUSCADOR Y FILTROS ===== */
 .buscador {
   margin-bottom: 12px;
@@ -50,3 +50,4 @@
 .filtros label span {
   font-size: 0.72rem;
 }
+

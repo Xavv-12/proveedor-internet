@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* ===== BASE ===== */
 * {
   box-sizing: border-box;
@@ -134,3 +134,4 @@ h2 {
   font-size: 0.7rem;
   letter-spacing: 0.04em;
 }
+

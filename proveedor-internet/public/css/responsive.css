@@ -1,12 +1,12 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* ===== RESPONSIVE DEL PANEL =====
-   Cargar DESPUÉS de app.css:
+   Cargar DESPUÃ‰S de app.css:
    <link rel="stylesheet" href="/css/app.css">
    <link rel="stylesheet" href="/css/responsive.css">
    Orden: pantallas grandes (min-width) -> medianas (1000px) -> celulares (760px)
    -> accesibilidad (contraste y movimiento reducido). */
 
-/* ===== LISTADOS EN CUADRÍCULA (de menos a más ancho) ===== */
+/* ===== LISTADOS EN CUADRÃCULA (de menos a mÃ¡s ancho) ===== */
 @media (min-width: 780px) {
   .filas {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -111,7 +111,7 @@
 
 /* ===== CELULARES (hasta 760px) ===== */
 @media (max-width: 760px) {
-  /* Marco: se oculta el lateral y aparece el menú móvil */
+  /* Marco: se oculta el lateral y aparece el menÃº mÃ³vil */
   .marco {
     display: block;
   }
@@ -156,7 +156,7 @@
     display: none;
   }
 
-  /* Menú móvil desplegable */
+  /* MenÃº mÃ³vil desplegable */
   .menu-movil {
     display: block;
   }
@@ -302,7 +302,7 @@
     content: none;
   }
 
-  /* Inicio de sesión */
+  /* Inicio de sesiÃ³n */
   .acceso {
     margin-top: 28px;
   }
@@ -341,3 +341,4 @@
     outline: 2px solid var(--azul);
   }
 }
+

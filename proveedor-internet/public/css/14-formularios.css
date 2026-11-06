@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* ===== FORMULARIOS ===== */
 .formulario {
   display: grid;
@@ -152,5 +152,6 @@ textarea {
 }
 input[type="checkbox"],
 input[type="radio"] {
-  accent-color: #1355c2;
+  accent-color: #0f766e;
 }
+

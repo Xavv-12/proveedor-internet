@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* ===== ETIQUETAS DE ESTADO ===== */
 .insignia {
   flex: none;
@@ -36,3 +36,4 @@
   font-size: 0.76rem;
   padding: 3px 9px;
 }
+

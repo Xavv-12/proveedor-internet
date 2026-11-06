@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* ===== ENCABEZADO SUPERIOR ===== */
 .superior {
   position: sticky;
@@ -101,3 +101,4 @@
   padding: 8px 14px;
   font-size: 0.875rem;
 }
+

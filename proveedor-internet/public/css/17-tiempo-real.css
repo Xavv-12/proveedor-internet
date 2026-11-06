@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* ===== TIEMPO REAL ===== */
 .aviso-flotante {
   position: fixed;
@@ -41,7 +41,7 @@
 .elemento-titulo {
   white-space: pre-line;
 }
-/* Ventana de confirmación */
+/* Ventana de confirmaciÃ³n */
 dialog.confirmar-ventana {
   border: 0;
   border-radius: 18px;
@@ -88,7 +88,7 @@ dialog.confirmar-ventana p {
   outline-offset: 2px;
 }
 
-/* Tablero: tarjetas que requieren atención */
+/* Tablero: tarjetas que requieren atenciÃ³n */
 .contador-alerta {
   border-color: #fca5a5;
   background: #fff5f5;
@@ -101,7 +101,7 @@ dialog.confirmar-ventana p {
   font-weight: 700;
 }
 
-/* Aviso flotante del sitio (por ejemplo, "Recibimos tu solicitud…" al volver al inicio) */
+/* Aviso flotante del sitio (por ejemplo, "Recibimos tu solicitudâ€¦" al volver al inicio) */
 .aviso-sitio {
   position: fixed;
   left: 50%;
@@ -151,4 +151,5 @@ dialog.confirmar-ventana p {
     transform: translate(-50%, 0);
   }
 }
+
 

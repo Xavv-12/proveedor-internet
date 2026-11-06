@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* ===== Editor de contorno de cobertura (agregar al final de app.css) ===== */
 .contorno-editor {
   margin: 0.5rem 0 0.75rem;
@@ -46,3 +46,4 @@
   font-size: 0.875rem;
   color: #5d6b85;
 }
+
