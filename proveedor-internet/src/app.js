@@ -129,6 +129,10 @@ function crearApp() {
     return `${esc(t.slice(0, i))} <span class="acento">${esc(t.slice(i + 1))}</span>`;
   };
 
+  if (process.env.NODE_ENV !== "production") {
+    app.use(require("morgan")("dev", { skip: (req) => req.originalUrl.startsWith("/eventos") || req.originalUrl.startsWith("/api/v1/eventos") }));
+  }
+
   app.use(
     helmet({
       contentSecurityPolicy: {

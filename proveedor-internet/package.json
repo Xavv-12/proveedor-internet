@@ -9,7 +9,9 @@
   },
   "scripts": {
     "start": "node src/server.js",
-    "dev": "node --watch src/server.js",
+    "local": "node scripts/liga.cjs && node src/server.js",
+    "dev": "node scripts/liga.cjs && node --watch-path=./src src/server.js",
+    "todo": "concurrently --raw --kill-signal SIGKILL -n APP,SITIO -c cyan,green \"node scripts/liga.cjs && node --watch-path=./src src/server.js\" \"node scripts/liga-sitio.cjs && node node_modules/serve/build/main.js ../sitio-estatico-hostgator/public_html -l 8080 --no-clipboard > NUL\"",
     "seed": "node scripts/seed.js",
     "indices": "node scripts/indices.js",
     "respaldo": "node scripts/respaldo.js",
@@ -27,6 +29,7 @@
     "helmet": "^7.2.0",
     "leaflet": "^1.9.4",
     "mongodb": "^6.12.0",
+    "morgan": "^1.12.1",
     "multer": "^2.0.2",
     "node-cron": "^4.6.0",
     "nodemailer": "^10.3.1",
@@ -34,7 +37,9 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "concurrently": "^10.0.6",
     "mongodb-memory-server": "^10.1.3",
+    "serve": "^14.2.6",
     "supertest": "^7.0.0"
   }
 }
