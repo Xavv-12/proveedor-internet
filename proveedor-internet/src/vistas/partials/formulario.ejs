@@ -27,7 +27,7 @@
           <input <%- attrs({ id: idc, name: c.nombre, type: 'text', inputmode: 'decimal', autocomplete: 'off', placeholder: '0.00', value: c.valor, required: !!c.requerido, readonly: !!c.soloLectura, 'aria-invalid': err ? 'true' : null }) %>>
         </div>
       <% } else if (c.tipo === 'file') { %>
-        <input <%- attrs({ id: idc, name: c.nombre, type: 'file', accept: c.aceptar, required: !!c.requerido }) %>>
+        <input <%- attrs({ id: idc, name: c.nombre, type: 'file', accept: c.aceptar, multiple: !!c.multiple, required: !!c.requerido }) %>>
       <% } else { %>
         <input <%- attrs({ id: idc, name: c.nombre, type: c.tipo, value: c.tipo === 'password' ? '' : c.valor, required: !!c.requerido, readonly: !!c.soloLectura, min: c.min, max: c.tipo === 'number' ? c.max : null, maxlength: c.tipo !== 'number' && c.max ? c.max : null, inputmode: c.inputmode, autocomplete: c.autocomplete, autocapitalize: c.autocapitalize, 'aria-invalid': err ? 'true' : null }) %>>
       <% } %>

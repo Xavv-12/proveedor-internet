@@ -20,6 +20,7 @@ const PERMISOS = {
   equipos: { leer: TODOS, escribir: OFICINA },
   incidencias: { leer: TODOS, escribir: TODOS },
   visitas: { leer: TODOS, escribir: TODOS },
+  panel_tecnico: { leer: TODOS, escribir: ["tecnico"] },
   tecnicos: { leer: TODOS, escribir: OFICINA },
   cobranza: { leer: OFICINA, escribir: OFICINA },
   prioridad: { leer: OFICINA, escribir: OFICINA },
@@ -44,6 +45,17 @@ const INACTIVIDAD_MS = {
 };
 
 const MENU = [
+  {
+    grupo: "Mi panel",
+    items: [
+      { modulo: "panel_tecnico", ruta: "/panel-tecnico", texto: "Mis actividades" },
+      { modulo: "panel_tecnico", ruta: "/panel-tecnico/instalaciones", texto: "Instalaciones" },
+      { modulo: "panel_tecnico", ruta: "/panel-tecnico/seguimientos", texto: "Seguimiento" },
+      { modulo: "panel_tecnico", ruta: "/panel-tecnico/atenciones", texto: "Atención a clientes" },
+      { modulo: "panel_tecnico", ruta: "/panel-tecnico/renovaciones", texto: "Renovaciones" },
+      { modulo: "panel_tecnico", ruta: "/panel-tecnico/bajas", texto: "Bajas de contratos" },
+    ],
+  },
   {
     grupo: "Ventas",
     items: [

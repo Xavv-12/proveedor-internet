@@ -36,6 +36,7 @@ const TIEMPO_REAL = [
   ["/equipos", "equipos", "equipos contratos"],
   ["/incidencias", "incidencias", "incidencias visitas"],
   ["/visitas", "visitas", "visitas incidencias tecnicos"],
+  ["/panel-tecnico", "panel_tecnico", "panel_tecnico visitas"],
   ["/tecnicos", "tecnicos", "tecnicos visitas"],
   ["/cobranza", "cobranza", "cobranza contratos conciliacion"],
   ["/prioridad-de-cobranza", "cobranza", "cobranza contratos clientes"],
@@ -251,6 +252,7 @@ function crearApp() {
   app.use("/equipos", require("./rutas/equipos"));
   app.use("/incidencias", require("./rutas/incidencias"));
   app.use("/visitas", require("./rutas/visitas"));
+  app.use("/panel-tecnico", require("./rutas/panel-tecnico"));
   app.use("/tecnicos", require("./rutas/tecnicos"));
   app.use("/cobranza", rCobranza);
   app.use("/prioridad-de-cobranza", rPrioridad);

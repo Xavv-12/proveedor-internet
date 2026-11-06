@@ -35,6 +35,28 @@ function recibirArchivo(campo, maxBytes) {
   });
 }
 
+/** Recibe varias fotos en memoria (hasta maxArchivos). Los errores quedan en req.errorArchivo. */
+function recibirArchivos(campo, maxBytes, maxArchivos = 6) {
+  const subir = multer({
+    storage: multer.memoryStorage(),
+    limits: { fileSize: maxBytes, files: maxArchivos, fields: 40, fieldSize: 4096, parts: maxArchivos + 40 },
+  }).array(campo, maxArchivos);
+  return (req, res, next) => subir(req, res, (err) => {
+    if (!err) return next();
+    if (err instanceof multer.MulterError) {
+      if (err.code === 'LIMIT_FILE_SIZE') {
+        req.errorArchivo = 'Cada foto debe pesar máximo ' + Math.max(1, Math.round(maxBytes / 1048576)) + ' MB.';
+      } else if (err.code === 'LIMIT_FILE_COUNT' || err.code === 'LIMIT_UNEXPECTED_FILE') {
+        req.errorArchivo = 'Máximo ' + maxArchivos + ' fotos por registro.';
+      } else {
+        req.errorArchivo = 'No se pudieron recibir las fotos.';
+      }
+      return next();
+    }
+    return next(err);
+  });
+}
+
 const NOMBRE_SEGURO = /^[0-9a-f-]{36}\.(jpg|png|webp|pdf)$/;
 
 async function guardarEvidencia(buffer, tipo) {
@@ -77,5 +99,5 @@ function nombreOriginalSeguro(nombre) {
 }
 
 module.exports = {
-  detectarTipo, recibirArchivo, guardarEvidencia, rutaEvidencia, borrarEvidencia, esTextoPlano, decodificarTexto, nombreOriginalSeguro,
+  detectarTipo, recibirArchivo, recibirArchivos, guardarEvidencia, rutaEvidencia, borrarEvidencia, esTextoPlano, decodificarTexto, nombreOriginalSeguro,
 };

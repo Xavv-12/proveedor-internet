@@ -124,7 +124,7 @@ function renderFormulario(res, o, estado = 200) {
       boton: o.boton ?? "Guardar",
       cancelar: o.cancelar ?? null,
       nota: o.nota ?? null,
-      multipart: false,
+      multipart: !!o.multipart,
     },
   });
 }
