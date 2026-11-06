@@ -10,8 +10,8 @@
   "scripts": {
     "start": "node src/server.js",
     "local": "node scripts/liga.cjs && node src/server.js",
-    "dev": "node scripts/liga.cjs && node --watch-path=./src src/server.js",
-    "todo": "concurrently --raw --kill-signal SIGKILL -n APP,SITIO -c cyan,green \"node scripts/liga.cjs && node --watch-path=./src src/server.js\" \"node scripts/liga-sitio.cjs && node node_modules/serve/build/main.js ../sitio-estatico-hostgator/public_html -l 8080 --no-clipboard > NUL\"",
+    "dev": "node scripts/liga.cjs && node --watch-path=./src/lib --watch-path=./src/rutas --watch-path=./src/servicios --watch-path=./src/middleware --watch-path=./src/app.js --watch-path=./src/server.js --watch-path=./src/config.js --watch-path=./src/db.js --watch-path=./src/permisos.js src/server.js",
+    "todo": "concurrently --raw --kill-signal SIGKILL -n APP,SITIO -c cyan,green \"node scripts/liga.cjs && node --watch-path=./src/lib --watch-path=./src/rutas --watch-path=./src/servicios --watch-path=./src/middleware --watch-path=./src/app.js --watch-path=./src/server.js --watch-path=./src/config.js --watch-path=./src/db.js --watch-path=./src/permisos.js src/server.js\" \"node scripts/liga-sitio.cjs && node node_modules/serve/build/main.js ../sitio-estatico-hostgator/public_html -l 8080 --no-clipboard > NUL\"",
     "seed": "node scripts/seed.js",
     "indices": "node scripts/indices.js",
     "respaldo": "node scripts/respaldo.js",
