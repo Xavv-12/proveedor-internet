@@ -1,0 +1,156 @@
+@charset "UTF-8";
+/* ===== FORMULARIOS ===== */
+.formulario {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.campo > label {
+  font-weight: 700;
+}
+.req {
+  color: #dc2626;
+}
+input,
+select,
+textarea {
+  width: 100%;
+  min-height: 54px;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  color: var(--texto);
+  background: #fff;
+  font-size: 1rem;
+  transition:
+    border-color 0.18s,
+    box-shadow 0.18s;
+}
+input::placeholder,
+textarea::placeholder {
+  color: #6b7280;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 0;
+  border-color: var(--azul);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid,
+.con-error input,
+.con-error select,
+.con-error textarea {
+  border-color: #dc2626;
+}
+input[type="checkbox"] {
+  width: 22px;
+  height: 22px;
+  min-height: 0;
+  flex-shrink: 0;
+  accent-color: var(--azul);
+  box-shadow: none;
+}
+input[type="file"] {
+  padding: 12px;
+}
+input[readonly] {
+  background: #f3f4f6;
+  color: var(--texto-suave);
+}
+.casilla {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+.con-prefijo {
+  display: flex;
+  align-items: stretch;
+}
+.con-prefijo span {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border: 1px solid #d1d5db;
+  border-right: 0;
+  border-radius: 10px 0 0 10px;
+  background: #f9fafb;
+  font-weight: 700;
+}
+.con-prefijo input {
+  border-radius: 0 10px 10px 0;
+}
+.ayuda {
+  color: var(--texto-suave);
+  font-size: 0.9rem;
+}
+.error {
+  color: #b91c1c;
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+
+/* ===== AJUSTES DEL TEMA (antes en 18, 19 y 20) ===== */
+input:not([type="checkbox"]):not([type="radio"]),
+select,
+textarea {
+  border-color: #8799ad;
+  border-radius: 8px;
+}
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 2px;
+}
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid,
+.con-error input,
+.con-error select,
+.con-error textarea {
+  border-color: #b23626;
+}
+.formulario {
+  gap: 15px;
+}
+.campo {
+  gap: 5px;
+  min-width: 0;
+}
+.campo > label {
+  font-size: 0.875rem;
+}
+input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
+select,
+textarea {
+  min-height: 44px;
+  padding: 9px 12px;
+  font-size: 0.9375rem;
+}
+textarea {
+  min-height: 100px;
+}
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #1355c2;
+}

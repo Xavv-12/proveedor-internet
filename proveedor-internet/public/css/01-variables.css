@@ -1,0 +1,54 @@
+@charset "UTF-8";
+/* ===== COLORES Y MEDIDAS (variables) =====
+   Lenguaje visual: fondo claro con degradado azul suave, tipografía redondeada (Nunito),
+   títulos con la última palabra en azul, etiquetas tipo píldora, botones redondos
+   y menú lateral oscuro como el pie de página del sitio.
+   NOTA: todo el responsive y las reglas de accesibilidad (@media) están en responsive.css */
+:root {
+  color-scheme: light only;
+  --texto: #111827;
+  --texto-suave: #4b5563;
+  --azul: #2563eb;
+  --azul-oscuro: #1d4ed8;
+  --azul-claro: #eaf1ff;
+  --verde: #16a34a;
+  --verde-claro: #e7f8ee;
+  --carbon: #2d2d2d;
+  --carbon-linea: #4a4a4a;
+  --negro: #0f0f10;
+  --borde: #e5e7eb;
+  --fondo: #f8fafc;
+  --fondo-tarjeta: #fff;
+  --redondeo: 16px;
+  --foco: #f59e0b;
+  --sombra: 0 1px 2px rgba(17, 24, 39, 0.04), 0 6px 20px rgba(17, 24, 39, 0.06);
+  --ancho-lateral: 250px;
+  --fuente:
+    "Nunito", "Nunito Sans", system-ui, -apple-system, "Segoe UI", Roboto,
+    sans-serif;
+}
+
+
+/* ===== AJUSTES DEL TEMA (antes en 18, 19 y 20) ===== */
+:root {
+  --texto: #1b2a3d;
+  --texto-suave: #34465c;
+  --azul: #1355c2;
+  --azul-oscuro: #0b3e94;
+  --azul-claro: #e7efff;
+  --carbon: #ffffff;
+  --carbon-linea: #d7e0ea;
+  --negro: #0b2850;
+  --borde: #c3cfdd;
+  --fondo: #fbfcfd;
+  --fondo-tarjeta: #fff;
+  --redondeo: 18px;
+  --foco: #c25400;
+  --sombra: 0 6px 22px rgba(11, 40, 80, 0.055);
+  --fuente: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+:root {
+  --ancho-lateral: 256px;
+  --sombra:
+    0 2px 8px rgba(11, 40, 80, 0.045), 0 12px 28px rgba(11, 40, 80, 0.035);
+}

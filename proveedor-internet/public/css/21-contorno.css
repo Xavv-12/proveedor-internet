@@ -1,0 +1,48 @@
+@charset "UTF-8";
+/* ===== Editor de contorno de cobertura (agregar al final de app.css) ===== */
+.contorno-editor {
+  margin: 0.5rem 0 0.75rem;
+}
+.contorno-barra {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.contorno-barra button {
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.5rem;
+  border: 1px solid #b6c0d4;
+  background: #fff;
+  color: #14203a;
+  cursor: pointer;
+}
+.contorno-barra button.principal {
+  background: #1b4fd8;
+  border-color: #1b4fd8;
+  color: #fff;
+}
+.contorno-barra button:focus-visible {
+  outline: 2px solid #1b4fd8;
+  outline-offset: 2px;
+}
+.contorno-mapa {
+  height: 360px;
+  max-width: 100%;
+  border: 1px solid #b6c0d4;
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+.contorno-mapa.dibujando {
+  cursor: crosshair;
+  outline: 2px solid #1b4fd8;
+}
+.contorno-aviso {
+  margin: 0.4rem 0 0;
+  min-height: 1.4em;
+  font-size: 0.875rem;
+  color: #5d6b85;
+}

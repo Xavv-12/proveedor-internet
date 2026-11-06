@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/* ===== TABLA ===== */
+.tabla-contenedor {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tabla th {
+  text-align: left;
+  font-weight: 700;
+  padding: 12px 10px;
+  border-bottom: 1px solid var(--borde);
+  white-space: nowrap;
+}
+.tabla td {
+  padding: 14px 10px;
+  border-bottom: 1px solid var(--borde);
+  vertical-align: middle;
+}
+.tabla tbody tr:hover {
+  background: #f8fafc;
+}
+
+
+/* ===== AJUSTES DEL TEMA (antes en 18, 19 y 20) ===== */
+.tabla th {
+  background: #f5f8fc;
+  color: #52677d;
+  font-size: 0.73rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 10px 12px;
+}
+.tabla td {
+  padding: 11px 12px;
+  font-size: 0.9rem;
+}
+.tabla tbody tr:last-child td {
+  border-bottom: 0;
+}
+.bloque .tabla-contenedor {
+  border: 1px solid #dce5ef;
+  border-radius: 10px;
+}
+.bloque .tabla th {
+  color: #405873;
+}

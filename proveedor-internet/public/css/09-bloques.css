@@ -1,0 +1,137 @@
+@charset "UTF-8";
+/* ===== TARJETAS ===== */
+.bloque {
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--borde);
+  border-radius: var(--redondeo);
+  padding: 30px;
+  margin-bottom: 24px;
+  box-shadow: var(--sombra);
+  min-width: 0;
+}
+.bloque > h2,
+.bloque-cabeza {
+  margin-bottom: 18px;
+}
+.bloque-cabeza {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.bloque-botones {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  box-shadow: none;
+}
+.bloque-botones .botonera {
+  margin-top: 0;
+}
+.bloque-error {
+  text-align: center;
+}
+.bloque-error p {
+  margin: 16px auto 24px;
+  color: var(--texto-suave);
+}
+.datos {
+  margin: 0;
+}
+.datos > div {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 16px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--borde);
+}
+.datos > div:last-child {
+  border-bottom: 0;
+}
+.datos dt {
+  color: var(--texto-suave);
+}
+.datos dd {
+  margin: 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+}
+.datos .destacado dd {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--azul);
+}
+.elementos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.elementos li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--borde);
+}
+.elementos li:last-child {
+  border-bottom: 0;
+}
+.elemento-cabeza,
+.fila-cabeza {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+.elemento-titulo,
+.fila-titulo {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+.elemento-sub,
+.fila-sub {
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+.elemento-detalle {
+  font-size: 0.95rem;
+  margin-top: 4px;
+  white-space: pre-line;
+}
+
+
+/* ===== AJUSTES DEL TEMA (antes en 18, 19 y 20) ===== */
+.bloque,
+.fila,
+.contador {
+  border-color: var(--borde);
+}
+.bloque-botones {
+  border: 0;
+  box-shadow: none;
+}
+.bloque {
+  padding: 22px;
+  margin-bottom: 16px;
+  border-color: #d3deea;
+  border-radius: 14px;
+}
+.bloque > h2,
+.bloque-cabeza {
+  margin-bottom: 14px;
+}
+.bloque-cabeza h2,
+.bloque > h2 {
+  color: #0b2850;
+}
+.bloque-botones {
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+}
+.datos > div {
+  padding: 10px 0;
+}
+.bloque .datos > div,
+.bloque .datos dd {
+  min-width: 0;
+}
