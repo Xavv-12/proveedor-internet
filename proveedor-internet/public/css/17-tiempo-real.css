@@ -1,4 +1,5 @@
 ﻿@charset "UTF-8";
+
 /* ===== TIEMPO REAL ===== */
 .aviso-flotante {
   position: fixed;
@@ -19,13 +20,16 @@
     opacity 0.25s,
     transform 0.25s;
 }
+
 .aviso-flotante.visible {
   opacity: 1;
   transform: none;
 }
+
 .recien-llegada {
   animation: recien 3s ease-out;
 }
+
 @keyframes recien {
   0% {
     background: #dbe7ff;
@@ -34,6 +38,7 @@
     background: transparent;
   }
 }
+
 .fila.recien-llegada {
   border-color: var(--azul);
 }
@@ -41,7 +46,8 @@
 .elemento-titulo {
   white-space: pre-line;
 }
-/* Ventana de confirmaciÃ³n */
+
+/* Ventana de confirmación */
 dialog.confirmar-ventana {
   border: 0;
   border-radius: 18px;
@@ -51,24 +57,31 @@ dialog.confirmar-ventana {
   color: #0f172a;
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.35);
 }
+
 dialog.confirmar-ventana::backdrop {
   background: rgba(15, 23, 42, 0.55);
 }
+
 dialog.confirmar-ventana h2 {
   margin: 0 0 8px;
-  font-size: 1.15rem;
+  font-size: 1.35rem;
 }
+
 dialog.confirmar-ventana p {
   margin: 0 0 20px;
   color: #475569;
   line-height: 1.5;
 }
+
 .confirmar-acciones {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   gap: 10px;
 }
+
 .confirmar-acciones button {
+  min-height: 44px;
   border-radius: 999px;
   padding: 10px 20px;
   font: inherit;
@@ -78,30 +91,34 @@ dialog.confirmar-ventana p {
   background: #fff;
   color: #0f172a;
 }
+
 .confirmar-acciones .confirmar-aceptar {
   background: #b91c1c;
   border-color: #b91c1c;
   color: #fff;
 }
+
 .confirmar-acciones button:focus-visible {
-  outline: 3px solid #2563eb;
+  outline: 3px solid var(--foco);
   outline-offset: 2px;
 }
 
-/* Tablero: tarjetas que requieren atenciÃ³n */
+/* Tarjetas que requieren atención */
 .contador-alerta {
   border-color: #fca5a5;
   background: #fff5f5;
 }
+
 .contador-alerta .contador-numero {
   color: #b91c1c;
 }
+
 .contador-alerta .contador-texto {
   color: #991b1b;
   font-weight: 700;
 }
 
-/* Aviso flotante del sitio (por ejemplo, "Recibimos tu solicitudâ€¦" al volver al inicio) */
+/* Aviso flotante del sitio */
 .aviso-sitio {
   position: fixed;
   left: 50%;
@@ -121,13 +138,16 @@ dialog.confirmar-ventana p {
   transform: translateX(-50%);
   animation: aviso-sitio-entrar 0.35s ease-out;
 }
+
 .aviso-sitio.saliendo {
   opacity: 0;
   transition: opacity 0.4s ease;
 }
+
 .aviso-sitio-cerrar {
   flex: 0 0 auto;
-  min-height: 0;
+  min-width: 44px;
+  min-height: 44px;
   margin-left: auto;
   padding: 0 4px;
   border: 0;
@@ -137,10 +157,12 @@ dialog.confirmar-ventana p {
   line-height: 1;
   cursor: pointer;
 }
+
 .aviso-sitio-cerrar:hover {
   background: transparent;
   transform: none;
 }
+
 @keyframes aviso-sitio-entrar {
   from {
     opacity: 0;
@@ -151,5 +173,3 @@ dialog.confirmar-ventana p {
     transform: translate(-50%, 0);
   }
 }
-
-

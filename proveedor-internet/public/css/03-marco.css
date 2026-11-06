@@ -1,101 +1,75 @@
 ﻿@charset "UTF-8";
-/* ===== MARCO: MENÃš LATERAL OSCURO + ÃREA ===== */
+
+/* ===== MARCO Y MENÚ LATERAL ===== */
 .marco {
   display: grid;
-  grid-template-columns: var(--ancho-lateral) 1fr;
+  grid-template-columns: var(--ancho-lateral) minmax(0, 1fr);
   min-height: 100vh;
 }
+
+.area,
+body:has(.contenido-solo) {
+  background: #f1f4f8;
+}
+
 .area {
   min-width: 0;
-  background: linear-gradient(115deg, #fbfcfe 0%, #f3f7fd 45%, #e7effb 100%);
-  background-attachment: fixed;
 }
+
 .lateral {
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #555 transparent;
-  background: var(--carbon);
-  color: #f3f4f6;
-  padding: 0 14px 28px;
+  scrollbar-color: #a6b6c9 transparent;
+  padding: 0 12px 20px;
+  background: #fff;
+  color: var(--texto);
+  border-right: 1px solid var(--borde);
+  box-shadow: 3px 0 18px rgba(11, 40, 80, 0.035);
 }
+
 .marca {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-width: 0;
   font-size: 1.15rem;
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.01em;
   text-decoration: none;
   color: inherit;
-  min-width: 0;
 }
+
 .marca span {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .icono-marca {
   width: 30px;
   height: 30px;
   flex: none;
 }
-.lateral .marca {
-  min-height: 76px;
-  padding: 0 6px;
-  margin-bottom: 6px;
-  border-bottom: 1px solid var(--carbon-linea);
-  color: #fff;
-}
-.lateral .icono-marca {
-  color: #fff;
-}
 
-
-/* ===== AJUSTES DEL TEMA (antes en 18, 19 y 20) ===== */
-.area,
-body:has(.contenido-solo) {
-  background: #f1f4f8;
-}
-.lateral {
-  background: #fff;
-  color: var(--texto);
-  border-right: 1px solid var(--borde);
-  scrollbar-color: #a6b6c9 transparent;
-}
-.lateral .marca {
-  color: #0b2850;
-}
-.lateral .icono-marca {
-  color: var(--azul);
-}
-.marco {
-  grid-template-columns: var(--ancho-lateral) minmax(0, 1fr);
-}
-.area {
-  background: #f1f4f8;
-}
-.lateral {
-  padding: 0 12px 20px;
-  box-shadow: 3px 0 18px rgba(11, 40, 80, 0.035);
-}
 .lateral .marca {
   min-height: 72px;
   margin: 0 0 12px;
   padding: 0 9px;
+  border-bottom: 1px solid var(--carbon-linea);
   color: #0b2850;
   font-size: 1.08rem;
   letter-spacing: -0.02em;
 }
+
 .lateral .icono-marca,
 .marca-movil .icono-marca {
   width: 38px;
   height: 38px;
   padding: 7px;
-  color: white;
-  background: #0f766e;
+  color: #fff;
+  background: var(--azul);
   border-radius: 11px;
 }
-

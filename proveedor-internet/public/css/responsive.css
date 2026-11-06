@@ -1,34 +1,34 @@
 ﻿@charset "UTF-8";
-/* ===== RESPONSIVE DEL PANEL =====
-   Cargar DESPUÃ‰S de app.css:
-   <link rel="stylesheet" href="/css/app.css">
-   <link rel="stylesheet" href="/css/responsive.css">
-   Orden: pantallas grandes (min-width) -> medianas (1000px) -> celulares (760px)
-   -> accesibilidad (contraste y movimiento reducido). */
 
-/* ===== LISTADOS EN CUADRÃCULA (de menos a mÃ¡s ancho) ===== */
+/* ===== RESPONSIVE DEL PANEL =====
+   Cargar después de app.css. */
+
+/* Listados */
 @media (min-width: 780px) {
   .filas {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
 @media (min-width: 1100px) {
   .filas {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
 @media (min-width: 1450px) {
   .filas {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
-/* ===== ESCRITORIO (desde 901px): formularios, buscador y datos en 2 columnas ===== */
+/* Escritorio */
 @media (min-width: 901px) {
   .bloque-formulario .formulario {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 18px;
   }
+
   .bloque-formulario .formulario > .aviso,
   .bloque-formulario .formulario > .nota,
   .bloque-formulario .formulario > .acciones,
@@ -43,16 +43,20 @@
     align-items: end;
     padding: 16px 18px;
   }
+
   .buscador:not(:has(.filtros)) {
     grid-template-columns: minmax(0, 1fr);
   }
+
   .buscador-fila {
     align-items: end;
   }
+
   .filtros {
     margin: 0;
     align-items: end;
   }
+
   .filtros label {
     flex: 1 1 150px;
     min-width: 0;
@@ -62,6 +66,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 22px;
   }
+
   .bloque > .formulario > .aviso,
   .bloque > .formulario > .nota,
   .bloque > .formulario > .acciones,
@@ -74,92 +79,107 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: 28px;
   }
+
   .datos > div {
     grid-template-columns: minmax(100px, 0.8fr) minmax(0, 1.2fr);
   }
 }
 
-/* ===== TABLETS Y PANTALLAS MEDIANAS (hasta 1000px) ===== */
+/* Tablets y pantallas medianas */
 @media (max-width: 1000px) {
   :root {
     --ancho-lateral: 220px;
   }
+
   .superior {
     gap: 14px;
     padding: 0 22px;
   }
+
   .cuenta {
     gap: 16px;
   }
+
   .cuenta-usuario {
     display: none;
   }
+
   .contenido {
     width: auto;
     padding: 24px 22px 40px;
   }
+
   .contenido-solo {
     width: min(480px, calc(100% - 32px));
   }
+
   .contadores {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
   .datos > div {
     grid-template-columns: 180px 1fr;
   }
 }
 
-/* ===== CELULARES (hasta 760px) ===== */
+/* Celulares */
 @media (max-width: 760px) {
-  /* Marco: se oculta el lateral y aparece el menÃº mÃ³vil */
   .marco {
     display: block;
   }
+
   .lateral {
     display: none;
   }
 
-  /* Encabezado superior */
   .superior {
     justify-content: space-between;
     min-height: 68px;
     padding: 0 12px;
     gap: 8px;
   }
+
   .marca-movil {
     display: flex;
     min-width: 0;
     gap: 7px;
     font-size: 0.94rem;
   }
+
   .marca-movil span {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
+
   .marca-movil .icono-marca {
     width: 34px;
     height: 34px;
   }
+
   .cuenta {
     flex: none;
     gap: 6px;
   }
+
   .cuenta-enlace {
     display: none;
   }
+
   .boton-salir {
     min-height: 44px;
     padding: 8px 10px;
   }
+
   .boton-salir .icono {
     display: none;
   }
 
-  /* MenÃº mÃ³vil desplegable */
+  /* Menú móvil */
   .menu-movil {
     display: block;
   }
+
   .menu-movil summary {
     display: inline-flex;
     align-items: center;
@@ -172,12 +192,15 @@
     list-style: none;
     cursor: pointer;
   }
+
   .menu-movil summary::-webkit-details-marker {
     display: none;
   }
+
   .menu-movil[open] summary {
     background: var(--azul-oscuro);
   }
+
   .menu-movil-panel {
     position: absolute;
     left: 0;
@@ -191,19 +214,23 @@
     border-bottom: 1px solid var(--borde);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
   }
+
   .menu-movil-usuario {
     padding: 12px 6px;
     color: var(--texto-suave);
     border-bottom: 1px solid var(--carbon-linea);
   }
+
   .menu-movil-usuario a {
     color: var(--azul);
   }
+
   .menu-movil .nav-enlace {
     min-height: 46px;
-    font-size: 0.94rem;
+    font-size: 1rem;
     color: var(--texto);
   }
+
   .menu-movil .nav-enlace:hover {
     background: #eef4ff;
     color: #134da7;
@@ -213,13 +240,16 @@
   .contenido {
     padding: 20px 16px 36px;
   }
+
   .contenido-solo {
     padding: 20px 0 36px;
   }
+
   .titulo-pagina {
     margin-bottom: 16px;
     padding-bottom: 12px;
   }
+
   .subtitulo {
     font-size: 1rem;
   }
@@ -229,40 +259,48 @@
     grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
+
   .contador {
     min-height: 100px;
     padding: 14px;
   }
+
   .contador-numero {
     font-size: 1.65rem;
   }
 
-  /* Tarjetas, listas y datos */
+  /* Tarjetas y datos */
   .bloque,
   .fila {
     padding: 16px;
   }
+
   .bloque-botones {
     padding: 0;
   }
+
   .fila-datos {
     gap: 10px 14px;
   }
+
   .datos {
     display: block;
   }
+
   .datos > div {
     grid-template-columns: 1fr;
     gap: 2px;
   }
 
-  /* Buscador, filtros y botones */
+  /* Buscador y botones */
   .buscador-fila .boton {
     padding: 12px 18px;
   }
+
   .filtros label {
     flex: 1 1 140px;
   }
+
   .acciones .boton,
   .botonera .boton {
     flex: 1 1 auto;
@@ -273,14 +311,17 @@
     border: 0;
     border-radius: 0;
   }
+
   .tabla thead {
     display: none;
   }
+
   .tabla tr {
     display: block;
     padding: 10px 0;
     border-bottom: 1px solid var(--borde);
   }
+
   .tabla td {
     display: flex;
     justify-content: space-between;
@@ -288,35 +329,40 @@
     padding: 5px 0;
     border: 0;
     text-align: right;
-    font-size: 0.875rem;
+    font-size: 1rem;
   }
+
   .tabla td::before {
     content: attr(data-etiqueta);
     color: var(--texto-suave);
     text-align: left;
   }
+
   .tabla td[colspan] {
     justify-content: flex-start;
   }
+
   .tabla td[colspan]::before {
     content: none;
   }
 
-  /* Inicio de sesiÃ³n */
+  /* Inicio de sesión */
   .acceso {
     margin-top: 28px;
   }
+
   .acceso-caja {
     padding: 22px;
   }
 }
 
-/* ===== ACCESIBILIDAD: ALTO CONTRASTE ===== */
+/* Alto contraste */
 @media (prefers-contrast: more) {
   :root {
     --texto-suave: var(--texto);
     --borde: #6f8299;
   }
+
   .bloque,
   .fila,
   .contador,
@@ -324,12 +370,13 @@
     border-color: #6f8299;
     border-width: 2px;
   }
+
   #zona-actualizable > .vacio {
     border: 2px solid #6f8299;
   }
 }
 
-/* ===== ACCESIBILIDAD: MOVIMIENTO REDUCIDO ===== */
+/* Movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -337,8 +384,8 @@
     transition: none !important;
     animation: none !important;
   }
+
   .recien-llegada {
     outline: 2px solid var(--azul);
   }
 }
-

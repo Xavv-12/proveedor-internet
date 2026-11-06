@@ -1,12 +1,15 @@
 ﻿@charset "UTF-8";
+
 /* ===== BASE ===== */
 * {
   box-sizing: border-box;
 }
+
 html {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
+
 body {
   margin: 0;
   font: 1rem/1.6 var(--fuente);
@@ -15,20 +18,24 @@ body {
   -webkit-font-smoothing: antialiased;
   font-variant-numeric: tabular-nums;
 }
+
 a {
   color: var(--azul);
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
 }
+
 a:hover {
   color: var(--azul-oscuro);
 }
+
 button,
 input,
 select,
 textarea {
   font: inherit;
 }
+
 button,
 a,
 input,
@@ -36,6 +43,8 @@ select,
 textarea {
   touch-action: manipulation;
 }
+
+/* Indicador para navegar con teclado */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -46,9 +55,12 @@ summary:focus-visible {
   outline-offset: 3px;
   border-radius: 6px;
 }
+
 button {
   cursor: pointer;
 }
+
+/* Enlace para saltar directamente al contenido */
 .saltar {
   position: fixed;
   top: -100px;
@@ -58,80 +70,59 @@ button {
   padding: 12px;
   z-index: 100;
 }
+
 .saltar:focus {
   top: 0;
 }
+
 h1,
 h2,
 h3 {
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -0.02em;
   margin: 0;
   color: var(--texto);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
 }
+
 h1 {
   font-size: clamp(1.9rem, 3.2vw, 2.6rem);
 }
+
 h2 {
   font-size: 1.35rem;
 }
+
 p {
   margin: 0;
 }
+
 .acento {
   color: var(--azul);
 }
+
 .icono {
   width: 18px;
   height: 18px;
   flex: none;
 }
+
 .etiqueta-seccion {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 5px 14px;
   margin-bottom: 12px;
+  padding: 5px 14px;
   border-radius: 999px;
   background: var(--azul-claro);
   color: var(--azul-oscuro);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
+
 .etiqueta-seccion .icono {
   width: 15px;
   height: 15px;
 }
-
-
-/* ===== AJUSTES DEL TEMA (antes en 18, 19 y 20) ===== */
-h1,
-h2,
-h3 {
-  color: #0b2850;
-}
-.etiqueta-seccion {
-  border-radius: 6px;
-  color: #154b9c;
-}
-body {
-  font-size: 0.9375rem;
-  line-height: 1.5;
-}
-h1 {
-  font-size: clamp(1.65rem, 2.15vw, 2.15rem);
-  letter-spacing: -0.025em;
-}
-h2 {
-  font-size: 1.13rem;
-}
-.etiqueta-seccion {
-  margin-bottom: 7px;
-  padding: 4px 9px;
-  font-size: 0.7rem;
-  letter-spacing: 0.04em;
-}
-
