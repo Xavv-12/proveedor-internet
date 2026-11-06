@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# Agregar Sitemap: https://SU-DOMINIO/sitemap.xml al configurar el dominio real.

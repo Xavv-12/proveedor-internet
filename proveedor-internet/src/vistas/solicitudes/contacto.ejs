@@ -1,0 +1,46 @@
+<%- include('../partials/encabezado') %>
+<div class="titulo-pagina">
+  <div>
+    <a class="volver" href="<%= volver %>">Volver</a>
+    <h1>Registrar <span class="acento">contacto</span></h1>
+    <p class="subtitulo"><%= doc.folio %> · <%= doc.nombre %></p>
+  </div>
+</div>
+
+<div class="bloque">
+  <form method="post" class="formulario">
+    <input type="hidden" name="_csrf" value="<%= csrf %>" />
+
+    <div class="campo">
+      <label>Resultado del contacto <span class="req">*</span></label>
+      <select name="resultado" required>
+        <option value="">— Selecciona —</option>
+        <option value="le_interesa">Le interesa, continuar</option>
+        <option value="llamar_despues">Llamar después</option>
+        <option value="no_contesto">No contestó</option>
+        <option value="ya_no_interesa">Ya no le interesa</option>
+      </select>
+    </div>
+
+    <div class="campo">
+      <label>Fecha de siguiente seguimiento</label>
+      <input type="datetime-local" name="fechaSeguimiento" />
+      <p class="ayuda">Solo si elegiste “Llamar después” o “No contestó”.</p>
+    </div>
+
+    <div class="campo">
+      <label>Notas / Comentarios</label>
+      <textarea
+        name="notas"
+        rows="4"
+        placeholder="Ej: Contestó, quiere el plan Plus, prefiere instalación el sábado..."
+      ></textarea>
+    </div>
+
+    <div class="acciones">
+      <button type="submit" class="boton">Guardar contacto</button>
+      <a href="<%= volver %>" class="boton secundario">Cancelar</a>
+    </div>
+  </form>
+</div>
+<%- include('../partials/pie') %>

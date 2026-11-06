@@ -1,0 +1,12 @@
+<%- include('partials/encabezado') %>
+<div class="titulo-pagina">
+  <div>
+    <% if (volver) { %><a class="volver" href="<%= volver %>">Volver</a><% } %>
+    <h1><%- acento(titulo) %></h1>
+    <% if (subtitulo) { %><p class="subtitulo"><%= subtitulo %></p><% } %>
+  </div>
+</div>
+<div id="zona-actualizable" <%- tiempoReal ? attrs({ 'data-tiempo-real': tiempoReal }) : '' %>>
+<%- include('partials/bloques', { bloques }) %>
+</div>
+<%- include('partials/pie') %>

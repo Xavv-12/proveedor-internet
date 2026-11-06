@@ -1,0 +1,7 @@
+<% if (nav.totalPaginas > 1) { %>
+<nav class="paginacion" aria-label="Paginación">
+  <% if (nav.anterior) { %><a class="boton secundario" href="<%= nav.anterior %>" rel="prev">Anterior</a><% } else { %><span></span><% } %>
+  <span>Página <%= nav.pagina %> de <%= nav.totalPaginas %></span>
+  <% if (nav.siguiente) { %><a class="boton secundario" href="<%= nav.siguiente %>" rel="next">Siguiente</a><% } else { %><span></span><% } %>
+</nav>
+<% } %>

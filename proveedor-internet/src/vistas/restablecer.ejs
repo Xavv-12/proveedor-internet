@@ -1,0 +1,32 @@
+<%- include('partials/encabezado') %>
+<div class="acceso">
+  <div class="acceso-marca">
+    <img src="/static/img/logo.svg" alt="" width="48" height="48">
+    <h1><%= titulo %></h1>
+  </div>
+  <section class="bloque acceso-caja">
+    <% if (modo === 'solicitar') { %>
+      <p>Escribe el correo de tu cuenta. Te enviaremos un enlace de un solo uso que vence en 30 minutos.</p>
+      <form method="post" action="/restablecer/solicitar" class="formulario">
+        <input type="hidden" name="_csrf" value="<%= csrf %>">
+        <div class="campo"><label for="correo">Correo</label><input id="correo" name="correo" type="email" autocomplete="username" autocapitalize="none" required maxlength="200"></div>
+        <div class="acciones"><button type="submit" class="boton ancho">Enviar enlace</button></div>
+      </form>
+    <% } else if (modo === 'enviado') { %>
+      <div class="aviso aviso-info" role="status"><%= mensaje %></div>
+    <% } else if (modo === 'nueva') { %>
+      <form method="post" action="/restablecer" class="formulario">
+        <input type="hidden" name="_csrf" value="<%= csrf %>">
+        <input type="hidden" name="token" value="<%= token %>">
+        <div class="campo<%= errores.nueva ? ' con-error' : '' %>"><label for="nueva">Nueva contraseña</label><input id="nueva" name="nueva" type="password" autocomplete="new-password" required minlength="10" maxlength="128"><small class="ayuda">Mínimo 10 caracteres.</small><% if (errores.nueva) { %><small class="error"><%= errores.nueva %></small><% } %></div>
+        <div class="campo<%= errores.confirmacion ? ' con-error' : '' %>"><label for="confirmacion">Confirma la contraseña</label><input id="confirmacion" name="confirmacion" type="password" autocomplete="new-password" required maxlength="128"><% if (errores.confirmacion) { %><small class="error"><%= errores.confirmacion %></small><% } %></div>
+        <div class="acciones"><button type="submit" class="boton ancho">Guardar contraseña</button></div>
+      </form>
+    <% } else { %>
+      <div class="aviso aviso-error" role="alert">El enlace no es válido o ya venció. Pide uno nuevo.</div>
+      <a class="boton secundario ancho" href="/restablecer">Pedir un enlace nuevo</a>
+    <% } %>
+    <p class="centro"><a href="/login">Volver a iniciar sesión</a></p>
+  </section>
+</div>
+<%- include('partials/pie') %>

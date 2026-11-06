@@ -1,0 +1,27 @@
+<%- include('partials/encabezado') %>
+<div class="acceso">
+  <div class="acceso-marca">
+    <img src="/static/img/logo.svg" alt="" width="48" height="48">
+    <span class="etiqueta-seccion">Acceso del personal</span>
+    <h1><%- acento(empresa) %></h1>
+    <p>Herramienta interna de operación</p>
+  </div>
+  <section class="bloque acceso-caja">
+    <% if (inactividad) { %><div class="aviso aviso-info" role="status">Tu sesión se cerró por inactividad</div><% } %>
+    <% if (error) { %><div class="aviso aviso-error" role="alert"><%= error %></div><% } %>
+    <form method="post" action="/login" class="formulario">
+      <input type="hidden" name="_csrf" value="<%= csrf %>">
+      <div class="campo">
+        <label for="correo">Correo</label>
+        <input id="correo" name="correo" type="email" value="<%= correo %>" autocomplete="username" autocapitalize="none" required maxlength="200">
+      </div>
+      <div class="campo">
+        <label for="contrasena">Contraseña</label>
+        <input id="contrasena" name="contrasena" type="password" autocomplete="current-password" required maxlength="200">
+      </div>
+      <div class="acciones"><button type="submit" class="boton ancho">Entrar</button></div>
+    </form>
+    <p class="centro"><a href="/restablecer">¿Olvidaste tu contraseña?</a></p>
+  </section>
+</div>
+<%- include('partials/pie') %>

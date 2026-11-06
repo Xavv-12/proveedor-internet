@@ -1,0 +1,541 @@
+/* Diseño basado en las imágenes de referencia. El contenido y las funciones existentes permanecen. */
+:root {
+  --azul: #075ee8;
+  --azul-marino: #062b62;
+  --enlace: #075bd0;
+  --texto: #12335a;
+  --texto-suave: #365777;
+  --borde: #d6e5f5;
+  --fondo: #fff;
+  --fondo-gris: #eaf4ff;
+  --redondeo: 18px;
+}
+body {
+  background: #fff;
+  font-family:
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  color: var(--texto);
+  line-height: 1.65;
+}
+h1,
+h2,
+h3 {
+  color: #062b62;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+  font-weight: 800;
+}
+h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+}
+.encabezado {
+  background: #0755c9;
+  border: 0;
+}
+.barra-superior {
+  background: #063b9b;
+}
+.encabezado .brand,
+.encabezado .nav a:not(.button) {
+  color: #fff;
+}
+.encabezado .nav a:not(.button):hover,
+.encabezado .nav a[aria-current="page"]:not(.button) {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.16);
+}
+.encabezado .button.secondary {
+  color: #fff;
+  border-color: #fff;
+  background: transparent;
+}
+.encabezado .button.secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.menu-toggle {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+}
+.menu-toggle span {
+  background: #fff;
+}
+.button,
+button {
+  background: linear-gradient(135deg, #1f86ff 0%, #075ee8 55%, #0546b8 100%);
+  color: #fff;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 750;
+  box-shadow: none;
+}
+.button,
+button[type="submit"] {
+  box-shadow: 0 6px 16px rgba(7, 94, 232, 0.3);
+}
+.button:hover,
+button:hover {
+  background: linear-gradient(135deg, #3a95ff 0%, #0a62ee 55%, #063fa5 100%);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.button:hover,
+button[type="submit"]:hover {
+  box-shadow: 0 10px 22px rgba(7, 94, 232, 0.4);
+}
+.button.secondary {
+  color: #075be2;
+  border: 1px solid #075be2;
+  background: #fff;
+}
+.button.secondary:hover {
+  background: #eaf3ff;
+}
+.button.wa {
+  background: #0755c9;
+  color: #fff;
+}
+.button.wa:hover {
+  background: #003c9b;
+}
+.ref-naranja {
+  background: linear-gradient(135deg, #1f86ff 0%, #075ee8 55%, #0546b8 100%);
+  color: #fff;
+}
+.ref-eyebrow {
+  color: #0064ec;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.ref-eyebrow.claro {
+  color: #fff;
+}
+.referencia-hero {
+  color: #fff;
+  background:
+    linear-gradient(180deg, #0755c9 0, rgba(7, 85, 201, 0) 120px),
+    linear-gradient(90deg, #0755c9 0, #0755c9 42%, rgba(7, 85, 201, 0) 64%),
+    #0755c9 url("../img/fibra-referencia.svg") right center / 58% 100% no-repeat;
+}
+.referencia-hero-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.5fr;
+  gap: 42px;
+  align-items: center;
+  min-height: 500px;
+  padding: 62px 0;
+}
+.ref-hero-texto h1 {
+  color: white;
+  font-size: clamp(2.8rem, 4.8vw, 4.35rem);
+  line-height: 1.02;
+  margin: 14px 0 24px;
+}
+.ref-hero-texto p {
+  color: white;
+  max-width: 38ch;
+}
+.ref-aviso {
+  font-size: 0.79rem;
+  opacity: 0.92;
+  margin: 20px 0 0;
+}
+.ref-mini-planes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  align-items: center;
+}
+.ref-mini {
+  color: #082b5a;
+  background: #fff;
+  border-radius: 18px;
+  padding: 22px 17px;
+  box-shadow: 0 16px 38px rgba(2, 25, 78, 0.22);
+  min-width: 0;
+}
+.ref-mini-destacada {
+  border-top: 7px solid #00c2e0;
+}
+.ref-mini-nombre {
+  color: #0061e9;
+  font-size: 0.95rem;
+}
+.ref-mini-velocidad {
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin: 5px 0 12px;
+  line-height: 1.2;
+}
+.ref-mini-precio {
+  color: #0086a3;
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 14px;
+}
+.ref-mini ul {
+  font-size: 0.75rem;
+  padding-left: 16px;
+  min-height: 80px;
+  margin: 0 0 15px;
+}
+.ref-mini li::marker {
+  color: #0764ec;
+}
+.ref-mini .button {
+  width: 100%;
+  font-size: 0.8rem;
+  min-height: 40px;
+  padding: 7px;
+}
+.paquetes-inicio {
+  background: #fff;
+  padding: 70px 0;
+}
+.paquetes-inicio .seccion-titulo {
+  text-align: left;
+  max-width: 700px;
+  margin: 0 0 32px;
+}
+.paquetes-inicio h2 {
+  margin: 12px 0;
+}
+.card,
+.formulario {
+  border: 1px solid #dceafa;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(12, 49, 93, 0.1);
+}
+.package.featured {
+  border: 2px solid #00c2e0;
+  box-shadow: 0 12px 30px rgba(0, 150, 190, 0.2);
+}
+.tag {
+  background: #e9f2ff;
+  color: #075bd0;
+  border-radius: 999px;
+}
+.package.featured .tag {
+  background: #00c2e0;
+  color: #062b62;
+}
+.speed {
+  color: #075be2;
+}
+.price {
+  color: #0086a3;
+}
+.package ul {
+  color: #23466b;
+}
+.ref-cobertura,
+.ref-testimonio {
+  background: #eaf4ff;
+}
+.ref-cobertura,
+.ref-beneficios,
+.ref-testimonio,
+.ref-faq,
+.ref-contacto {
+  padding: 70px 0;
+}
+.ref-dos {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  align-items: center;
+  gap: 60px;
+}
+.ref-dos img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(12, 49, 93, 0.1);
+}
+.ref-beneficios .ref-dos {
+  grid-template-columns: 1fr 1fr;
+}
+.ref-beneficios-lista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+.ref-beneficios-lista div {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  column-gap: 12px;
+  align-items: center;
+}
+.ref-beneficios-lista i {
+  grid-row: span 2;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #0563ee;
+  color: #0563ee;
+  border-radius: 50%;
+  font-style: normal;
+  font-size: 1.3rem;
+}
+.ref-beneficios-lista small {
+  color: #486b8e;
+}
+.ref-cita {
+  background: #fff;
+  padding: 28px;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(12, 49, 93, 0.08);
+}
+.ref-cita p {
+  color: #0086a3;
+  margin: 4px 0;
+}
+.ref-faq details {
+  border: 1px solid #d6e5f5;
+  border-radius: 12px;
+  background: #f2f7fd;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+.ref-faq summary {
+  color: #0a2d60;
+}
+.ref-contacto {
+  background: #0755c9;
+  color: #fff;
+}
+.ref-contacto h2,
+.ref-contacto p,
+.ref-contacto .ref-eyebrow {
+  color: #fff;
+}
+.ref-contacto .formulario {
+  color: #12335a;
+  padding: 28px;
+}
+.ref-contacto .formulario p {
+  color: #365777;
+}
+.ref-contacto .formulario button[type="submit"] {
+  width: 100%;
+}
+.cabecera-pagina {
+  background: #eaf4ff;
+}
+.pie {
+  background: #fff;
+  border-top: 1px solid #e4edf7;
+}
+@media (max-width: 980px) {
+  .encabezado .nav {
+    background: #fff;
+  }
+  .encabezado .nav a:not(.button) {
+    color: #0a2d60;
+  }
+  .encabezado .nav a:not(.button):hover,
+  .encabezado .nav a[aria-current="page"]:not(.button) {
+    color: #075bd0;
+    background: #e9f2ff;
+  }
+  .encabezado .nav .button.secondary {
+    color: #075bd0;
+    border-color: #075bd0;
+  }
+  .referencia-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .referencia-hero {
+    background:
+      linear-gradient(180deg, #0755c9 0, rgba(7, 85, 201, 0) 90px),
+      #0755c9 url("../img/fibra-referencia.svg") center / cover no-repeat;
+  }
+}
+@media (max-width: 760px) {
+  .referencia-hero-grid {
+    padding: 45px 0;
+  }
+  .ref-mini-planes {
+    grid-template-columns: 1fr;
+  }
+  .ref-mini ul {
+    min-height: 0;
+  }
+  .ref-dos,
+  .ref-beneficios .ref-dos {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .ref-cobertura,
+  .ref-beneficios,
+  .ref-testimonio,
+  .ref-faq,
+  .ref-contacto,
+  .paquetes-inicio {
+    padding: 45px 0;
+  }
+  .ref-contacto .formulario {
+    padding: 20px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Ancho de página: casi todo el ancho en laptops y tope en monitores grandes. */
+.contenedor {
+  width: min(1600px, calc(100% - clamp(32px, 5vw, 100px)));
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+.contenedor.texto-legal {
+  width: min(980px, calc(100% - clamp(32px, 5vw, 100px)));
+}
+.contenedor.mapa-panel {
+  width: min(1600px, calc(100% - clamp(32px, 5vw, 100px)));
+  grid-template-columns: minmax(0, 42fr) minmax(0, 58fr);
+}
+.mapa-contenedor {
+  max-width: none;
+}
+.ref-hero-texto p {
+  max-width: 46ch;
+}
+/* Subtítulo alineado con el título */
+.paquetes-inicio .seccion-titulo p {
+  margin: 0;
+}
+/* 5 paquetes en una sola fila en pantallas grandes */
+@media (min-width: 1400px) {
+  .paquetes-inicio .cuadricula {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+/* Tarjetas con efecto al pasar el mouse */
+.package,
+.ref-mini {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.package:hover,
+.ref-mini:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 38px rgba(7, 94, 232, 0.18);
+}
+@media (max-width: 980px) {
+  .contenedor.mapa-panel {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .contenedor,
+  .contenedor.mapa-panel,
+  .contenedor.texto-legal {
+    width: calc(100% - 32px);
+  }
+}
+
+/* Botones principales sobre fondo azul: blancos con texto azul */
+.encabezado .button:not(.secondary),
+.ref-hero-texto .button:not(.secondary) {
+  background: #fff;
+  color: #0755c9;
+  box-shadow: 0 6px 16px rgba(2, 25, 78, 0.25);
+}
+.encabezado .button:not(.secondary):hover,
+.ref-hero-texto .button:not(.secondary):hover {
+  background: #eaf3ff;
+  color: #063b9b;
+}
+
+/* En el menú lateral del celular el fondo es blanco: vuelve a azul */
+@media (max-width: 980px) {
+  .encabezado .nav .button:not(.secondary) {
+    background: linear-gradient(135deg, #1f86ff 0%, #075ee8 55%, #0546b8 100%);
+    color: #fff;
+  }
+  .encabezado .nav .button:not(.secondary):hover {
+    background: linear-gradient(135deg, #3a95ff 0%, #0a62ee 55%, #063fa5 100%);
+    color: #fff;
+  }
+}
+
+/* ===== Capas del mapa: menú Estándar / Satélite ===== */
+.mapa-capas-caja {
+  position: relative;
+}
+.mapa-capas-menu {
+  position: absolute;
+  left: 10px;
+  bottom: 88px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 150px;
+  padding: 6px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+.mapa-capas-caja .mapa-capas-opcion {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 100%;
+  min-height: 0;
+  padding: 6px 8px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: #1e293b;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-align: left;
+  box-shadow: none;
+  transform: none;
+}
+.mapa-capas-caja .mapa-capas-opcion:hover {
+  background: #f1f5f9;
+  color: #1e293b;
+  box-shadow: none;
+  transform: none;
+}
+.mapa-capas-caja .mapa-capas-opcion.activa {
+  border-color: #1f86ff;
+  background: #eaf3ff;
+  color: #0a2d60;
+}
+.mapa-capas-mini {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  border-radius: 6px;
+}
+.mapa-capas-mini.estandar {
+  background: linear-gradient(160deg, #a7e3f2 0%, #8fd9ec 55%, #7cc9df 100%);
+}
+.mapa-capas-mini.satelite {
+  background: radial-gradient(
+    circle at 30% 30%,
+    #6b8f4e,
+    #3f5a2c 45%,
+    #2d3f22 70%,
+    #5a6b4a
+  );
+}

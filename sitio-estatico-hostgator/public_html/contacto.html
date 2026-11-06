@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contacto y contratación | Proveedor de internet</title>
+    <meta
+      name="description"
+      content="Solicita información de cobertura, paquetes y contratación de internet."
+    />
+    <meta
+      property="og:title"
+      content="Contacto y contratación | Proveedor de internet"
+    />
+    <meta
+      property="og:description"
+      content="Solicita información de cobertura, paquetes y contratación de internet."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0b2850" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/diseno-referencia.css" />
+    <script src="assets/js/config.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/paquetes.js" defer></script>
+    <script src="assets/js/cobertura.js" defer></script>
+    <script src="assets/js/contratacion.js" defer></script>
+    <script src="assets/js/catalogo-en-vivo.js" defer></script>
+    <script src="assets/js/avisos-sitio.js" defer></script>
+  </head>
+
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+    <header class="encabezado">
+      <div class="contenedor encabezado-fila">
+        <a class="brand" href="index.html"
+          ><span data-company>Proveedor de internet</span></a
+        >
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="nav"
+          type="button"
+        >
+          Menú
+        </button>
+        <nav class="nav" id="nav" aria-label="Principal">
+          <a href="paquetes.html">Paquetes</a>
+          <a href="cobertura.html">Cobertura</a>
+          <a href="promociones.html">Promociones</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="portal.html">Mi portal</a>
+        </nav>
+        <a
+          class="button wa"
+          data-wa="Hola, quiero información sobre los paquetes de internet"
+          href="contacto.html"
+          >WhatsApp</a
+        >
+      </div>
+    </header>
+
+    <main id="contenido">
+      <div class="cabecera-pagina">
+        <div class="contenedor">
+          <span class="subtitulo">Internet para tu día a día</span>
+          <h1>Hablemos de tu conexión</h1>
+          <p>
+            Revisa los canales disponibles o prepara tu solicitud de
+            información.
+          </p>
+        </div>
+      </div>
+
+      <section class="seccion">
+        <div class="contenedor dos-columnas">
+          <div>
+            <h2>Contacto</h2>
+            <div id="contact-details"></div>
+            <a
+              class="button wa"
+              data-wa="Hola, quiero información sobre los paquetes de internet"
+              href="contacto.html"
+              >Consultar por WhatsApp</a
+            >
+            <h3>Antes de solicitar</h3>
+            <p>
+              Revisa el catálogo y las condiciones. La solicitud no garantiza
+              cobertura ni instalación.
+            </p>
+          </div>
+          <div class="formulario" id="solicitud">
+            <h2>Solicitud de contratación</h2>
+            <form id="lead-form">
+              <p class="fine">
+                * Campos obligatorios. Solicitud de información, no contrato.
+              </p>
+              <div class="campos">
+                <div class="campo completo">
+                  <label for="lead-name">Nombre completo *</label>
+                  <input
+                    id="lead-name"
+                    name="name"
+                    required
+                    minlength="3"
+                    maxlength="120"
+                    autocomplete="name"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="lead-phone"
+                    >Teléfono (10 dígitos, México) *</label
+                  >
+                  <input
+                    id="lead-phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    autocomplete="tel-national"
+                    maxlength="20"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="lead-email">Correo electrónico (opcional)</label>
+                  <input
+                    id="lead-email"
+                    name="email"
+                    type="email"
+                    maxlength="180"
+                    autocomplete="email"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="lead-state">Estado *</label>
+                  <input
+                    id="lead-state"
+                    name="state"
+                    required
+                    maxlength="100"
+                    autocomplete="address-level1"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="lead-town">Municipio *</label>
+                  <input
+                    id="lead-town"
+                    name="municipality"
+                    required
+                    maxlength="100"
+                    autocomplete="address-level2"
+                  />
+                </div>
+                <div class="campo completo">
+                  <label for="lead-locality">Colonia o localidad *</label>
+                  <input
+                    id="lead-locality"
+                    name="locality"
+                    required
+                    maxlength="120"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="lead-zip">Código postal *</label>
+                  <input
+                    id="lead-zip"
+                    name="zip"
+                    required
+                    inputmode="numeric"
+                    pattern="[0-9]{5}"
+                    maxlength="5"
+                    autocomplete="postal-code"
+                  />
+                </div>
+
+                <div class="campo completo">
+                  <label for="lead-street"
+                    >Calle y número (opcional en esta consulta inicial)</label
+                  >
+                  <input
+                    id="lead-street"
+                    name="street"
+                    maxlength="200"
+                    autocomplete="street-address"
+                  />
+                  <small
+                    >Se podrán solicitar si son necesarios para validar la
+                    ubicación.</small
+                  >
+                </div>
+                <div class="campo completo">
+                  <label for="lead-package">Paquete de interés *</label>
+                  <select id="lead-package" name="package" required>
+                    <option value="">Selecciona una opción</option>
+                  </select>
+                </div>
+                <div class="campo completo">
+                  <label for="lead-comments">Comentarios (opcional)</label>
+                  <textarea
+                    id="lead-comments"
+                    name="comments"
+                    maxlength="1500"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="trampa" aria-hidden="true">
+                <label for="website">Dejar vacío</label>
+                <input
+                  id="website"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+              <label class="aceptar"
+                ><input type="checkbox" name="consent" required /><span
+                  >He leído el
+                  <a
+                    href="privacidad.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >aviso de privacidad</a
+                  >
+                  y autorizo compartir los datos de esta solicitud para atender
+                  mi consulta. *</span
+                ></label
+              >
+              <button type="submit" id="lead-submit">Enviar solicitud</button>
+              <p class="fine">
+                Tu solicitud se registrará y un asesor te contactará para
+                validar la cobertura.
+              </p>
+              <div
+                id="lead-result"
+                class="result"
+                role="status"
+                aria-live="polite"
+                data-auto-ocultar="6"
+                data-al-exito="index.html"
+              ></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie">
+      <div class="contenedor">
+        <div class="pie-columnas">
+          <div>
+            <h3 data-company>Proveedor de internet</h3>
+            <p>
+              Consulta opciones, revisa condiciones y solicita información de
+              cobertura.
+            </p>
+          </div>
+          <div class="pie-enlaces">
+            <strong>Explora</strong>
+            <a href="paquetes.html">Paquetes</a>
+            <a href="cobertura.html">Cobertura</a>
+            <a href="contacto.html#solicitud">Solicitar contratación</a>
+          </div>
+          <div class="pie-enlaces">
+            <strong>Información</strong>
+            <a href="privacidad.html">Aviso de privacidad</a>
+            <a href="terminos.html">Términos comerciales</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="portal.html">Mi portal</a>
+            <a
+              data-wa="Hola, quiero conocer las condiciones de instalación"
+              href="contacto.html"
+              >Consultar por WhatsApp</a
+            >
+          </div>
+        </div>
+        <small
+          >Disponibilidad y condiciones sujetas a validación por la empresa.
+          Este sitio no confirma cobertura técnica.</small
+        >
+      </div>
+    </footer>
+
+    <dialog class="ventana" id="message-dialog" aria-labelledby="message-title">
+      <h2 id="message-title">Revisa tu mensaje</h2>
+      <p id="message-info"></p>
+      <label for="message-text">Mensaje para compartir</label>
+      <textarea id="message-text" rows="9" readonly></textarea>
+      <div class="actions">
+        <button type="button" id="copy-message">Copiar mensaje</button>
+        <button type="button" id="close-message">Cerrar</button>
+      </div>
+      <p id="copy-status" role="status"></p>
+    </dialog>
+  </body>
+</html>

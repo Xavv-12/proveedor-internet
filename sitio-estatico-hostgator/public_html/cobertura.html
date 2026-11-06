@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Consulta de cobertura | Proveedor de internet</title>
+    <meta
+      name="description"
+      content="Consulta en el mapa si llegamos a tu zona y solicita tu instalación de internet."
+    />
+    <meta
+      property="og:title"
+      content="Consulta de cobertura | Proveedor de internet"
+    />
+    <meta
+      property="og:description"
+      content="Consulta en el mapa si llegamos a tu zona y solicita tu instalación de internet."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0b2850" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/diseno-referencia.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="assets/js/config.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/paquetes.js" defer></script>
+    <script src="assets/js/cobertura.js" defer></script>
+    <script src="assets/js/contratacion.js" defer></script>
+    <script src="assets/js/catalogo-en-vivo.js" defer></script>
+    <script src="assets/js/mapa-cobertura.js" defer></script>
+  </head>
+
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+    <header class="encabezado">
+      <div class="contenedor encabezado-fila">
+        <a class="brand" href="index.html"
+          ><span data-company>Proveedor de internet</span
+          ><small>Identidad provisional</small></a
+        >
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="nav"
+          type="button"
+        >
+          Menú
+        </button>
+        <nav class="nav" id="nav" aria-label="Principal">
+          <a href="paquetes.html">Paquetes</a>
+          <a href="cobertura.html">Cobertura</a>
+          <a href="promociones.html">Promociones</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="portal.html">Mi portal</a>
+        </nav>
+        <a
+          class="button wa"
+          data-wa="Hola, quiero información sobre los paquetes de internet"
+          href="contacto.html"
+          >WhatsApp</a
+        >
+      </div>
+    </header>
+
+    <main id="contenido">
+      <div class="cabecera-pagina">
+        <div class="contenedor">
+          <span class="subtitulo">Internet para tu día a día</span>
+          <h1>¿Llegamos a tu localidad?</h1>
+          <p>
+            Busca tu dirección en el mapa. Las zonas en azul ya tienen servicio.
+          </p>
+        </div>
+      </div>
+
+      <!-- MAPA DE COBERTURA -->
+      <section class="seccion">
+        <div class="contenedor mapa-panel">
+          <div class="mapa-lateral cobertura-v2">
+            <!-- Encabezado -->
+            <div class="cv2-cabecera">
+              <span class="cv2-insignia">Consulta de cobertura</span>
+              <h2>¿Llega nuestro internet a tu casa?</h2>
+              <p>Escribe tu dirección o usa tu ubicación para revisarlo.</p>
+            </div>
+
+            <div class="cv2-cuerpo">
+              <!-- Buscador -->
+              <label class="cv2-etiqueta" for="mapa-buscar"
+                >Colonia, calle o coordenadas</label
+              >
+              <div class="cv2-buscador">
+                <svg
+                  class="cv2-lupa"
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg>
+                <input
+                  id="mapa-buscar"
+                  type="search"
+                  placeholder="Ej. Centro, Xalatlaco"
+                  autocomplete="street-address"
+                  maxlength="150"
+                />
+                <button
+                  type="button"
+                  id="mapa-btn-buscar"
+                  class="mapa-btn-buscar"
+                >
+                  Buscar
+                </button>
+              </div>
+
+              <!-- Ubicación actual -->
+              <button
+                type="button"
+                id="mapa-btn-ubicacion"
+                class="mapa-btn-ubicacion"
+              >
+                <span class="cv2-gps" aria-hidden="true">
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 21s-7-6.2-7-11a7 7 0 1 1 14 0c0 4.8-7 11-7 11z"
+                    />
+                    <circle cx="12" cy="10" r="2.5" />
+                  </svg>
+                </span>
+                <span class="cv2-gps-texto">
+                  <strong>Usar mi ubicación actual</strong>
+                  <small>Si estás en el domicilio a revisar</small>
+                </span>
+              </button>
+
+              <!-- Coincidencias -->
+              <div id="mapa-coincidencias" class="mapa-coincidencias" hidden>
+                <strong>Elige tu dirección:</strong>
+                <ul></ul>
+              </div>
+              <div
+                id="mapa-resultado"
+                class="result"
+                role="status"
+                aria-live="polite"
+              ></div>
+            </div>
+          </div>
+
+          <div class="mapa-contenedor">
+            <div
+              id="mapa-cobertura"
+              role="region"
+              aria-label="Mapa de nuestras zonas de cobertura"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMULARIO (se llena solo al buscar en el mapa) -->
+      <section class="seccion gris">
+        <div class="contenedor dos-columnas">
+          <div>
+            <h2>Confirma tus datos</h2>
+            <p>
+              Al buscar en el mapa llenamos estos campos por ti. Revísalos y
+              consulta tu cobertura, o mándanos tus datos por WhatsApp.
+            </p>
+          </div>
+          <div class="formulario">
+            <form id="coverage-form">
+              <div class="campos">
+                <div class="campo">
+                  <label for="cov-state">Estado *</label>
+                  <input
+                    id="cov-state"
+                    name="state"
+                    required
+                    maxlength="100"
+                    autocomplete="address-level1"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="cov-town">Municipio *</label>
+                  <input
+                    id="cov-town"
+                    name="municipality"
+                    required
+                    maxlength="100"
+                    autocomplete="address-level2"
+                  />
+                </div>
+                <div class="campo completo">
+                  <label for="cov-locality">Colonia o localidad *</label>
+                  <input
+                    id="cov-locality"
+                    name="locality"
+                    required
+                    maxlength="120"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="cov-zip">Código postal (opcional)</label>
+                  <input
+                    id="cov-zip"
+                    name="zip"
+                    inputmode="numeric"
+                    pattern="[0-9]{5}"
+                    maxlength="5"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="cov-reference">Referencia (opcional)</label>
+                  <input id="cov-reference" name="reference" maxlength="250" />
+                </div>
+              </div>
+              <div class="actions">
+                <button type="submit">Consultar cobertura</button>
+                <button type="button" class="button secondary" id="coverage-wa">
+                  Consultar por WhatsApp
+                </button>
+              </div>
+              <p class="fine">
+                No confirma disponibilidad técnica. Validación definitiva por
+                asesor o técnico autorizado.
+              </p>
+              <div
+                id="coverage-result"
+                class="result"
+                role="status"
+                aria-live="polite"
+              ></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie">
+      <div class="contenedor">
+        <div class="pie-columnas">
+          <div>
+            <h3 data-company>Proveedor de internet</h3>
+            <p>
+              Consulta opciones, revisa condiciones y solicita información de
+              cobertura.
+            </p>
+            <p class="fine" style="color: #d3deec">
+              Identidad provisional. Catálogo de demostración sin validez
+              comercial.
+            </p>
+          </div>
+          <div class="pie-enlaces">
+            <strong>Explora</strong>
+            <a href="paquetes.html">Paquetes</a>
+            <a href="cobertura.html">Cobertura</a>
+            <a href="contacto.html#solicitud">Solicitar contratación</a>
+          </div>
+          <div class="pie-enlaces">
+            <strong>Información</strong>
+            <a href="privacidad.html">Aviso de privacidad</a>
+            <a href="terminos.html">Términos comerciales</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="portal.html">Mi portal</a>
+            <a
+              data-wa="Hola, quiero conocer las condiciones de instalación"
+              href="contacto.html"
+              >Consultar por WhatsApp</a
+            >
+          </div>
+        </div>
+        <small
+          >Disponibilidad y condiciones sujetas a validación por la empresa.
+          Este sitio no confirma cobertura técnica.</small
+        >
+      </div>
+    </footer>
+
+    <dialog class="ventana" id="message-dialog" aria-labelledby="message-title">
+      <h2 id="message-title">Revisa tu mensaje</h2>
+      <p id="message-info"></p>
+      <label for="message-text">Mensaje para compartir</label>
+      <textarea id="message-text" rows="9" readonly></textarea>
+      <div class="actions">
+        <button type="button" id="copy-message">Copiar mensaje</button>
+        <button type="button" id="close-message">Cerrar</button>
+      </div>
+      <p id="copy-status" role="status"></p>
+    </dialog>
+  </body>
+</html>

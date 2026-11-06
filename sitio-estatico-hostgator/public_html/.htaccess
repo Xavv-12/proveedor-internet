@@ -1,0 +1,4 @@
+# Opcional, Apache con AllowOverride FileInfo. Quitar si causa error 500.
+ErrorDocument 404 /404.html
+Options -Indexes
+# Activar HTTPS desde cPanel con certificado válido.

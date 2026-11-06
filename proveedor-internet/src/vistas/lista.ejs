@@ -1,0 +1,56 @@
+<%- include('partials/encabezado') %>
+<div class="titulo-pagina">
+  <div>
+    <% if (volver) { %><a class="volver" href="<%= volver %>">Volver</a><% } %>
+    <h1><%- acento(titulo) %></h1>
+  </div>
+  <% if (enlaceNuevo) { %><a class="boton" href="<%= enlaceNuevo %>"><%= textoNuevo %></a><% } %>
+</div>
+<% if (bloquesSuperiores.length) { %><%- include('partials/bloques', { bloques: bloquesSuperiores }) %><% } %>
+<% if (accionBusqueda) { %>
+<form class="buscador" method="get" action="<%= accionBusqueda %>" role="search">
+  <div class="buscador-fila">
+    <input type="search" name="q" value="<%= q %>" placeholder="Buscar" aria-label="Buscar" maxlength="80">
+    <button class="boton secundario" type="submit">Buscar</button>
+  </div>
+  <% if (filtros.length) { %>
+  <div class="filtros">
+    <% for (const fl of filtros) { %>
+      <label><span><%= fl.etiqueta %></span>
+      <% if (fl.tipo === 'date') { %>
+        <input type="date" name="<%= fl.nombre %>" value="<%= fl.valor %>" data-autoenviar>
+      <% } else { %>
+        <select name="<%= fl.nombre %>" data-autoenviar>
+          <% for (const o of fl.opciones) { %><option value="<%= o.valor %>" <%- String(o.valor) === String(fl.valor) ? 'selected' : '' %>><%= o.texto %></option><% } %>
+        </select>
+      <% } %>
+      </label>
+    <% } %>
+  </div>
+  <% } %>
+</form>
+<% } %>
+<div id="zona-actualizable" <%- tiempoReal ? attrs({ 'data-tiempo-real': tiempoReal }) : '' %>>
+<p class="conteo"><%= nav.total %> <%= nav.total === 1 ? 'resultado' : 'resultados' %></p>
+<% if (!filas.length) { %>
+  <p class="vacio"><%= vacio %></p>
+<% } else { %>
+<ul class="filas">
+  <% for (const f of filas) { %>
+  <li class="fila">
+    <div class="fila-cabeza">
+      <% if (f.enlace) { %><a class="fila-titulo" href="<%= f.enlace %>"><%= f.titulo %></a><% } else { %><span class="fila-titulo"><%= f.titulo %></span><% } %>
+      <% if (f.insignia) { %><span class="insignia tono-<%= f.insignia.tono %>"><%= f.insignia.texto %></span><% } %>
+    </div>
+    <% if (f.subtitulo) { %><p class="fila-sub"><%= f.subtitulo %></p><% } %>
+    <% if (f.campos && f.campos.length) { %>
+      <dl class="fila-datos"><% for (const c of f.campos) { %><div><dt><%= c.etiqueta %></dt><dd class="<%= c.mono ? 'mono' : '' %>"><%= c.valor %></dd></div><% } %></dl>
+    <% } %>
+    <% if (f.botones && f.botones.length) { %><div class="botonera"><% for (const bt of f.botones) { %><%- include('partials/boton', { b: bt }) %><% } %></div><% } %>
+  </li>
+  <% } %>
+</ul>
+<% } %>
+<%- include('partials/paginacion') %>
+</div>
+<%- include('partials/pie') %>

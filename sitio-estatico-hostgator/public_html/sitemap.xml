@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Plantilla: sustituir https://example.invalid por el dominio real ANTES de publicar. No es una dirección de la empresa. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://example.invalid/index.html</loc></url>
+<url><loc>https://example.invalid/paquetes.html</loc></url>
+<url><loc>https://example.invalid/cobertura.html</loc></url>
+<url><loc>https://example.invalid/promociones.html</loc></url>
+<url><loc>https://example.invalid/nosotros.html</loc></url>
+<url><loc>https://example.invalid/contacto.html</loc></url>
+<url><loc>https://example.invalid/privacidad.html</loc></url>
+<url><loc>https://example.invalid/terminos.html</loc></url>
+</urlset>

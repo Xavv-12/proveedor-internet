@@ -1,0 +1,42 @@
+<%- include('../partials/encabezado') %>
+<div class="titulo-pagina">
+  <div>
+    <a class="volver" href="<%= volver %>">Volver</a>
+    <h1>Descartar <span class="acento">solicitud</span></h1>
+    <p class="subtitulo"><%= doc.folio %> · <%= doc.nombre %></p>
+  </div>
+</div>
+
+<div class="bloque">
+  <form method="post" class="formulario">
+    <input type="hidden" name="_csrf" value="<%= csrf %>" />
+
+    <div class="campo">
+      <label>Motivo del descarte <span class="req">*</span></label>
+      <select name="motivo" required>
+        <option value="">— Selecciona —</option>
+        <option value="sin_cobertura">Sin cobertura</option>
+        <option value="precio">Precio / presupuesto</option>
+        <option value="otro_proveedor">Se fue con otro proveedor</option>
+        <option value="no_contesta">No contesta / ya no responde</option>
+        <option value="cambio_opinion">Cambió de opinión</option>
+        <option value="otro">Otro</option>
+      </select>
+    </div>
+
+    <div class="campo">
+      <label>Notas adicionales</label>
+      <textarea
+        name="notas"
+        rows="4"
+        placeholder="Detalle del motivo..."
+      ></textarea>
+    </div>
+
+    <div class="acciones">
+      <button type="submit" class="boton peligro">Confirmar descarte</button>
+      <a href="<%= volver %>" class="boton secundario">Cancelar</a>
+    </div>
+  </form>
+</div>
+<%- include('../partials/pie') %>

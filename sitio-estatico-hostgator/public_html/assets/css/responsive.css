@@ -1,0 +1,159 @@
+/* ===== TABLETS Y PANTALLAS MEDIANAS (hasta 1000px) ===== */
+@media (max-width: 1000px) {
+  .cuadricula {
+    gap: 16px;
+  }
+  .card {
+    padding: 22px;
+  }
+}
+
+/* ===== MENÚ LATERAL (hasta 980px) ===== */
+@media (max-width: 980px) {
+  .menu-toggle {
+    display: inline-flex;
+    margin-left: auto;
+  }
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 60;
+    flex: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    width: min(86vw, 340px);
+    margin: 0;
+    padding: 84px 20px 28px;
+    overflow-y: auto;
+    background: var(--fondo-tarjeta);
+    box-shadow: -12px 0 40px rgba(7, 23, 44, 0.25);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition:
+      transform 0.28s ease,
+      visibility 0.28s;
+  }
+  .nav.open {
+    transform: none;
+    visibility: visible;
+  }
+  .nav a:not(.button) {
+    padding: 14px 12px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+  }
+  .nav-acciones {
+    flex-direction: column;
+    align-items: stretch;
+    margin: 18px 0 0;
+    padding-top: 18px;
+    border-top: 1px solid var(--borde);
+  }
+  .nav-acciones .button {
+    min-height: 50px;
+  }
+  .nav-fondo {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    background: rgba(7, 23, 44, 0.55);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.28s,
+      visibility 0.28s;
+  }
+  .nav-fondo.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* ===== CELULARES (hasta 760px) ===== */
+@media (max-width: 760px) {
+  .contenedor {
+    width: calc(100% - 32px);
+  }
+  .barra-superior-lema {
+    display: none;
+  }
+  .barra-superior .enlaces {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .encabezado-fila {
+    min-height: 66px;
+  }
+  .dos-columnas {
+    grid-template-columns: 1fr;
+  }
+  .cuadricula {
+    grid-template-columns: 1fr;
+  }
+  .seccion {
+    padding: 28px 0;
+  }
+  .paquetes-inicio {
+    padding: 16px 0 28px;
+  }
+  .package {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 12px;
+    align-items: end;
+  }
+  .package > * {
+    grid-column: 1/-1;
+  }
+  .package .tag {
+    justify-self: start;
+  }
+  .package .speed {
+    grid-column: 1;
+    font-size: 2.8rem;
+  }
+  .package .speed small {
+    font-size: 1.1rem;
+  }
+  .package ul {
+    margin: 4px 0;
+  }
+  .package .price {
+    grid-column: 2;
+    text-align: right;
+    font-size: 1.7rem;
+  }
+  .package .price small {
+    display: block;
+  }
+  .campos {
+    grid-template-columns: 1fr;
+  }
+  .campo.completo {
+    grid-column: auto;
+  }
+  .pie-columnas {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .card {
+    padding: 24px;
+  }
+  .formulario {
+    padding: 22px;
+  }
+  .actions .button {
+    flex: 1 1 auto;
+  }
+  .cabecera-pagina {
+    padding: 22px 0;
+  }
+  .speed {
+    font-size: 2.6rem;
+  }
+}

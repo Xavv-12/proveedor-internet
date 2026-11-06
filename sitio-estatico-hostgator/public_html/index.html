@@ -1,0 +1,718 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Internet para hogares y negocios | Proveedor de internet</title>
+    <meta
+      name="description"
+      content="Explora paquetes de internet, consulta cobertura y solicita información para contratar."
+    />
+    <meta
+      property="og:title"
+      content="Internet para hogares y negocios | Proveedor de internet"
+    />
+    <meta
+      property="og:description"
+      content="Explora paquetes de internet, consulta cobertura y solicita información para contratar."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0b2850" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/diseno-referencia.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="assets/js/config.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/paquetes.js" defer></script>
+    <script src="assets/js/cobertura.js" defer></script>
+    <script src="assets/js/contratacion.js" defer></script>
+    <script src="assets/js/catalogo-en-vivo.js" defer></script>
+    <script src="assets/js/avisos-sitio.js" defer></script>
+    <script src="assets/js/mapa-cobertura.js" defer></script>
+    <script src="assets/js/portada-referencia.js" defer></script>
+  </head>
+
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+    <header class="encabezado">
+      <div class="contenedor encabezado-fila">
+        <a class="brand" href="index.html"
+          ><span data-company>Proveedor de internet</span
+          ><small>Identidad provisional</small></a
+        >
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="nav"
+          type="button"
+        >
+          Menú
+        </button>
+        <nav class="nav" id="nav" aria-label="Principal">
+          <a href="paquetes.html">Paquetes</a>
+          <a href="cobertura.html">Cobertura</a>
+          <a href="promociones.html">Promociones</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="portal.html">Mi portal</a>
+        </nav>
+        <a
+          class="button wa"
+          data-wa="Hola, quiero información sobre los paquetes de internet"
+          href="contacto.html"
+          >WhatsApp</a
+        >
+      </div>
+    </header>
+
+    <main id="contenido">
+      <!-- ========== PORTADA ========== -->
+      <section class="referencia-hero" aria-labelledby="ref-titulo">
+        <div class="contenedor referencia-hero-grid">
+          <div class="ref-hero-texto">
+            <span class="ref-eyebrow claro"
+              >INTERNET PARA HOGARES Y NEGOCIOS</span
+            >
+            <h1 id="ref-titulo">Internet para tu hogar y negocio</h1>
+            <p>
+              Explora los paquetes disponibles y consulta si llegamos a tu zona.
+            </p>
+            <div class="actions">
+              <a class="button ref-naranja" href="#planes">Ver planes</a>
+              <a class="button secondary" href="#mapa-seccion">Ver cobertura</a>
+            </div>
+            <p class="ref-aviso">
+              Catálogo de demostración. Condiciones sujetas a confirmación.
+            </p>
+          </div>
+          <div
+            class="ref-mini-planes"
+            id="ref-mini-planes"
+            aria-label="Vista de paquetes"
+          ></div>
+        </div>
+      </section>
+
+      <!-- ========== PLANES Y PRECIOS ========== -->
+      <section class="seccion paquetes-inicio" id="planes">
+        <div class="contenedor">
+          <div class="seccion-titulo">
+            <span class="ref-eyebrow">PLANES Y PRECIOS</span>
+            <h2>Elige el plan ideal para ti</h2>
+            <p class="muted">
+              Elige tu velocidad y consulta si llegamos a tu zona.
+            </p>
+          </div>
+          <!-- Los paquetes se cargan en vivo desde la app. Estas tarjetas solo se ven si la app no responde. -->
+          <div class="cuadricula" id="lista-paquetes">
+            <!-- ===== PAQUETE 1 ===== -->
+            <article class="card package">
+              <span class="tag">Paquete 1</span>
+              <h3>Basico</h3>
+              <p class="speed">10 <small>Mbps de descarga</small></p>
+              <p class="price">$200.00<small> MXN / mes</small></p>
+              <ul>
+                <li>Información comercial de demostración</li>
+                <li>Tecnología: Por confirmar</li>
+                <li>Instalación: Consultar costo y condiciones</li>
+              </ul>
+              <div class="actions">
+                <a
+                  class="button"
+                  aria-label="Contratar el paquete Basico"
+                  href="contacto.html?paquete=basico#solicitud"
+                  >Contratar</a
+                >
+                <a
+                  class="button secondary"
+                  aria-label="Preguntar por WhatsApp sobre el paquete Basico"
+                  data-wa="Hola, me interesa el paquete Basico. Quiero conocer disponibilidad y condiciones."
+                  href="contacto.html"
+                  >WhatsApp</a
+                >
+              </div>
+            </article>
+
+            <!-- ===== PAQUETE 2 ===== -->
+            <article class="card package featured">
+              <span class="tag">Paquete 2</span>
+              <h3>Plus</h3>
+              <p class="speed">20 <small>Mbps de descarga</small></p>
+              <p class="price">$300.00<small> MXN / mes</small></p>
+              <ul>
+                <li>Información comercial de demostración</li>
+                <li>Tecnología: Por confirmar</li>
+                <li>Instalación: Consultar costo y condiciones</li>
+              </ul>
+              <div class="actions">
+                <a
+                  class="button"
+                  aria-label="Contratar el paquete Plus"
+                  href="contacto.html?paquete=plus#solicitud"
+                  >Contratar</a
+                >
+                <a
+                  class="button secondary"
+                  aria-label="Preguntar por WhatsApp sobre el paquete Plus"
+                  data-wa="Hola, me interesa el paquete Plus. Quiero conocer disponibilidad y condiciones."
+                  href="contacto.html"
+                  >WhatsApp</a
+                >
+              </div>
+            </article>
+
+            <!-- ===== PAQUETE 3 ===== -->
+            <article class="card package">
+              <span class="tag">Paquete 3</span>
+              <h3>Premium 1</h3>
+              <p class="speed">30 <small>Mbps de descarga</small></p>
+              <p class="price">$400.00<small> MXN / mes</small></p>
+              <ul>
+                <li>Información comercial de demostración</li>
+                <li>Tecnología: Por confirmar</li>
+                <li>Instalación: Consultar costo y condiciones</li>
+              </ul>
+              <div class="actions">
+                <a
+                  class="button"
+                  aria-label="Contratar el paquete Premium 1"
+                  href="contacto.html?paquete=premium-1#solicitud"
+                  >Contratar</a
+                >
+                <a
+                  class="button secondary"
+                  aria-label="Preguntar por WhatsApp sobre el paquete Premium 1"
+                  data-wa="Hola, me interesa el paquete Premium 1. Quiero conocer disponibilidad y condiciones."
+                  href="contacto.html"
+                  >WhatsApp</a
+                >
+              </div>
+            </article>
+
+            <!-- ===== PAQUETE 4 ===== -->
+            <article class="card package">
+              <span class="tag">Paquete 4</span>
+              <h3>Premium 2</h3>
+              <p class="speed">40 <small>Mbps de descarga</small></p>
+              <p class="price">$500.00<small> MXN / mes</small></p>
+              <ul>
+                <li>Información comercial de demostración</li>
+                <li>Tecnología: Por confirmar</li>
+                <li>Instalación: Consultar costo y condiciones</li>
+              </ul>
+              <div class="actions">
+                <a
+                  class="button"
+                  aria-label="Contratar el paquete Premium 2"
+                  href="contacto.html?paquete=premium-2#solicitud"
+                  >Contratar</a
+                >
+                <a
+                  class="button secondary"
+                  aria-label="Preguntar por WhatsApp sobre el paquete Premium 2"
+                  data-wa="Hola, me interesa el paquete Premium 2. Quiero conocer disponibilidad y condiciones."
+                  href="contacto.html"
+                  >WhatsApp</a
+                >
+              </div>
+            </article>
+
+            <!-- ===== PAQUETE 5 ===== -->
+            <article class="card package">
+              <span class="tag">Paquete 5</span>
+              <h3>Premium 3</h3>
+              <p class="speed">50 <small>Mbps de descarga</small></p>
+              <p class="price">$600.00<small> MXN / mes</small></p>
+              <ul>
+                <li>Información comercial de demostración</li>
+                <li>Tecnología: Por confirmar</li>
+                <li>Instalación: Consultar costo y condiciones</li>
+              </ul>
+              <div class="actions">
+                <a
+                  class="button"
+                  aria-label="Contratar el paquete Premium 3"
+                  href="contacto.html?paquete=premium-3#solicitud"
+                  >Contratar</a
+                >
+                <a
+                  class="button secondary"
+                  aria-label="Preguntar por WhatsApp sobre el paquete Premium 3"
+                  data-wa="Hola, me interesa el paquete Premium 3. Quiero conocer disponibilidad y condiciones."
+                  href="contacto.html"
+                  >WhatsApp</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CONSULTA DE COBERTURA ===== -->
+      <section class="seccion" id="mapa-seccion">
+        <div class="contenedor mapa-panel">
+          <!-- Panel izquierdo -->
+          <div class="cobertura-v2">
+            <div class="cv2-cabecera">
+              <span class="cv2-insignia">Consulta de cobertura</span>
+              <h2>¿Llega nuestro internet a tu casa?</h2>
+              <p>Escribe tu dirección o usa tu ubicación para revisarlo.</p>
+            </div>
+
+            <div class="cv2-cuerpo">
+              <label class="cv2-etiqueta" for="mapa-buscar"
+                >Colonia, calle o coordenadas</label
+              >
+
+              <div class="cv2-buscador">
+                <svg
+                  class="cv2-lupa"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="m20 20-3.5-3.5" />
+                </svg>
+                <input
+                  id="mapa-buscar"
+                  type="search"
+                  placeholder="Ej. Centro, Xalatlaco"
+                  autocomplete="street-address"
+                  maxlength="150"
+                />
+                <button
+                  id="mapa-btn-buscar"
+                  class="mapa-btn-buscar"
+                  type="button"
+                >
+                  Buscar
+                </button>
+              </div>
+
+              <button
+                id="mapa-btn-ubicacion"
+                class="mapa-btn-ubicacion"
+                type="button"
+              >
+                <span class="cv2-gps" aria-hidden="true">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path
+                      d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"
+                    />
+                    <circle cx="12" cy="9.5" r="2.5" />
+                  </svg>
+                </span>
+                <span class="cv2-gps-texto">
+                  <strong>Usar mi ubicación actual</strong>
+                  <small>Si estás en el domicilio a revisar</small>
+                </span>
+              </button>
+
+              <div id="mapa-coincidencias" class="mapa-coincidencias" hidden>
+                <strong>Elige tu dirección:</strong>
+                <ul></ul>
+              </div>
+
+              <div
+                id="mapa-resultado"
+                class="result"
+                role="status"
+                aria-live="polite"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Mapa -->
+          <div class="mapa-contenedor">
+            <div
+              id="mapa-cobertura"
+              role="region"
+              aria-label="Mapa de cobertura"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== CONFIRMA TUS DATOS (formulario de cobertura en una fila) ========== -->
+      <section class="seccion gris seccion-confirma">
+        <div class="contenedor">
+          <div class="formulario formulario-ancho">
+            <h3>Confirma tus datos</h3>
+            <p class="fine">
+              Al buscar en el mapa llenamos estos campos por ti. Revísalos y
+              consulta tu cobertura, o mándanos tus datos por WhatsApp.
+            </p>
+            <form id="coverage-form">
+              <div class="campos">
+                <div class="campo">
+                  <label for="cov-state">Estado *</label>
+                  <input
+                    id="cov-state"
+                    name="state"
+                    required
+                    maxlength="100"
+                    autocomplete="address-level1"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="cov-town">Municipio *</label>
+                  <input
+                    id="cov-town"
+                    name="municipality"
+                    required
+                    maxlength="100"
+                    autocomplete="address-level2"
+                  />
+                </div>
+                <div class="campo completo">
+                  <label for="cov-locality">Colonia o localidad *</label>
+                  <input
+                    id="cov-locality"
+                    name="locality"
+                    required
+                    maxlength="120"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="cov-zip">Código postal (opcional)</label>
+                  <input
+                    id="cov-zip"
+                    name="zip"
+                    inputmode="numeric"
+                    pattern="[0-9]{5}"
+                    maxlength="5"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="cov-reference">Referencia (opcional)</label>
+                  <input id="cov-reference" name="reference" maxlength="250" />
+                </div>
+              </div>
+              <div class="actions">
+                <button type="submit">Consultar cobertura</button>
+                <button type="button" class="button secondary" id="coverage-wa">
+                  Consultar por WhatsApp
+                </button>
+              </div>
+              <p class="fine">
+                No confirma disponibilidad técnica. Validación definitiva por
+                asesor o técnico autorizado.
+              </p>
+              <div
+                id="coverage-result"
+                class="result"
+                role="status"
+                aria-live="polite"
+              ></div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Se conserva oculta porque main.js la rellena; los beneficios se ven en la sección de abajo. -->
+      <section class="seccion" hidden>
+        <div class="contenedor">
+          <div class="seccion-titulo">
+            <span class="subtitulo">Sin complicaciones</span>
+            <h2>Todo empieza con información clara</h2>
+          </div>
+          <div class="cuadricula" id="benefits"></div>
+        </div>
+      </section>
+
+      <!-- ========== BENEFICIOS ========== -->
+      <section class="ref-beneficios">
+        <div class="contenedor ref-dos">
+          <img
+            src="assets/img/familia-referencia.jpg"
+            alt="Familia utilizando una computadora en casa"
+            loading="lazy"
+          />
+          <div>
+            <span class="ref-eyebrow">CONEXIÓN PARA TU DÍA A DÍA</span>
+            <h2>Más que internet, es conexión</h2>
+            <p>
+              Encuentra un paquete para tu hogar o negocio y conoce las
+              condiciones antes de contratar.
+            </p>
+            <div class="ref-beneficios-lista">
+              <div>
+                <i aria-hidden="true">↗️</i><strong>Paquetes</strong
+                ><small>Consulta las velocidades disponibles.</small>
+              </div>
+              <div>
+                <i aria-hidden="true">⌂</i><strong>Cobertura</strong
+                ><small>Revisa la disponibilidad en tu zona.</small>
+              </div>
+              <div>
+                <i aria-hidden="true">✓</i><strong>Condiciones</strong
+                ><small>Conoce los detalles de cada plan.</small>
+              </div>
+              <div>
+                <i aria-hidden="true">♡</i><strong>Contacto</strong
+                ><small>Solicita información para contratar.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== PREGUNTAS FRECUENTES + TESTIMONIO ========== -->
+      <section class="ref-faq">
+        <div class="contenedor ref-dos">
+          <div>
+            <span class="ref-eyebrow">PREGUNTAS FRECUENTES</span>
+            <h2>Resuelve tus dudas</h2>
+            <p>
+              Aquí encontrarás las respuestas a las preguntas más comunes sobre
+              nuestros planes y servicios.
+            </p>
+            <div class="ref-cita">
+              <strong>Lo que dicen nuestros clientes</strong>
+              <p>★★★★★</p>
+              <span>Este espacio está listo para un testimonio real.</span>
+            </div>
+          </div>
+          <div id="faq"></div>
+        </div>
+      </section>
+
+      <!-- ========== CONTACTO ========== -->
+      <section class="ref-contacto" id="contacto-inicio">
+        <div class="contenedor ref-dos">
+          <div>
+            <span class="ref-eyebrow claro">CONTACTO</span>
+            <h2>Estamos aquí para ayudarte</h2>
+            <p>Completa la solicitud para consultar paquetes y cobertura.</p>
+          </div>
+          <div class="formulario">
+            <h3>Solicitud de contratación</h3>
+            <form id="lead-form">
+              <p class="fine">
+                * Campos obligatorios. Solicitud de información, no contrato.
+              </p>
+              <div class="campos">
+                <div class="campo completo">
+                  <label for="lead-name">Nombre completo *</label>
+                  <input
+                    id="lead-name"
+                    name="name"
+                    required
+                    minlength="3"
+                    maxlength="120"
+                    autocomplete="name"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="lead-phone">Teléfono (10 dígitos) *</label>
+                  <input
+                    id="lead-phone"
+                    name="phone"
+                    type="tel"
+                    required
+                    autocomplete="tel-national"
+                    maxlength="20"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="lead-email">Correo (opcional)</label>
+                  <input
+                    id="lead-email"
+                    name="email"
+                    type="email"
+                    maxlength="180"
+                    autocomplete="email"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="lead-state">Estado *</label>
+                  <input
+                    id="lead-state"
+                    name="state"
+                    required
+                    maxlength="100"
+                    autocomplete="address-level1"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="lead-town">Municipio *</label>
+                  <input
+                    id="lead-town"
+                    name="municipality"
+                    required
+                    maxlength="100"
+                    autocomplete="address-level2"
+                  />
+                </div>
+                <div class="campo completo">
+                  <label for="lead-locality">Colonia o localidad *</label>
+                  <input
+                    id="lead-locality"
+                    name="locality"
+                    required
+                    maxlength="120"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="lead-zip">Código postal *</label>
+                  <input
+                    id="lead-zip"
+                    name="zip"
+                    required
+                    inputmode="numeric"
+                    pattern="[0-9]{5}"
+                    maxlength="5"
+                    autocomplete="postal-code"
+                  />
+                </div>
+                <div class="campo completo c4">
+                  <label for="lead-street"
+                    >Calle y número (opcional en esta consulta inicial)</label
+                  >
+                  <input
+                    id="lead-street"
+                    name="street"
+                    maxlength="200"
+                    autocomplete="street-address"
+                  />
+                  <small
+                    >Se podrán solicitar si son necesarios para validar la
+                    ubicación.</small
+                  >
+                </div>
+                <div class="campo completo">
+                  <label for="lead-package">Paquete de interés *</label>
+                  <select id="lead-package" name="package" required>
+                    <option value="">Selecciona una opción</option>
+                  </select>
+                </div>
+                <div class="campo completo c4">
+                  <label for="lead-comments">Comentarios (opcional)</label>
+                  <textarea
+                    id="lead-comments"
+                    name="comments"
+                    maxlength="1500"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="trampa" aria-hidden="true">
+                <label for="website">Dejar vacío</label>
+                <input
+                  id="website"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+              <label class="aceptar"
+                ><input type="checkbox" name="consent" required /><span
+                  >He leído el
+                  <a
+                    href="privacidad.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >aviso de privacidad</a
+                  >
+                  y autorizo compartir los datos de esta solicitud para atender
+                  mi consulta. *</span
+                ></label
+              >
+              <button type="submit" id="lead-submit">Enviar solicitud</button>
+              <p class="fine">
+                Tu solicitud se registrará y un asesor te contactará para
+                validar la cobertura.
+              </p>
+              <div
+                id="lead-result"
+                class="result"
+                role="status"
+                aria-live="polite"
+                data-auto-ocultar="6"
+                data-al-exito="index.html"
+              ></div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie">
+      <div class="contenedor">
+        <div class="pie-columnas">
+          <div>
+            <h3 data-company>Proveedor de internet</h3>
+            <p>
+              Consulta opciones, revisa condiciones y solicita información de
+              cobertura.
+            </p>
+            <p class="fine" style="color: #d3deec">
+              Identidad provisional. Catálogo de demostración sin validez
+              comercial.
+            </p>
+          </div>
+          <div class="pie-enlaces">
+            <strong>Explora</strong>
+            <a href="paquetes.html">Paquetes</a>
+            <a href="cobertura.html">Cobertura</a>
+            <a href="contacto.html#solicitud">Solicitar contratación</a>
+          </div>
+          <div class="pie-enlaces">
+            <strong>Información</strong>
+            <a href="privacidad.html">Aviso de privacidad</a>
+            <a href="terminos.html">Términos comerciales</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="portal.html">Mi portal</a>
+            <a
+              data-wa="Hola, quiero conocer las condiciones de instalación"
+              href="contacto.html"
+              >Consultar por WhatsApp</a
+            >
+          </div>
+        </div>
+        <small
+          >Disponibilidad y condiciones sujetas a validación por la empresa.
+          Este sitio no confirma cobertura técnica.</small
+        >
+      </div>
+    </footer>
+
+    <dialog class="ventana" id="message-dialog" aria-labelledby="message-title">
+      <h2 id="message-title">Revisa tu mensaje</h2>
+      <p id="message-info"></p>
+      <label for="message-text">Mensaje para compartir</label>
+      <textarea id="message-text" rows="9" readonly></textarea>
+      <div class="actions">
+        <button type="button" id="copy-message">Copiar mensaje</button>
+        <button type="button" id="close-message">Cerrar</button>
+      </div>
+      <p id="copy-status" role="status"></p>
+    </dialog>
+  </body>
+</html>

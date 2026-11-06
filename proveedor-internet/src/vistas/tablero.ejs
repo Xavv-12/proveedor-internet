@@ -1,0 +1,49 @@
+<%- include('partials/encabezado') %>
+<div class="titulo-pagina">
+  <div>
+    <span class="etiqueta-seccion"><%- include('partials/iconos', { icono: 'panel' }) %>Resumen de operación</span>
+    <h1>Tu <span class="acento">tablero</span></h1>
+    <p class="subtitulo">Lo más importante del día, de un vistazo.</p>
+  </div>
+</div>
+<div id="zona-actualizable" <%- tiempoReal ? attrs({ 'data-tiempo-real': tiempoReal }) : '' %>>
+  <div class="contadores">
+    <% for (const t of tarjetas) { %>
+      <a class="contador<%= t.alerta ? ' contador-alerta' : '' %>" href="<%= t.enlace %>">
+        <span class="contador-numero"><%= t.valor %></span>
+        <span class="contador-texto"><%= t.texto %></span>
+      </a>
+    <% } %>
+  </div>
+  <% if (ultimas) { %>
+  <section class="bloque">
+    <h2>Últimas 5 <span class="acento">solicitudes</span></h2>
+    <div class="tabla-contenedor">
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th scope="col">Folio</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Recibida (CDMX)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (!ultimas.length) { %>
+            <tr><td colspan="4">Sin solicitudes</td></tr>
+          <% } %>
+          <% for (const s of ultimas) { %>
+            <tr>
+              <td data-etiqueta="Folio"><a href="<%= s.enlace %>"><%= s.folio %></a></td>
+              <td data-etiqueta="Nombre"><%= s.nombre %></td>
+              <td data-etiqueta="Estado"><span class="insignia tono-<%= s.insignia.tono %>"><%= s.insignia.texto %></span></td>
+              <td data-etiqueta="Recibida (CDMX)"><%= s.recibida %></td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <% } %>
+</div>
+<%- include('partials/pie') %>

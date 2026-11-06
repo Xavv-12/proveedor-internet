@@ -1,0 +1,10 @@
+<% const iconosGrupo = { Ventas: 'etiqueta', Clientes: 'personas', Soporte: 'herramienta', Cobros: 'tarjeta', Sistema: 'engrane' }; %>
+<nav class="nav" aria-label="Principal">
+  <a class="nav-enlace nav-inicio" href="/" <%- rutaActual === '/' ? 'aria-current="page"' : '' %>><%- include('iconos', { icono: 'casa' }) %>Tablero</a>
+  <% for (const g of menu) { %>
+    <p class="nav-grupo"><%- include('iconos', { icono: iconosGrupo[g.grupo] || 'panel' }) %><%= g.grupo %></p>
+    <% for (const i of g.items) { %>
+      <a class="nav-enlace nav-sub" href="<%= i.ruta %>" <%- (rutaActual === i.ruta || rutaActual.startsWith(i.ruta + '/')) ? 'aria-current="page"' : '' %>><%= i.texto %></a>
+    <% } %>
+  <% } %>
+</nav>

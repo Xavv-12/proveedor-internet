@@ -1,0 +1,9 @@
+<% if (b.enlace) { %>
+  <a class="boton <%= b.estilo || '' %>" href="<%= b.enlace %>" <%- b.nuevaPestana ? 'target="_blank" rel="noopener noreferrer"' : '' %>><%= b.texto %></a>
+<% } else { %>
+  <form method="post" action="<%= b.accion %>" class="form-boton" <%- b.confirmar ? attrs({ 'data-confirmar': b.confirmar }) : '' %>>
+    <input type="hidden" name="_csrf" value="<%= csrf %>">
+    <% for (const c of (b.campos || [])) { %><input type="hidden" name="<%= c.nombre %>" value="<%= c.valor %>"><% } %>
+    <button type="submit" class="boton <%= b.estilo || '' %>"><%= b.texto %></button>
+  </form>
+<% } %>

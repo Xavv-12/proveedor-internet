@@ -1,0 +1,24 @@
+# Secretos y configuración local
+.env
+.env.*
+!.env.example
+
+# Dependencias
+node_modules/
+
+# Evidencias, respaldos y logs
+evidencias/
+respaldos/
+logs/
+*.log
+
+# Temporales y compilados
+tmp/
+temp/
+.cache/
+dist/
+build/
+coverage/
+*.tmp
+.DS_Store
+Thumbs.db

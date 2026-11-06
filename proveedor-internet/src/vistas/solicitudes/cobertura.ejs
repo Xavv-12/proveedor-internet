@@ -1,0 +1,38 @@
+<%- include('../partials/encabezado') %>
+<div class="titulo-pagina">
+  <div>
+    <a class="volver" href="<%= volver %>">Volver</a>
+    <h1>Validar <span class="acento">cobertura</span></h1>
+    <p class="subtitulo"><%= doc.folio %> · <%= doc.nombre %></p>
+  </div>
+</div>
+
+<div class="bloque">
+  <form method="post" class="formulario">
+    <input type="hidden" name="_csrf" value="<%= csrf %>" />
+
+    <div class="campo">
+      <label>Resultado de la cobertura <span class="req">*</span></label>
+      <select name="resultado" required>
+        <option value="">— Selecciona —</option>
+        <option value="con_cobertura">Sí hay cobertura</option>
+        <option value="sin_cobertura">No hay cobertura</option>
+      </select>
+    </div>
+
+    <div class="campo">
+      <label>Notas</label>
+      <textarea
+        name="notas"
+        rows="4"
+        placeholder="Ej: Señal buena, distancia 280 m, se requiere torre..."
+      ></textarea>
+    </div>
+
+    <div class="acciones">
+      <button type="submit" class="boton">Guardar validación</button>
+      <a href="<%= volver %>" class="boton secundario">Cancelar</a>
+    </div>
+  </form>
+</div>
+<%- include('../partials/pie') %>

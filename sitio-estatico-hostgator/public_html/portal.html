@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mi portal | Proveedor de internet</title>
+    <meta
+      name="description"
+      content="Consulta tus mensualidades y pagos, y envía tus comprobantes."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="theme-color" content="#0b2850" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/diseno-referencia.css" />
+    <script src="assets/js/config.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/portal.js" defer></script>
+  </head>
+
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+    <header class="encabezado">
+      <div class="contenedor encabezado-fila">
+        <a class="brand" href="index.html"
+          ><span data-company>Proveedor de internet</span
+          ><small>Identidad provisional</small></a
+        >
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="nav"
+          type="button"
+        >
+          Menú
+        </button>
+        <nav class="nav" id="nav" aria-label="Principal">
+          <a href="paquetes.html">Paquetes</a>
+          <a href="cobertura.html">Cobertura</a>
+          <a href="promociones.html">Promociones</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="portal.html" aria-current="page">Mi portal</a>
+        </nav>
+        <a
+          class="button wa"
+          data-wa="Hola, tengo una duda sobre mis pagos"
+          href="contacto.html"
+          >WhatsApp</a
+        >
+      </div>
+    </header>
+
+    <main id="contenido">
+      <div class="cabecera-pagina">
+        <div class="contenedor">
+          <span class="subtitulo">Clientes</span>
+          <h1>Mi portal</h1>
+          <p>
+            Consulta tus mensualidades y pagos, y envía tus comprobantes sin
+            salir de casa.
+          </p>
+        </div>
+      </div>
+
+      <section class="seccion">
+        <div class="contenedor">
+          <!-- Inicio de sesión -->
+          <div id="portal-acceso" class="dos-columnas">
+            <div>
+              <h2>Entra a tu cuenta</h2>
+              <p>
+                Usa el <strong>folio de tu contrato</strong> (empieza con CTR-)
+                y el <strong>teléfono</strong> que registraste al contratar.
+              </p>
+              <p class="fine">
+                Te enviamos tu folio por WhatsApp al contratar. ¿Aún no tienes
+                contrato? Primero
+                <a href="contacto.html#solicitud">solicita tu servicio</a>. El
+                folio de tu solicitud (SOL-) no sirve para entrar.
+              </p>
+            </div>
+            <div class="formulario">
+              <form id="portal-form">
+                <div class="campos">
+                  <div class="campo completo">
+                    <label for="portal-folio">Folio del contrato *</label>
+                    <input
+                      id="portal-folio"
+                      name="folio"
+                      required
+                      maxlength="20"
+                      placeholder="CTR-2026-00001"
+                      autocapitalize="characters"
+                      autocomplete="off"
+                    />
+                  </div>
+                  <div class="campo completo">
+                    <label for="portal-telefono"
+                      >Teléfono registrado (10 dígitos) *</label
+                    >
+                    <input
+                      id="portal-telefono"
+                      name="telefono"
+                      type="tel"
+                      required
+                      maxlength="20"
+                      autocomplete="tel-national"
+                    />
+                  </div>
+                </div>
+                <div class="actions"><button type="submit">Entrar</button></div>
+                <p class="fine">
+                  Por seguridad, la sesión se cierra tras 30 minutos sin
+                  actividad o al cerrar la pestaña.
+                </p>
+                <div
+                  id="portal-acceso-resultado"
+                  class="result"
+                  role="status"
+                  aria-live="polite"
+                ></div>
+              </form>
+            </div>
+          </div>
+
+          <!-- Panel del cliente (se llena al entrar) -->
+          <div id="portal-panel" hidden></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie">
+      <div class="contenedor">
+        <div class="pie-columnas">
+          <div>
+            <h3 data-company>Proveedor de internet</h3>
+            <p>
+              Consulta opciones, revisa condiciones y solicita información de
+              cobertura.
+            </p>
+            <p class="fine" style="color: #d3deec">
+              Identidad provisional. Catálogo de demostración sin validez
+              comercial.
+            </p>
+          </div>
+          <div class="pie-enlaces">
+            <strong>Explora</strong>
+            <a href="paquetes.html">Paquetes</a>
+            <a href="cobertura.html">Cobertura</a>
+            <a href="contacto.html#solicitud">Solicitar contratación</a>
+            <a href="portal.html">Mi portal</a>
+          </div>
+          <div class="pie-enlaces">
+            <strong>Información</strong>
+            <a href="privacidad.html">Aviso de privacidad</a>
+            <a href="terminos.html">Términos comerciales</a>
+            <a href="contacto.html">Contacto</a>
+            <a
+              data-wa="Hola, tengo una duda sobre mis pagos"
+              href="contacto.html"
+              >Consultar por WhatsApp</a
+            >
+          </div>
+        </div>
+        <small
+          >Disponibilidad y condiciones sujetas a validación por la empresa.
+          Este sitio no confirma cobertura técnica.</small
+        >
+      </div>
+    </footer>
+
+    <dialog class="ventana" id="message-dialog" aria-labelledby="message-title">
+      <h2 id="message-title">Revisa tu mensaje</h2>
+      <p id="message-info"></p>
+      <label for="message-text">Mensaje para compartir</label>
+      <textarea id="message-text" rows="9" readonly></textarea>
+      <div class="actions">
+        <button type="button" id="copy-message">Copiar mensaje</button>
+        <button type="button" id="close-message">Cerrar</button>
+      </div>
+      <p id="copy-status" role="status"></p>
+    </dialog>
+  </body>
+</html>

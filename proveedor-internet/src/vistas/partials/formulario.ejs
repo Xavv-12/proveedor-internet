@@ -1,0 +1,44 @@
+<form method="post" action="<%= f.accion %>" class="formulario" <%- f.multipart ? 'enctype="multipart/form-data"' : '' %> <%- f.confirmar ? attrs({ 'data-confirmar': f.confirmar }) : '' %>>
+  <input type="hidden" name="_csrf" value="<%= csrf %>">
+  <% if (f.errores && f.errores.general) { %><div class="aviso aviso-error" role="alert"><%= f.errores.general %></div><% } %>
+  <% if (f.errores && Object.keys(f.errores).length && !f.errores.general) { %><div class="aviso aviso-error" role="alert">Revisa los campos marcados.</div><% } %>
+  <% for (const c of f.campos) {
+       const err = f.errores && f.errores[c.nombre];
+       const idc = 'c-' + f.accion.replace(/[^a-z0-9]/gi, '') + '-' + c.nombre;
+       if (c.tipo === 'hidden') { %>
+    <input type="hidden" name="<%= c.nombre %>" value="<%= c.valor %>">
+  <%   continue; } %>
+  <div class="campo<%= err ? ' con-error' : '' %>">
+    <% if (c.tipo === 'checkbox') { %>
+      <label class="casilla">
+        <input type="checkbox" <%- attrs({ id: idc, name: c.nombre, checked: c.valor === true || c.valor === 'on', disabled: !!c.soloLectura, 'aria-invalid': err ? 'true' : null }) %>>
+        <span><%= c.etiqueta %></span>
+      </label>
+    <% } else { %>
+      <label for="<%= idc %>"><%= c.etiqueta %><% if (c.requerido) { %> <span class="req" aria-hidden="true">*</span><% } %></label>
+      <% if (c.tipo === 'textarea') { %>
+        <textarea <%- attrs({ id: idc, name: c.nombre, rows: c.filas || 3, required: !!c.requerido, readonly: !!c.soloLectura, maxlength: c.max || 2000, 'aria-invalid': err ? 'true' : null }) %>><%= c.valor %></textarea>
+      <% } else if (c.tipo === 'select') { %>
+        <select <%- attrs({ id: idc, name: c.nombre, required: !!c.requerido, disabled: !!c.soloLectura, 'aria-invalid': err ? 'true' : null }) %>>
+          <% for (const o of c.opciones) { %><option value="<%= o.valor %>" <%- String(o.valor) === String(c.valor ?? '') ? 'selected' : '' %>><%= o.texto %></option><% } %>
+        </select>
+      <% } else if (c.tipo === 'dinero') { %>
+        <div class="con-prefijo"><span aria-hidden="true">$</span>
+          <input <%- attrs({ id: idc, name: c.nombre, type: 'text', inputmode: 'decimal', autocomplete: 'off', placeholder: '0.00', value: c.valor, required: !!c.requerido, readonly: !!c.soloLectura, 'aria-invalid': err ? 'true' : null }) %>>
+        </div>
+      <% } else if (c.tipo === 'file') { %>
+        <input <%- attrs({ id: idc, name: c.nombre, type: 'file', accept: c.aceptar, required: !!c.requerido }) %>>
+      <% } else { %>
+        <input <%- attrs({ id: idc, name: c.nombre, type: c.tipo, value: c.tipo === 'password' ? '' : c.valor, required: !!c.requerido, readonly: !!c.soloLectura, min: c.min, max: c.tipo === 'number' ? c.max : null, maxlength: c.tipo !== 'number' && c.max ? c.max : null, inputmode: c.inputmode, autocomplete: c.autocomplete, autocapitalize: c.autocapitalize, 'aria-invalid': err ? 'true' : null }) %>>
+      <% } %>
+    <% } %>
+    <% if (c.ayuda) { %><small class="ayuda"><%= c.ayuda %></small><% } %>
+    <% if (err) { %><small class="error"><%= err %></small><% } %>
+  </div>
+  <% } %>
+  <% if (f.nota) { %><p class="nota"><%= f.nota %></p><% } %>
+  <div class="acciones">
+    <button type="submit" class="boton"><%= f.boton || 'Guardar' %></button>
+    <% if (f.cancelar) { %><a class="boton secundario" href="<%= f.cancelar %>">Cancelar</a><% } %>
+  </div>
+</form>

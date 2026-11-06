@@ -1,0 +1,39 @@
+<% for (const b of bloques) { %>
+<section class="bloque bloque-<%= b.tipo %>">
+  <% if (b.titulo || b.insignia) { %>
+    <div class="bloque-cabeza">
+      <% if (b.titulo) { %><h2><%= b.titulo %></h2><% } %>
+      <% if (b.insignia) { %><span class="insignia tono-<%= b.insignia.tono %>"><%= b.insignia.texto %></span><% } %>
+    </div>
+  <% } %>
+  <% if (b.tipo === 'datos') { %>
+    <dl class="datos">
+      <% for (const d of b.filas) { %>
+        <div class="<%= d.destacado ? 'destacado' : '' %>"><dt><%= d.etiqueta %></dt><dd><% if (d.enlace) { %><a href="<%= d.enlace %>"><%= d.valor %></a><% } else { %><%= (d.valor === null || d.valor === undefined || d.valor === '') ? '—' : d.valor %><% } %></dd></div>
+      <% } %>
+    </dl>
+    <% if (b.nota) { %><p class="nota"><%= b.nota %></p><% } %>
+  <% } else if (b.tipo === 'lista') { %>
+    <% if (b.nota) { %><p class="nota"><%= b.nota %></p><% } %>
+    <% if (!b.elementos.length) { %><p class="vacio"><%= b.vacio || 'Sin registros.' %></p><% } else { %>
+    <ul class="elementos">
+      <% for (const e of b.elementos) { %>
+        <li>
+          <div class="elemento-cabeza">
+            <% if (e.enlace) { %><a href="<%= e.enlace %>" class="elemento-titulo"><%= e.titulo %></a><% } else { %><span class="elemento-titulo"><%= e.titulo %></span><% } %>
+            <% if (e.insignia) { %><span class="insignia tono-<%= e.insignia.tono %>"><%= e.insignia.texto %></span><% } %>
+          </div>
+          <% if (e.subtitulo) { %><p class="elemento-sub"><%= e.subtitulo %></p><% } %>
+          <% if (e.detalle) { %><p class="elemento-detalle"><%= e.detalle %></p><% } %>
+          <% if (e.botones && e.botones.length) { %><div class="botonera"><% for (const bt of e.botones) { %><%- include('boton', { b: bt }) %><% } %></div><% } %>
+        </li>
+      <% } %>
+    </ul>
+    <% } %>
+  <% } else if (b.tipo === 'formulario') { %>
+    <%- include('formulario', { f: b }) %>
+  <% } else if (b.tipo === 'botones') { %>
+    <div class="botonera"><% for (const bt of b.botones) { %><%- include('boton', { b: bt }) %><% } %></div>
+  <% } %>
+</section>
+<% } %>
