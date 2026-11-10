@@ -47,8 +47,21 @@ const INACTIVIDAD_MS = {
 const MENU = [
   {
     grupo: "Mi panel",
+    roles: ["tecnico"],
     items: [
       { modulo: "panel_tecnico", ruta: "/panel-tecnico", texto: "Mis actividades" },
+      { modulo: "panel_tecnico", ruta: "/panel-tecnico/instalaciones", texto: "Instalaciones" },
+      { modulo: "panel_tecnico", ruta: "/panel-tecnico/seguimientos", texto: "Seguimiento" },
+      { modulo: "panel_tecnico", ruta: "/panel-tecnico/atenciones", texto: "Atención a clientes" },
+      { modulo: "panel_tecnico", ruta: "/panel-tecnico/renovaciones", texto: "Renovaciones" },
+      { modulo: "panel_tecnico", ruta: "/panel-tecnico/bajas", texto: "Bajas de contratos" },
+    ],
+  },
+  {
+    grupo: "Panel de técnicos",
+    roles: ["admin", "atencion"],
+    items: [
+      { modulo: "panel_tecnico", ruta: "/panel-tecnico", texto: "Resumen" },
       { modulo: "panel_tecnico", ruta: "/panel-tecnico/instalaciones", texto: "Instalaciones" },
       { modulo: "panel_tecnico", ruta: "/panel-tecnico/seguimientos", texto: "Seguimiento" },
       { modulo: "panel_tecnico", ruta: "/panel-tecnico/atenciones", texto: "Atención a clientes" },
@@ -123,7 +136,7 @@ function puede(usuario, modulo, nivel = "leer") {
 }
 
 function menuPara(usuario) {
-  return MENU.map((g) => ({
+  return MENU.filter((g) => !g.roles || g.roles.includes(usuario.rol)).map((g) => ({
     grupo: g.grupo,
     items: g.items.filter((i) => puede(usuario, i.modulo)),
   })).filter((g) => g.items.length);

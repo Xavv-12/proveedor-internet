@@ -162,7 +162,7 @@ async function resumen() {
     instalacionesAtrasadas,
   ] = await Promise.all([
     col("solicitudes").countDocuments({
-      estado: "recibida",
+      estado: { $in: ["recibida", "cobertura validada"] },
       creado: { $lt: limite },
     }),
     col("solicitudes").countDocuments({

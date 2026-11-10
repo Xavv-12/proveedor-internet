@@ -299,16 +299,16 @@ r.get('/', leer, envolver(async (req, res) => {
   const filtroVisitas = { estado: 'programada', ...(esTecnico ? { tecnicoId: tecnico._id } : {}) };
   const entradas = Object.entries(TIPOS);
   const [visitas, ...conteos] = await Promise.all([
-    col('visitas').find(filtroVisitas).sort({ fecha: 1 }).limit(50).toArray(),
+    esTecnico ? col('visitas').find(filtroVisitas).sort({ fecha: 1 }).limit(50).toArray() : Promise.resolve([]),
     ...entradas.map(([, t]) => col('registros_tecnico').countDocuments(filtroRegistros(req, t.clave))),
   ]);
   renderDetalle(res, {
     titulo: esTecnico ? 'Mi panel' : 'Panel de técnicos',
-    subtitulo: esTecnico ? tecnico.nombre : 'Actividades pendientes y registros de todos los técnicos',
+    subtitulo: esTecnico ? tecnico.nombre : 'Registros de todos los técnicos',
     bloques: [
-      {
+      ...[{
         tipo: 'lista',
-        titulo: esTecnico ? 'Mis actividades' : 'Actividades pendientes',
+        titulo: 'Mis actividades',
         nota: 'Visitas programadas, por fecha. Al terminar, registra el resultado en la visita.',
         vacio: 'No hay actividades pendientes.',
         elementos: visitas.map((v) => ({
@@ -317,7 +317,7 @@ r.get('/', leer, envolver(async (req, res) => {
           enlace: `/visitas/${v._id}`,
           insignia: insigniaEstado(v.estado),
         })),
-      },
+      }].filter(() => esTecnico),
       {
         tipo: 'lista',
         titulo: 'Registros',
