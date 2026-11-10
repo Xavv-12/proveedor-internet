@@ -165,7 +165,8 @@ module.exports = crearRecurso({
       referencias: E.textoOpcional(300, "Las referencias"),
       notas: E.textoOpcional(1000, "Las notas"),
     }),
-  aDocumento: async (d) => ({
+  // Al editar, el número de contrato (papel) sigue incluido en la búsqueda.
+  aDocumento: async (d, ctx) => ({
     ...d,
     busqueda: textoBusqueda(
       d.nombre,
@@ -173,6 +174,7 @@ module.exports = crearRecurso({
       d.correo,
       d.colonia,
       d.codigoPostal,
+      ctx?.doc?.numeroContratoImpreso || "",
     ),
   }),
   aFormulario: (doc) => ({
@@ -213,6 +215,7 @@ module.exports = crearRecurso({
           { etiqueta: "Código postal", valor: doc.codigoPostal },
           { etiqueta: "Referencias", valor: doc.referencias || "—" },
           { etiqueta: "Notas internas", valor: doc.notas || "—" },
+          { etiqueta: "Número de contrato (papel)", valor: doc.numeroContratoImpreso || "—" },
         ],
       },
       {

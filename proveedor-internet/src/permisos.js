@@ -83,6 +83,7 @@ const MENU = [
     grupo: "Clientes",
     items: [
       { modulo: "clientes", ruta: "/clientes", texto: "Clientes" },
+      { modulo: "clientes", ruta: "/clientes/carga-masiva", texto: "Carga masiva" },
       { modulo: "contratos", ruta: "/contratos", texto: "Contratos" },
       { modulo: "equipos", ruta: "/equipos", texto: "Equipos" },
       { modulo: "contratos_pdf", ruta: "/contratos-escaneados", texto: "Contratos escaneados" },

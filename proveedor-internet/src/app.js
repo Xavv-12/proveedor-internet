@@ -248,6 +248,8 @@ function crearApp() {
   app.use("/planes", require("./rutas/planes"));
   app.use("/promociones", require("./rutas/promociones"));
   app.use("/cobertura", require("./rutas/cobertura"));
+  // Debe ir antes que /clientes, para que "carga-masiva" no se tome como el id de un cliente.
+  app.use("/clientes/carga-masiva", require("./rutas/carga-clientes"));
   app.use("/clientes", require("./rutas/clientes"));
   app.use("/contratos", require("./rutas/contratos"));
   app.use("/contratos-escaneados", require("./rutas/contratos-escaneados"));

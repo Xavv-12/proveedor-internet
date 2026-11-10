@@ -6,6 +6,7 @@ const RUTAS_MULTIPART = [
   /^\/incidencias\/[0-9a-f]{24}\/evidencias$/,
   /^\/conciliacion-bancaria\/importar$/,
   /^\/contratos-escaneados$/, // carga masiva de contratos escaneados
+  /^\/clientes\/carga-masiva$/, // carga masiva de clientes (Excel)
   /^\/panel-tecnico\/(instalaciones|seguimientos|atenciones|renovaciones|bajas)$/, // fotos del panel del técnico
 ];
 
