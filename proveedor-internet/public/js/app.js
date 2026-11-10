@@ -579,3 +579,88 @@ window.addEventListener("pageshow", () => {
         "No se pudo cargar el mapa. Puedes pegar el GeoJSON en el campo de abajo.";
     });
 })();
+
+// ===== Búsqueda mientras escribes =====
+// En las listas con buscador, los resultados se actualizan solos al teclear: sin pulsar Buscar y sin recargar.
+// Solo cambia la zona de resultados. Si algo falla, el formulario normal sigue funcionando.
+(() => {
+  const form = document.querySelector("form.buscador");
+  const campo = form && form.querySelector('input[name="q"]');
+  const zona = document.getElementById("zona-actualizable");
+  if (!form || !campo || !zona || !window.fetch || !window.AbortController)
+    return;
+
+  const ESPERA = 250; // ms sin teclear antes de buscar
+  let reloj = null;
+  let control = null;
+  let turno = 0; // para ignorar respuestas viejas que lleguen tarde
+
+  const boton = form.querySelector('button[type="submit"]');
+  if (boton) boton.style.display = "none"; // ya no hace falta: Enter también busca
+  zona.setAttribute("aria-live", "polite");
+
+  // Misma dirección que armaría el formulario: texto + filtros elegidos, sin vacíos y desde la página 1.
+  const direccion = () => {
+    const url = new URL(
+      form.getAttribute("action") || window.location.pathname,
+      window.location.origin,
+    );
+    for (const [clave, valor] of new FormData(form)) {
+      if (typeof valor === "string" && valor.trim())
+        url.searchParams.set(clave, valor.trim());
+    }
+    return url;
+  };
+
+  const buscar = async () => {
+    const mio = ++turno;
+    if (control) control.abort();
+    control = new AbortController();
+    const url = direccion();
+    zona.setAttribute("aria-busy", "true");
+    zona.style.opacity = "0.6";
+    try {
+      const r = await fetch(url, {
+        headers: { "X-Actualizacion-Auto": "1" },
+        credentials: "same-origin",
+        cache: "no-store",
+        signal: control.signal,
+      });
+      if (mio !== turno) return;
+      if (!r.ok || r.redirected) {
+        form.requestSubmit(); // sesión vencida u otro problema: que lo resuelva la página normal
+        return;
+      }
+      const html = new DOMParser().parseFromString(await r.text(), "text/html");
+      const nueva = html.getElementById("zona-actualizable");
+      if (mio !== turno) return;
+      if (!nueva) {
+        form.requestSubmit();
+        return;
+      }
+      zona.innerHTML = nueva.innerHTML;
+      // La dirección queda con la búsqueda: al refrescar, al volver con Atrás y en la actualización en tiempo real.
+      history.replaceState(null, "", url.pathname + url.search);
+    } catch (e) {
+      if (e && e.name === "AbortError") return;
+      /* sin conexión: se deja lo que ya había en pantalla */
+    } finally {
+      if (mio === turno) {
+        zona.style.opacity = "";
+        zona.removeAttribute("aria-busy");
+      }
+    }
+  };
+
+  const programar = () => {
+    clearTimeout(reloj);
+    reloj = setTimeout(buscar, ESPERA);
+  };
+  campo.addEventListener("input", programar);
+  campo.addEventListener("search", programar); // la «x» del campo y la tecla Escape
+  // Con Enter se envía el formulario normal (recarga completa): se cancela lo que estuviera pendiente.
+  form.addEventListener("submit", () => {
+    clearTimeout(reloj);
+    if (control) control.abort();
+  });
+})();
