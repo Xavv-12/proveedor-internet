@@ -41,7 +41,7 @@ const dineroConCero = (etq) => E.z.preprocess((v) => {
 
 const campoContrato = {
   nombre: 'contratoFolio', etiqueta: 'Número de contrato', tipo: 'text', requerido: true, autocapitalize: 'characters', max: 20,
-  ayuda: 'Ej. CTR-2026-00001. El nombre del titular se toma del contrato.',
+  ayuda: 'Ej. CTR-2026-00001 o el número impreso del papel (60109A). El titular se toma del contrato.',
   z: E.cadena((s) => s.min(1, 'El número de contrato es obligatorio.').max(20), (v) => E.limpio(v).toUpperCase()),
 };
 const campoFecha = (nombre, etiqueta, etq) => ({
@@ -396,7 +396,7 @@ r.post(
     if (v.success) {
       const d = v.data;
       if (tipo.contrato) {
-        contrato = await col('contratos').findOne({ folio: d.contratoFolio }, { projection: { folio: 1, clienteNombre: 1, direccionInstalacion: 1 } });
+        contrato = await col('contratos').findOne({ $or: [{ folio: d.contratoFolio }, { numeroImpreso: d.contratoFolio }] }, { projection: { folio: 1, clienteNombre: 1, direccionInstalacion: 1 } });
         if (!contrato) errores.contratoFolio = 'No existe un contrato con ese folio.';
       }
       if (tipo.revisar) tipo.revisar(d, errores);

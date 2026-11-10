@@ -36,4 +36,19 @@ async function enviarRestablecimiento(correo, nombre, enlace) {
   return true;
 }
 
-module.exports = { enviarRestablecimiento };
+async function enviarContratoPdf({ correo, nombre, folio, rutaPdf }) {
+  const t = obtenerTransporte();
+  if (!t) throw new Error('El correo (SMTP) no está configurado en el servidor.');
+  await t.sendMail({
+    from: obtenerConfig().smtp.from,
+    to: correo,
+    subject: 'Tu contrato de servicio de internet COSMOS',
+    text: `Hola, ${nombre}:\n\nTe enviamos una copia de tu contrato de servicio de internet (contrato ${folio}), `
+      + 'firmado y escaneado. Consérvala para cualquier aclaración.\n\n'
+      + 'Si tienes dudas, comunícate con nosotros por los medios de contacto que aparecen en tu contrato.\n\nCOSMOS',
+    attachments: [{ filename: `Contrato-${folio}.pdf`, path: rutaPdf, contentType: 'application/pdf' }],
+  });
+  return true;
+}
+
+module.exports = { enviarRestablecimiento, enviarContratoPdf };

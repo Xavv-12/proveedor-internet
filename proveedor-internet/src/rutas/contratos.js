@@ -120,6 +120,14 @@ r.get(
 async function camposContrato(cliente) {
   return [
     { nombre: "cliente", tipo: "hidden", valor: String(cliente._id) },
+  {
+    nombre: "numeroImpreso",
+    etiqueta: "Número de contrato impreso (del papel)",
+    tipo: "text",
+    max: 20,
+    autocapitalize: "characters",
+    ayuda: "Opcional. Ej. 60109A. Sirve para emparejar el PDF escaneado.",
+  }, // ni1
     {
       nombre: "planId",
       etiqueta: "Plan",
@@ -228,6 +236,7 @@ r.get(
 const esquemaContrato = () =>
   E.z.object({
     cliente: E.idObjeto("un cliente"),
+    numeroImpreso: E.cadena((s) => s.max(20, "El número impreso admite máximo 20 caracteres.").regex(/^[A-Z0-9-]*$/, "Usa solo letras, números y guion."), (v) => E.limpio(v).toUpperCase()), // ni2
     planId: E.idObjeto("un plan"),
     fechaInicio: E.fecha("La fecha de inicio"),
     diaLimitePago: E.entero(1, 28, "El día límite de pago"),
@@ -270,10 +279,17 @@ r.post(
         422,
       );
 
+    // ni4
+    if (
+      d.numeroImpreso &&
+      (await col("contratos").findOne({ numeroImpreso: d.numeroImpreso }, { projection: { _id: 1 } }))
+    )
+      return formularioContrato(res, cliente, req.body, { numeroImpreso: "Ya existe un contrato con ese número impreso." }, 422);
     const ahora = new Date();
     const folio = await siguienteFolio("CTR");
     const doc = {
       folio,
+      numeroImpreso: d.numeroImpreso || null, // ni3
       clienteId: cliente._id,
       clienteNombre: cliente.nombre,
       colonia: cliente.colonia,
@@ -400,6 +416,7 @@ r.get(
                 },
               ]
             : []),
+          { etiqueta: "Número impreso", valor: c.numeroImpreso || "—" }, // ni9
           { etiqueta: "Inicio", valor: formatearFecha(c.fechaInicio) },
           { etiqueta: "Notas", valor: c.notas || "—" },
         ],
@@ -529,6 +546,14 @@ r.get(
 
 const camposEdicion = [
   {
+    nombre: "numeroImpreso",
+    etiqueta: "Número de contrato impreso (del papel)",
+    tipo: "text",
+    max: 20,
+    autocapitalize: "characters",
+    ayuda: "Ej. 60109A. Sirve para emparejar el PDF escaneado.",
+  }, // ni6
+  {
     nombre: "direccionInstalacion",
     etiqueta: "Dirección de instalación",
     tipo: "textarea",
@@ -548,6 +573,7 @@ const camposEdicion = [
 ];
 const esquemaEdicion = () =>
   E.z.object({
+    numeroImpreso: E.cadena((s) => s.max(20, "El número impreso admite máximo 20 caracteres.").regex(/^[A-Z0-9-]*$/, "Usa solo letras, números y guion."), (v) => E.limpio(v).toUpperCase()), // ni7
     direccionInstalacion: E.texto(5, 300, "La dirección de instalación"),
     diaLimitePago: E.entero(1, 28, "El día límite de pago"),
     notas: E.textoOpcional(1000, "Las notas"),
@@ -565,6 +591,7 @@ r.get(
       cancelar: `/contratos/${c._id}`,
       boton: "Guardar cambios",
       campos: llenar(camposEdicion, {
+        numeroImpreso: c.numeroImpreso || "", // ni8
         direccionInstalacion: c.direccionInstalacion,
         diaLimitePago: String(c.diaLimitePago),
         notas: c.notas || "",
@@ -593,6 +620,14 @@ r.post(
         },
         422,
       );
+    }
+    // ni5
+    if (
+      v.data.numeroImpreso &&
+      (await col("contratos").findOne({ numeroImpreso: v.data.numeroImpreso, _id: { $ne: c._id } }, { projection: { _id: 1 } }))
+    ) {
+      avisar(req, "Ya existe otro contrato con ese número impreso.", "error");
+      return res.redirect(`/contratos/${c._id}/editar`);
     }
     const cambios = {
       ...v.data,

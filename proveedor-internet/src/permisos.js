@@ -18,6 +18,7 @@ const PERMISOS = {
   clientes: { leer: OFICINA, escribir: OFICINA },
   contratos: { leer: TODOS, escribir: OFICINA },
   equipos: { leer: TODOS, escribir: OFICINA },
+  contratos_pdf: { leer: OFICINA, escribir: OFICINA },
   incidencias: { leer: TODOS, escribir: TODOS },
   visitas: { leer: TODOS, escribir: TODOS },
   panel_tecnico: { leer: TODOS, escribir: ["tecnico"] },
@@ -84,6 +85,7 @@ const MENU = [
       { modulo: "clientes", ruta: "/clientes", texto: "Clientes" },
       { modulo: "contratos", ruta: "/contratos", texto: "Contratos" },
       { modulo: "equipos", ruta: "/equipos", texto: "Equipos" },
+      { modulo: "contratos_pdf", ruta: "/contratos-escaneados", texto: "Contratos escaneados" },
     ],
   },
   {
