@@ -15,3 +15,17 @@ function formatearTelefono(t) {
 }
 
 module.exports = { normalizarTelefono, formatearTelefono };
+
+// ===== Teléfonos juntos =====
+// En pantalla los teléfonos se muestran sin espacios (7291689556), en todo el sistema.
+// Solo cambia lo que se ve: normalizarTelefono y las validaciones siguen igual.
+(() => {
+  const original = module.exports.formatearTelefono;
+  if (typeof original !== "function") return;
+  module.exports.formatearTelefono = (valor) => {
+    const texto = original(valor);
+    return typeof texto === "string" && /^[\d\s()+\-]+$/.test(texto)
+      ? texto.replace(/[\s()\-]+/g, "")
+      : texto;
+  };
+})();
