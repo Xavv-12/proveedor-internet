@@ -100,7 +100,7 @@ r.get('/', leer, envolver(async (req, res) => {
           { etiqueta: 'Paso 3', valor: 'Si todo se ve bien, pulsas Importar. Los clientes se crean con las mismas reglas del formulario Nuevo cliente.' },
         ],
       },
-      { tipo: 'botones', botones: [{ texto: 'Descargar plantilla', enlace: `${BASE}/plantilla`, estilo: 'secundario' }] },
+      { tipo: 'botones', botones: [{ texto: 'Descargar plantilla', enlace: `${BASE}/plantilla`, estilo: 'secundario' }, { texto: 'Cargas anteriores', enlace: `${BASE}/historial`, estilo: 'secundario' }] },
       {
         tipo: 'formulario',
         titulo: 'Subir Excel',
@@ -169,6 +169,10 @@ r.post(
     return res.redirect(`${BASE}/${doc._id}`);
   }),
 );
+
+// ---------- Cargas anteriores y deshacer una carga (antes que /:id) ----------
+
+r.use('/historial', require('./carga-clientes-historial'));
 
 // ---------- Resultado de la revisión ----------
 
@@ -288,7 +292,7 @@ r.post('/:id/importar', escribir, envolver(async (req, res, next) => {
     }
   } catch (e) {
     creados = (e.result && (e.result.insertedCount ?? e.result.nInserted)) ?? creados;
-    await col('cargas_clientes').updateOne({ _id: c._id }, { $set: { estado: 'importada', importada: ahora, resultado: { creados, error: String(e.message).slice(0, 200) } }, $unset: { filas: 1 } });
+    await col('cargas_clientes').updateOne({ _id: c._id }, { $set: { estado: 'importada', importada: ahora, resultado: { creados, error: String(e.message).slice(0, 200) } }, $unset: { filas: 1, expira: 1 } });
     await auditarReq(req, 'cliente.carga_masiva', { archivo: c.archivo, creados, error: 'interrumpida' });
     avisar(req, `La importación se interrumpió. Se crearon ${creados} cliente(s). Revisa la lista de Clientes antes de volver a subir el archivo.`, 'error');
     return res.redirect('/clientes');
@@ -296,7 +300,7 @@ r.post('/:id/importar', escribir, envolver(async (req, res, next) => {
 
   await col('cargas_clientes').updateOne(
     { _id: c._id },
-    { $set: { estado: 'importada', importada: ahora, resultado: { creados, omitidos } }, $unset: { filas: 1 } }, // ya no se guardan los datos del Excel
+    { $set: { estado: 'importada', importada: ahora, resultado: { creados, omitidos } }, $unset: { filas: 1, expira: 1 } }, // ya no se guardan los datos del Excel ni caduca el registro
   );
   await auditarReq(req, 'cliente.carga_masiva', { archivo: c.archivo, creados, omitidos });
   avisar(req, `Se importaron ${creados} cliente(s).${omitidos ? ` ${omitidos} se omitieron porque ya existían.` : ''}`);

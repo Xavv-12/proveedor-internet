@@ -32,6 +32,16 @@ module.exports = crearRecurso({
   textoNuevo: "Nuevo cliente",
   textoGuardado: "Cliente guardado.",
   desactivable: true,
+  // Botón Eliminar (borra de la base de datos). Un cliente con contratos no se borra: se desactiva.
+  eliminable: true,
+  bloqueoEliminar: async (doc) => {
+    const contratos = await col("contratos").countDocuments({ clienteId: doc._id });
+    if (contratos)
+      return `No se puede eliminar: tiene ${contratos} contrato(s). Mejor desactívalo.`;
+    if (doc.solicitudId)
+      return "No se puede eliminar: viene de una solicitud. Mejor desactívalo.";
+    return null;
+  },
   auditoria: "cliente",
   vacio: "No hay clientes que coincidan.",
 
