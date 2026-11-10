@@ -43,6 +43,9 @@ module.exports = crearRecurso({
     return null;
   },
   auditoria: "cliente",
+  // Lista en orden alfabético (A-Z), sin distinguir mayúsculas ni acentos.
+  orden: { nombre: 1, _id: 1 },
+  collation: { locale: "es", strength: 1 },
   vacio: "No hay clientes que coincidan.",
 
   // Si la solicitud ya se registró como cliente, no se deja crear otro: va al existente.

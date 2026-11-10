@@ -117,6 +117,8 @@ function crearRecurso(def) {
         coleccion()
           .find(filtro)
           .sort(def.orden || { _id: -1 })
+          // Los módulos que piden `collation` ordenan como en español (la Ñ y los acentos en su lugar).
+          .collation(def.collation || { locale: "simple" })
           .skip(salto)
           .limit(limite)
           .toArray(),
