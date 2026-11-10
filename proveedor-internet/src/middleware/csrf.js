@@ -2,7 +2,12 @@
 const crypto = require('node:crypto');
 
 // Únicas rutas que aceptan multipart; ahí el token se verifica después de que multer lee el cuerpo.
-const RUTAS_MULTIPART = [/^\/incidencias\/[0-9a-f]{24}\/evidencias$/, /^\/conciliacion-bancaria\/importar$/];
+const RUTAS_MULTIPART = [
+  /^\/incidencias\/[0-9a-f]{24}\/evidencias$/,
+  /^\/conciliacion-bancaria\/importar$/,
+  /^\/contratos-escaneados$/, // carga masiva de contratos escaneados
+  /^\/panel-tecnico\/(instalaciones|seguimientos|atenciones|renovaciones|bajas)$/, // fotos del panel del técnico
+];
 
 function igual(a, b) {
   const x = Buffer.from(String(a));

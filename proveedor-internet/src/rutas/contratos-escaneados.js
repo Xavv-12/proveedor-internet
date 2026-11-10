@@ -264,7 +264,7 @@ r.get('/:id', leer, envolver(async (req, res, next) => {
       boton: 'Asignar',
     });
   }
-  const botones = [{ texto: 'Abrir PDF', enlace: `${BASE}/${d._id}/pdf`, estilo: 'secundario', nuevaPestana: true }];
+  const botones = [{ texto: 'Ver PDF', enlace: `${BASE}/${d._id}/pdf`, nuevaPestana: true }];
   if (['sin_contrato', 'sin_correo', 'duplicado'].includes(d.estado)) {
     botones.push({ texto: 'Volver a revisar', accion: `${BASE}/${d._id}/revisar`, estilo: 'secundario' });
   }
@@ -287,7 +287,9 @@ r.get('/:id/pdf', leer, envolver(async (req, res, next) => {
   res.sendFile(rutaEvidencia(d.archivo), {
     headers: {
       'Content-Type': 'application/pdf',
-      'Content-Disposition': `inline; filename="contrato-${d._id}.pdf"`,
+      'Content-Disposition': `${req.query.descargar === '1' ? 'attachment' : 'inline'}; filename="contrato-${d._id}.pdf"`,
+      // Solo para este PDF: la regla general (object-src 'none') impide que Chrome lo muestre en pantalla.
+      'Content-Security-Policy': "default-src 'none'; object-src 'self'; frame-ancestors 'none'",
       'Cache-Control': 'private, no-store',
       'X-Content-Type-Options': 'nosniff',
     },
