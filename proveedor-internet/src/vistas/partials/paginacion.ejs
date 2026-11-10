@@ -1,7 +1,23 @@
 <% if (nav.totalPaginas > 1) { %>
 <nav class="paginacion" aria-label="Paginación">
-  <% if (nav.anterior) { %><a class="boton secundario" href="<%= nav.anterior %>" rel="prev">Anterior</a><% } else { %><span></span><% } %>
-  <span>Página <%= nav.pagina %> de <%= nav.totalPaginas %></span>
-  <% if (nav.siguiente) { %><a class="boton secundario" href="<%= nav.siguiente %>" rel="next">Siguiente</a><% } else { %><span></span><% } %>
+  <div class="paginacion-botones">
+    <% if (nav.anterior) { %><a class="boton secundario" href="<%= nav.anterior %>" rel="prev">&lsaquo; Anterior</a><% } else { %><span class="boton secundario deshabilitado" aria-disabled="true">&lsaquo; Anterior</span><% } %>
+    <ol class="paginas">
+      <% for (const p of nav.paginas) { %>
+        <% if (p.puntos) { %><li class="puntos" aria-hidden="true">&hellip;</li>
+        <% } else if (p.actual) { %><li><span class="pagina actual" aria-current="page"><%= p.n %></span></li>
+        <% } else { %><li<%- p.lejos ? ' class="lejos"' : '' %>><a class="pagina" href="<%= p.url %>" aria-label="Ir a la página <%= p.n %>"><%= p.n %></a></li><% } %>
+      <% } %>
+    </ol>
+    <% if (nav.siguiente) { %><a class="boton secundario" href="<%= nav.siguiente %>" rel="next">Siguiente &rsaquo;</a><% } else { %><span class="boton secundario deshabilitado" aria-disabled="true">Siguiente &rsaquo;</span><% } %>
+  </div>
+  <form class="ir-pagina" method="get" action="<%= nav.ruta %>">
+    <% for (const [k, v] of nav.params) { %><input type="hidden" name="<%= k %>" value="<%= v %>">
+    <% } %><label for="ir-pagina-n">Ir a la página</label>
+    <input id="ir-pagina-n" type="number" name="pagina" min="1" max="<%= nav.totalPaginas %>" step="1" inputmode="numeric" required placeholder="<%= nav.pagina <= nav.totalPaginas ? nav.pagina : '' %>" aria-label="Número de página, de 1 a <%= nav.totalPaginas %>">
+    <span class="pagina-total">de <%= nav.totalPaginas %></span>
+    <button class="boton secundario" type="submit">Ir</button>
+  </form>
+  <% if (nav.desde) { %><p class="paginacion-resumen">Mostrando <%= nav.desde %>&ndash;<%= nav.hasta %> de <%= nav.total %></p><% } %>
 </nav>
 <% } %>

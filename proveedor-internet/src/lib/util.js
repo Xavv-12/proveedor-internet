@@ -53,6 +53,23 @@ function paginacion(req) {
   return { pagina: p, salto: (p - 1) * POR_PAGINA, limite: POR_PAGINA };
 }
 
+/** Páginas a mostrar: la primera, la última y las 2 de cada lado de la actual. null = «…». */
+function ventanaPaginas(actual, total) {
+  const conjunto = new Set([1, total]);
+  for (let i = actual - 2; i <= actual + 2; i += 1) if (i >= 1 && i <= total) conjunto.add(i);
+  const orden = [...conjunto].sort((a, b) => a - b);
+  const r = [];
+  orden.forEach((n, i) => {
+    if (i > 0) {
+      const anterior = orden[i - 1];
+      if (n - anterior === 2) r.push(anterior + 1); // si falta una sola página, se muestra en vez de «…»
+      else if (n - anterior > 2) r.push(null);
+    }
+    r.push(n);
+  });
+  return r;
+}
+
 function navegacion(req, total, pagina) {
   const totalPaginas = Math.max(1, Math.ceil(total / POR_PAGINA));
   const ruta = req.originalUrl.split('?')[0];
@@ -69,8 +86,16 @@ function navegacion(req, total, pagina) {
     pagina,
     totalPaginas,
     total,
-    anterior: pagina > 1 ? url(pagina - 1) : null,
+    anterior: pagina > 1 ? url(Math.min(pagina - 1, totalPaginas)) : null,
     siguiente: pagina < totalPaginas ? url(pagina + 1) : null,
+    // Para la barra de páginas numeradas y el cuadro «Ir a la página»:
+    ruta,
+    params: Object.entries(req.query).filter(([k, v]) => k !== 'pagina' && typeof v === 'string' && v),
+    desde: total && pagina <= totalPaginas ? (pagina - 1) * POR_PAGINA + 1 : 0,
+    hasta: pagina <= totalPaginas ? Math.min(pagina * POR_PAGINA, total) : 0,
+    paginas: ventanaPaginas(pagina, totalPaginas).map((n) => (n === null
+      ? { puntos: true }
+      : { n, url: url(n), actual: n === pagina, lejos: n !== 1 && n !== totalPaginas && Math.abs(n - pagina) > 1 })),
   };
 }
 

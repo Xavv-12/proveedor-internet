@@ -96,20 +96,137 @@ a.fila-titulo:hover {
   gap: 8px;
 }
 
+/* ===== PAGINACIÓN ===== */
+/* Mismas medidas y colores que los botones (08-botones.css): 44 px de alto y esquinas de 9 px. */
 .paginacion {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 14px 24px;
   margin-top: 18px;
 }
 
-.paginacion > :last-child {
-  justify-self: end;
+.paginacion-botones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
 
-.paginacion > span:nth-child(2) {
+.paginas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagina,
+.paginas .puntos {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: 9px;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pagina {
+  border: 1px solid #cbd9e8;
+  background: #fff;
+  color: var(--texto, #1f2a37);
+  transition: background 0.18s;
+}
+
+a.pagina:hover,
+a.pagina:focus-visible {
+  background: #e9f1ff;
+  border-color: var(--azul-oscuro);
+  color: var(--azul);
+}
+
+.pagina.actual {
+  background: var(--azul);
+  border-color: var(--azul);
+  color: #fff;
+}
+
+.paginas .puntos {
+  min-width: 24px;
+  padding: 0;
   color: var(--texto-suave);
+}
+
+.paginacion .deshabilitado {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ir-pagina {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ir-pagina label,
+.pagina-total {
+  color: var(--texto-suave);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ir-pagina input[type="number"] {
+  width: 84px;
+  height: 44px;
+  padding: 0 8px;
+  text-align: center;
+}
+
+.paginacion-resumen {
+  flex-basis: 100%;
+  margin: 0;
+  text-align: center;
+  color: var(--texto-suave);
+}
+
+@media (max-width: 640px) {
+  .paginacion {
+    justify-content: center;
+  }
+
+  .paginacion-botones {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Anterior y Siguiente comparten la primera fila; los números van debajo. */
+  .paginacion-botones > .boton {
+    flex: 1 1 40%;
+    order: 1;
+  }
+
+  .paginacion-botones > .paginas {
+    order: 2;
+    flex-basis: 100%;
+    justify-content: center;
+  }
+
+  .paginas .lejos {
+    display: none;
+  }
+
+  .ir-pagina {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 #zona-actualizable > .vacio {

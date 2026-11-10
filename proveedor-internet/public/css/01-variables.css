@@ -11,19 +11,19 @@
   /* Colores principales */
   --azul: #0f766e;
   --azul-oscuro: #0b3e94;
-  --azul-claro: #e7efff;
+  --azul-claro: #dfe9fb;
 
   /* Estados */
   --verde: #15803d;
-  --verde-claro: #e7f8ee;
+  --verde-claro: #e2f3e9;
 
   /* Menú y superficies */
-  --carbon: #ffffff;
-  --carbon-linea: #d7e0ea;
+  --carbon: #e9eff6;
+  --carbon-linea: #cbd6e3;
   --negro: #0b2850;
-  --borde: #c3cfdd;
-  --fondo: #f8fafc;
-  --fondo-tarjeta: #ffffff;
+  --borde: #b8c7d8;
+  --fondo: #e8eef6;
+  --fondo-tarjeta: #f3f7fb;
 
   /* Indicador visible al navegar con teclado */
   --foco: #b45309;
@@ -32,16 +32,22 @@
   --redondeo: 18px;
   --ancho-lateral: 256px;
   --sombra:
-    0 2px 8px rgba(11, 40, 80, 0.045), 0 12px 28px rgba(11, 40, 80, 0.035);
+    0 2px 8px rgba(11, 40, 80, 0.07), 0 12px 28px rgba(11, 40, 80, 0.06);
 
   /* Tipografía clara y disponible en el dispositivo */
   --fuente: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Lectura más cómoda */
+/* Lectura más cómoda, con un fondo suave en lugar de blanco plano */
 body {
   color: var(--texto);
   background-color: var(--fondo);
+  background-image: radial-gradient(
+    circle at top left,
+    #d6e4f5 0%,
+    rgba(214, 228, 245, 0) 55%
+  );
+  background-attachment: fixed;
   font-family: var(--fuente);
   font-size: 16px;
   line-height: 1.6;
