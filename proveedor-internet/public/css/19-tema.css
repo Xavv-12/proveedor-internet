@@ -1,48 +1,44 @@
 @charset "UTF-8";
 
-/*
- * TEMA: MODO SUAVE (por defecto) Y MODO OSCURO
- * No cambia los colores de las otras hojas de estilo. Aplica un ajuste a toda la
- * pantalla y corrige imágenes, videos, el mapa de Cobertura y las ventanas de diálogo.
- * Para quitarlo: borra este archivo y su línea en encabezado.ejs.
- */
+/* ===== TEMA: MODO SUAVE (por defecto) Y MODO OSCURO ===== */
+/* No cambia ningún color de las otras hojas: aplica un filtro a toda la pantalla.
+   Para quitarlo basta con borrar este archivo y su línea en encabezado.ejs. */
 
-/* Modo suave: blanco apagado con un tono cálido muy leve. */
+/* Modo suave: el blanco baja a un blanco apagado, con un toque cálido. */
 html {
-  background-color: #fff;
-  filter: brightness(0.95) sepia(0.04);
+  background: #fff;
+  filter: brightness(0.94) sepia(0.06);
 }
 
-/* Modo oscuro: se invierte la pantalla y se baja el contraste para evitar el negro puro. */
+/* Modo oscuro: se invierte la pantalla y se baja un poco el contraste para que no sea negro puro. */
 html[data-tema="oscuro"] {
-  filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9);
+  filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.88);
   scrollbar-color: #6b7280 #1f2937;
 }
 
-/* Medios que deben conservar sus colores originales (se invierten una vez más). */
+/* Lo que no debe verse al revés: fotos, videos y el mapa de Cobertura. */
 html[data-tema="oscuro"] img,
-html[data-tema="oscuro"] picture,
 html[data-tema="oscuro"] video,
-html[data-tema="oscuro"] iframe,
 html[data-tema="oscuro"] .contorno-mapa {
   filter: invert(1) hue-rotate(180deg);
 }
 
-/* Las imágenes dentro del mapa ya se corrigen con el mapa completo: no se duplica el ajuste. */
+/* Las imágenes DENTRO del mapa ya se corrigen con el mapa completo; sin esto se corregirían dos veces. */
 html[data-tema="oscuro"] .contorno-mapa img {
   filter: none;
 }
 
-/* Los diálogos se dibujan en una capa aparte y no reciben el filtro de la página: se ajustan aparte. */
+/* Las ventanas de confirmación (dialog) se dibujan en una capa aparte y el filtro de arriba no las alcanza:
+   se les aplica el mismo filtro a ellas. */
 dialog {
-  filter: brightness(0.95) sepia(0.04);
+  filter: brightness(0.94) sepia(0.06);
 }
 
 html[data-tema="oscuro"] dialog {
-  filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(0.9);
+  filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.88);
 }
 
-/* Botón de cambio de tema (junto a «Mi cuenta» y en el menú del celular). */
+/* Botón que cambia de tema (junto a «Mi cuenta» y en el menú del celular). */
 .boton-tema {
   display: inline-flex;
   align-items: center;
@@ -55,20 +51,11 @@ html[data-tema="oscuro"] dialog {
   cursor: pointer;
 }
 
-.boton-tema:focus-visible {
-  outline: 3px solid var(--foco, #b45309);
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-
-/* Al imprimir, la página sale en sus colores normales. */
 @media print {
   html,
   html[data-tema="oscuro"],
   dialog,
-  html[data-tema="oscuro"] dialog,
-  html[data-tema="oscuro"] img,
-  html[data-tema="oscuro"] video {
+  html[data-tema="oscuro"] dialog {
     filter: none;
   }
 }
