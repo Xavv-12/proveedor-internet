@@ -1,6 +1,6 @@
 "use strict";
 /* =========================================================
-   FORMULARIO DE SOLICITUD DE CONTRATACIÓN (contacto.html)
+   FORMULARIO DE SOLICITUD DE CONTRATACIÓN (contacto.html y solicitud.html)
    Revisa los datos y los manda a WhatsApp o al servidor (si existe).
    ========================================================= */
 (() => {
@@ -10,6 +10,8 @@
 
   const recuadro = buscar("#lead-result");
   const boton = buscar("#lead-submit");
+  /* Texto original del botón, para regresarlo igual al terminar */
+  const textoBoton = boton.textContent.trim();
   const campoTelefono = buscar("#lead-phone");
   const campoCodigoPostal = formulario.elements.namedItem("zip");
   let ocupado = false;
@@ -222,7 +224,7 @@
       await new Promise((listo) => setTimeout(listo, 1500));
       ocupado = false;
       boton.disabled = false;
-      boton.textContent = "Preparar solicitud";
+      boton.textContent = textoBoton;
       formulario.removeAttribute("aria-busy");
     }
   });

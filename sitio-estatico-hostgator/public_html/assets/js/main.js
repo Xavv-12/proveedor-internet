@@ -108,6 +108,13 @@ window.Sitio = (() => {
 
     /* Barra principal */
     const marca = enlace("", "index.html", "brand");
+    const logo = crear("img");
+    logo.src = "/generated-assets/company-logo.png";
+    logo.alt = "";
+    logo.width = 32;
+    logo.height = 32;
+    logo.style.marginRight = "8px";
+    marca.append(logo);
     const nombre = crear("span");
     nombre.dataset.company = "";
     nombre.textContent = config.nombreEmpresa || "Proveedor de internet";
@@ -124,17 +131,21 @@ window.Sitio = (() => {
     menu.id = "nav";
     menu.setAttribute("aria-label", "Principal");
     [
-      ["Paquetes", "paquetes.html"],
-      ["Cobertura", "cobertura.html"],
-      ["Promociones", "promociones.html"],
-      ["Nosotros", "nosotros.html"],
-      ["Contacto", "contacto.html"],
+      ["Planes", "index.html#planes"],
+      ["Cobertura", "index.html#cobertura"],
+      ["Beneficios", "index.html#beneficios"],
+      ["Testimonios", "index.html#testimonios"],
+      ["Preguntas Frecuentes", "index.html#faq-seccion"],
+      ["Contacto", "index.html#contacto-inicio"],
     ].forEach(([texto, href]) => menu.append(enlace(texto, href)));
 
     const acciones = crear("div", undefined, "nav-acciones");
     acciones.append(
-      enlace("Mi portal", "portal.html", "button secondary"),
-      enlace("Contratar", "contacto.html#solicitud", "button"),
+      enlace(
+        "Contratar Ahora",
+        "index.html#contacto-inicio",
+        "button ref-naranja",
+      ),
     );
     menu.append(acciones);
 

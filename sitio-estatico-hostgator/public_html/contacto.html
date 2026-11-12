@@ -17,7 +17,7 @@
       content="Solicita información de cobertura, paquetes y contratación de internet."
     />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#0b2850" />
+    <meta name="theme-color" content="#009eaa" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <link rel="stylesheet" href="assets/css/responsive.css" />
     <link rel="stylesheet" href="assets/css/diseno-referencia.css" />
@@ -28,6 +28,8 @@
     <script src="assets/js/contratacion.js" defer></script>
     <script src="assets/js/catalogo-en-vivo.js" defer></script>
     <script src="assets/js/avisos-sitio.js" defer></script>
+    <script src="assets/js/portada-referencia.js" defer></script>
+    <script src="assets/js/codigo-postal.js" defer></script>
   </head>
 
   <body>
@@ -36,7 +38,12 @@
     <header class="encabezado">
       <div class="contenedor encabezado-fila">
         <a class="brand" href="index.html"
-          ><span data-company>Proveedor de internet</span></a
+          ><img
+            src="assets/img/logo-cosmos.png"
+            alt="COSMOS"
+            width="52"
+            height="52"
+          /><span data-company>Proveedor de internet</span></a
         >
         <button
           class="menu-toggle"
@@ -92,7 +99,8 @@
               cobertura ni instalación.
             </p>
           </div>
-          <div class="formulario" id="solicitud">
+          <!-- form-compacto: mismo estilo que el formulario del inicio, menos scroll -->
+          <div class="formulario form-compacto" id="solicitud">
             <h2>Solicitud de contratación</h2>
             <form id="lead-form">
               <p class="fine">
@@ -108,12 +116,11 @@
                     minlength="3"
                     maxlength="120"
                     autocomplete="name"
+                    placeholder="Nombre y apellidos"
                   />
                 </div>
                 <div class="campo">
-                  <label for="lead-phone"
-                    >Teléfono (10 dígitos, México) *</label
-                  >
+                  <label for="lead-phone">Teléfono *</label>
                   <input
                     id="lead-phone"
                     name="phone"
@@ -121,45 +128,18 @@
                     required
                     autocomplete="tel-national"
                     maxlength="20"
+                    placeholder="10 dígitos"
                   />
                 </div>
                 <div class="campo">
-                  <label for="lead-email">Correo electrónico (opcional)</label>
+                  <label for="lead-email">Correo electrónico</label>
                   <input
                     id="lead-email"
                     name="email"
                     type="email"
                     maxlength="180"
                     autocomplete="email"
-                  />
-                </div>
-                <div class="campo">
-                  <label for="lead-state">Estado *</label>
-                  <input
-                    id="lead-state"
-                    name="state"
-                    required
-                    maxlength="100"
-                    autocomplete="address-level1"
-                  />
-                </div>
-                <div class="campo">
-                  <label for="lead-town">Municipio *</label>
-                  <input
-                    id="lead-town"
-                    name="municipality"
-                    required
-                    maxlength="100"
-                    autocomplete="address-level2"
-                  />
-                </div>
-                <div class="campo completo">
-                  <label for="lead-locality">Colonia o localidad *</label>
-                  <input
-                    id="lead-locality"
-                    name="locality"
-                    required
-                    maxlength="120"
+                    placeholder="tu@correo.com"
                   />
                 </div>
                 <div class="campo">
@@ -172,23 +152,49 @@
                     pattern="[0-9]{5}"
                     maxlength="5"
                     autocomplete="postal-code"
+                    placeholder="5 dígitos"
                   />
                 </div>
-
+                <div class="campo">
+                  <label for="lead-state">Estado *</label>
+                  <input
+                    id="lead-state"
+                    name="state"
+                    required
+                    maxlength="100"
+                    autocomplete="address-level1"
+                    placeholder="Se llena con tu CP"
+                  />
+                </div>
+                <div class="campo">
+                  <label for="lead-town">Municipio *</label>
+                  <input
+                    id="lead-town"
+                    name="municipality"
+                    required
+                    maxlength="100"
+                    autocomplete="address-level2"
+                    placeholder="Se llena con tu CP"
+                  />
+                </div>
                 <div class="campo completo">
-                  <label for="lead-street"
-                    >Calle y número (opcional en esta consulta inicial)</label
-                  >
+                  <label for="lead-locality">Colonia o localidad *</label>
+                  <input
+                    id="lead-locality"
+                    name="locality"
+                    required
+                    maxlength="120"
+                  />
+                </div>
+                <div class="campo completo">
+                  <label for="lead-street">Calle y número</label>
                   <input
                     id="lead-street"
                     name="street"
                     maxlength="200"
                     autocomplete="street-address"
+                    placeholder="Opcional"
                   />
-                  <small
-                    >Se podrán solicitar si son necesarios para validar la
-                    ubicación.</small
-                  >
                 </div>
                 <div class="campo completo">
                   <label for="lead-package">Paquete de interés *</label>
@@ -197,11 +203,12 @@
                   </select>
                 </div>
                 <div class="campo completo">
-                  <label for="lead-comments">Comentarios (opcional)</label>
+                  <label for="lead-comments">Comentarios</label>
                   <textarea
                     id="lead-comments"
                     name="comments"
                     maxlength="1500"
+                    placeholder="Opcional"
                   ></textarea>
                 </div>
               </div>
@@ -229,8 +236,7 @@
               >
               <button type="submit" id="lead-submit">Enviar solicitud</button>
               <p class="fine">
-                Tu solicitud se registrará y un asesor te contactará para
-                validar la cobertura.
+                Un asesor te contactará para validar la cobertura.
               </p>
               <div
                 id="lead-result"

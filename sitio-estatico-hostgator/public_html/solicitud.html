@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Verifica tu cobertura | COSMOS</title>
+    <meta
+      name="description"
+      content="Solicita la verificación de cobertura en tu domicilio y la instalación de tu internet."
+    />
+    <meta name="theme-color" content="#009eaa" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <link rel="stylesheet" href="assets/css/diseno-referencia.css" />
+    <script src="assets/js/config.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/paquetes.js" defer></script>
+    <script src="assets/js/cobertura.js" defer></script>
+    <script src="assets/js/contratacion.js" defer></script>
+    <script src="assets/js/catalogo-en-vivo.js" defer></script>
+    <script src="assets/js/avisos-sitio.js" defer></script>
+    <script src="assets/js/portada-referencia.js" defer></script>
+    <script src="assets/js/solicitud.js" defer></script>
+    <script src="assets/js/codigo-postal.js" defer></script>
+  </head>
+
+  <body>
+    <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+    <header class="encabezado">
+      <div class="contenedor encabezado-fila">
+        <a class="brand" href="index.html"
+          ><img
+            src="assets/img/logo-cosmos.png"
+            alt="COSMOS"
+            width="52"
+            height="52"
+          /><span data-company>Proveedor de internet</span></a
+        >
+        <button
+          class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="nav"
+          type="button"
+        >
+          Menú
+        </button>
+        <nav class="nav" id="nav" aria-label="Principal">
+          <a href="paquetes.html">Paquetes</a>
+          <a href="cobertura.html">Cobertura</a>
+          <a href="promociones.html">Promociones</a>
+          <a href="nosotros.html">Nosotros</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="portal.html">Mi portal</a>
+        </nav>
+        <a
+          class="button wa"
+          data-wa="Hola, quiero información sobre los paquetes de internet"
+          href="contacto.html"
+          >WhatsApp</a
+        >
+      </div>
+    </header>
+
+    <main id="contenido">
+      <!-- ========== ENCABEZADO DE LA PÁGINA ========== -->
+      <section class="sol-cabecera">
+        <div class="contenedor">
+          <a class="sol-volver" href="index.html#cobertura">Volver al inicio</a>
+          <span class="ref-eyebrow">Solicitud de contratación</span>
+          <h1>Verifica la cobertura en tu domicilio</h1>
+          <p>
+            Déjanos la dirección donde quieres el servicio. Un asesor revisa la
+            disponibilidad técnica en tu zona y te contacta para confirmar tu
+            paquete y la instalación.
+          </p>
+        </div>
+      </section>
+
+      <!-- ========== FORMULARIO + LATERAL ========== -->
+      <section class="sol-cuerpo">
+        <div class="contenedor sol-grid">
+          <div class="formulario sol-form" id="solicitud">
+            <!-- id="lead-form": lo usa contratacion.js para revisar y enviar los datos -->
+            <form id="lead-form">
+              <!-- PASO 1 -->
+              <fieldset class="sol-paso">
+                <legend>
+                  <span class="sol-num">1</span>Domicilio de instalación
+                </legend>
+                <p class="sol-ayuda">
+                  Escribe tu código postal y llenamos el estado y el municipio
+                  por ti.
+                </p>
+                <div class="campos sol-campos">
+                  <div class="campo">
+                    <label for="lead-zip">Código postal *</label>
+                    <input
+                      id="lead-zip"
+                      name="zip"
+                      required
+                      inputmode="numeric"
+                      pattern="[0-9]{5}"
+                      maxlength="5"
+                      autocomplete="postal-code"
+                      placeholder="5 dígitos"
+                    />
+                  </div>
+                  <div class="campo">
+                    <label for="lead-state">Estado *</label>
+                    <input
+                      id="lead-state"
+                      name="state"
+                      required
+                      maxlength="100"
+                      autocomplete="address-level1"
+                      placeholder="Se llena con tu CP"
+                    />
+                  </div>
+                  <div class="campo">
+                    <label for="lead-town">Municipio *</label>
+                    <input
+                      id="lead-town"
+                      name="municipality"
+                      required
+                      maxlength="100"
+                      autocomplete="address-level2"
+                      placeholder="Se llena con tu CP"
+                    />
+                  </div>
+                  <div class="campo">
+                    <label for="lead-locality">Colonia o localidad *</label>
+                    <input
+                      id="lead-locality"
+                      name="locality"
+                      required
+                      maxlength="120"
+                      placeholder="Escribe o elige de la lista"
+                    />
+                  </div>
+                  <div class="campo completo">
+                    <label for="lead-street">Calle y número</label>
+                    <input
+                      id="lead-street"
+                      name="street"
+                      maxlength="200"
+                      autocomplete="street-address"
+                      placeholder="Ej. Av. Hidalgo 25"
+                    />
+                    <small
+                      >Opcional, pero nos ayuda a ubicar tu domicilio con más
+                      precisión.</small
+                    >
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- PASO 2 -->
+              <fieldset class="sol-paso">
+                <legend>
+                  <span class="sol-num">2</span>Paquete de interés
+                </legend>
+                <p class="sol-ayuda">
+                  Puedes cambiarlo después con tu asesor si lo necesitas.
+                </p>
+                <div class="campos sol-campos">
+                  <div class="campo completo">
+                    <label for="lead-package">Paquete *</label>
+                    <select id="lead-package" name="package" required>
+                      <option value="">Selecciona un paquete</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- PASO 3 -->
+              <fieldset class="sol-paso">
+                <legend>
+                  <span class="sol-num">3</span>Tus datos de contacto
+                </legend>
+                <p class="sol-ayuda">
+                  Te avisaremos por aquí el resultado de la verificación.
+                </p>
+                <div class="campos sol-campos">
+                  <div class="campo completo">
+                    <label for="lead-name">Nombre completo *</label>
+                    <input
+                      id="lead-name"
+                      name="name"
+                      required
+                      minlength="3"
+                      maxlength="120"
+                      autocomplete="name"
+                      placeholder="Nombre y apellidos"
+                    />
+                  </div>
+                  <div class="campo">
+                    <label for="lead-phone">Teléfono *</label>
+                    <input
+                      id="lead-phone"
+                      name="phone"
+                      type="tel"
+                      required
+                      maxlength="20"
+                      autocomplete="tel-national"
+                      placeholder="10 dígitos"
+                    />
+                  </div>
+                  <div class="campo">
+                    <label for="lead-email">Correo electrónico</label>
+                    <input
+                      id="lead-email"
+                      name="email"
+                      type="email"
+                      maxlength="180"
+                      autocomplete="email"
+                      placeholder="tu@correo.com"
+                    />
+                  </div>
+                  <div class="campo completo">
+                    <label for="lead-comments">Referencias o comentarios</label>
+                    <textarea
+                      id="lead-comments"
+                      name="comments"
+                      maxlength="1500"
+                      placeholder="Entre qué calles está, color de la fachada, horario en que prefieres que te llamemos…"
+                    ></textarea>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="trampa" aria-hidden="true">
+                <label for="website">Dejar vacío</label>
+                <input
+                  id="website"
+                  name="website"
+                  tabindex="-1"
+                  autocomplete="off"
+                />
+              </div>
+
+              <label class="aceptar"
+                ><input type="checkbox" name="consent" required /><span
+                  >He leído el
+                  <a
+                    href="privacidad.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >aviso de privacidad</a
+                  >
+                  y autorizo el uso de mis datos para verificar la cobertura y
+                  atender mi solicitud. *</span
+                ></label
+              >
+              <button type="submit" id="lead-submit">
+                Solicitar verificación
+              </button>
+              <p class="fine">
+                Esta solicitud no es un contrato ni confirma cobertura. Un
+                asesor validará tu domicilio antes de cualquier instalación.
+              </p>
+              <div
+                id="lead-result"
+                class="result"
+                role="status"
+                aria-live="polite"
+                data-auto-ocultar="6"
+              ></div>
+            </form>
+          </div>
+
+          <aside class="sol-lateral" aria-label="Información de la solicitud">
+            <div class="sol-tarjeta">
+              <h2>¿Qué sigue?</h2>
+              <ol class="sol-pasos">
+                <li>
+                  <strong>Revisamos tu dirección</strong>
+                  <span
+                    >Un asesor confirma si hay red disponible en tu
+                    domicilio.</span
+                  >
+                </li>
+                <li>
+                  <strong>Te contactamos</strong>
+                  <span
+                    >Te llamamos o escribimos para confirmar tu paquete y los
+                    costos de instalación.</span
+                  >
+                </li>
+                <li>
+                  <strong>Agendamos la instalación</strong>
+                  <span
+                    >Si hay cobertura, acordamos contigo el día y la hora de la
+                    visita técnica.</span
+                  >
+                </li>
+              </ol>
+            </div>
+
+            <div class="sol-tarjeta">
+              <h2>Ten a la mano</h2>
+              <ul class="sol-lista">
+                <li>Identificación oficial vigente</li>
+                <li>Comprobante de domicilio reciente</li>
+              </ul>
+              <p class="sol-nota">
+                Solo los pediremos si se confirma que hay cobertura.
+              </p>
+            </div>
+
+            <div class="sol-tarjeta">
+              <h2>¿Prefieres hablar con alguien?</h2>
+              <p class="sol-nota">
+                Escríbenos y te ayudamos a llenar tu solicitud.
+              </p>
+              <a
+                class="button secondary sol-wa"
+                data-wa="Hola, quiero verificar la cobertura en mi domicilio"
+                href="contacto.html"
+                >Escribir por WhatsApp</a
+              >
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="pie">
+      <div class="contenedor">
+        <div class="pie-columnas">
+          <div>
+            <h3 data-company>Proveedor de internet</h3>
+            <p>
+              Consulta opciones, revisa condiciones y solicita información de
+              cobertura.
+            </p>
+          </div>
+          <div class="pie-enlaces">
+            <strong>Explora</strong>
+            <a href="paquetes.html">Paquetes</a>
+            <a href="cobertura.html">Cobertura</a>
+            <a href="solicitud.html">Verificar cobertura</a>
+          </div>
+          <div class="pie-enlaces">
+            <strong>Información</strong>
+            <a href="privacidad.html">Aviso de privacidad</a>
+            <a href="terminos.html">Términos comerciales</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="portal.html">Mi portal</a>
+          </div>
+        </div>
+        <small
+          >Disponibilidad y condiciones sujetas a validación por la empresa.
+          Este sitio no confirma cobertura técnica.</small
+        >
+      </div>
+    </footer>
+
+    <dialog class="ventana" id="message-dialog" aria-labelledby="message-title">
+      <h2 id="message-title">Revisa tu mensaje</h2>
+      <p id="message-info"></p>
+      <label for="message-text">Mensaje para compartir</label>
+      <textarea id="message-text" rows="9" readonly></textarea>
+      <div class="actions">
+        <button type="button" id="copy-message">Copiar mensaje</button>
+        <button type="button" id="close-message">Cerrar</button>
+      </div>
+      <p id="copy-status" role="status"></p>
+    </dialog>
+  </body>
+</html>

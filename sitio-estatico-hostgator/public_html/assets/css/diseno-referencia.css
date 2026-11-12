@@ -1,13 +1,13 @@
 /* Diseño basado en las imágenes de referencia. El contenido y las funciones existentes permanecen. */
 :root {
-  --azul: #075ee8;
-  --azul-marino: #062b62;
-  --enlace: #075bd0;
-  --texto: #12335a;
-  --texto-suave: #365777;
-  --borde: #d6e5f5;
+  --azul: #009eaa;
+  --azul-marino: #04434a;
+  --enlace: #00838f;
+  --texto: #183a3f;
+  --texto-suave: #3f5f63;
+  --borde: #cfe7e9;
   --fondo: #fff;
-  --fondo-gris: #eaf4ff;
+  --fondo-gris: #e8f6f7;
   --redondeo: 18px;
 }
 body {
@@ -23,7 +23,7 @@ body {
 h1,
 h2,
 h3 {
-  color: #062b62;
+  color: #04434a;
   letter-spacing: -0.035em;
   line-height: 1.12;
   font-weight: 800;
@@ -32,11 +32,11 @@ h2 {
   font-size: clamp(2rem, 3vw, 2.6rem);
 }
 .encabezado {
-  background: #0755c9;
+  background: #00838f;
   border: 0;
 }
 .barra-superior {
-  background: #063b9b;
+  background: #006770;
 }
 .encabezado .brand,
 .encabezado .nav a:not(.button) {
@@ -65,7 +65,7 @@ h2 {
 }
 .button,
 button {
-  background: linear-gradient(135deg, #1f86ff 0%, #075ee8 55%, #0546b8 100%);
+  background: linear-gradient(135deg, #1fb3bf 0%, #009eaa 55%, #007a84 100%);
   color: #fff;
   border-radius: 999px;
   border: 1px solid transparent;
@@ -74,39 +74,39 @@ button {
 }
 .button,
 button[type="submit"] {
-  box-shadow: 0 6px 16px rgba(7, 94, 232, 0.3);
+  box-shadow: 0 6px 16px rgba(0, 131, 143, 0.3);
 }
 .button:hover,
 button:hover {
-  background: linear-gradient(135deg, #3a95ff 0%, #0a62ee 55%, #063fa5 100%);
+  background: linear-gradient(135deg, #33bfca 0%, #00a9b5 55%, #006c75 100%);
   color: #fff;
   transform: translateY(-2px);
 }
 .button:hover,
 button[type="submit"]:hover {
-  box-shadow: 0 10px 22px rgba(7, 94, 232, 0.4);
+  box-shadow: 0 10px 22px rgba(0, 131, 143, 0.4);
 }
 .button.secondary {
-  color: #075be2;
-  border: 1px solid #075be2;
+  color: #00838f;
+  border: 1px solid #00838f;
   background: #fff;
 }
 .button.secondary:hover {
-  background: #eaf3ff;
+  background: #e8f6f7;
 }
 .button.wa {
-  background: #0755c9;
+  background: #00838f;
   color: #fff;
 }
 .button.wa:hover {
-  background: #003c9b;
+  background: #006770;
 }
 .ref-naranja {
-  background: linear-gradient(135deg, #1f86ff 0%, #075ee8 55%, #0546b8 100%);
+  background: linear-gradient(135deg, #1fb3bf 0%, #009eaa 55%, #007a84 100%);
   color: #fff;
 }
 .ref-eyebrow {
-  color: #0064ec;
+  color: #00838f;
   font-size: 0.8rem;
   letter-spacing: 0.03em;
   font-weight: 800;
@@ -118,9 +118,9 @@ button[type="submit"]:hover {
 .referencia-hero {
   color: #fff;
   background:
-    linear-gradient(180deg, #0755c9 0, rgba(7, 85, 201, 0) 120px),
-    linear-gradient(90deg, #0755c9 0, #0755c9 42%, rgba(7, 85, 201, 0) 64%),
-    #0755c9 url("../img/fibra-referencia.svg") right center / 58% 100% no-repeat;
+    linear-gradient(180deg, #00838f 0, rgba(0, 131, 143, 0) 120px),
+    linear-gradient(90deg, #00838f 0, #00838f 42%, rgba(0, 131, 143, 0) 64%),
+    #00838f url("../img/fibra-referencia.svg") right center / 58% 100% no-repeat;
 }
 .referencia-hero-grid {
   display: grid;
@@ -152,18 +152,18 @@ button[type="submit"]:hover {
   align-items: center;
 }
 .ref-mini {
-  color: #082b5a;
+  color: #04434a;
   background: #fff;
   border-radius: 18px;
   padding: 22px 17px;
-  box-shadow: 0 16px 38px rgba(2, 25, 78, 0.22);
+  box-shadow: 0 16px 38px rgba(1, 50, 56, 0.22);
   min-width: 0;
 }
 .ref-mini-destacada {
-  border-top: 7px solid #00c2e0;
+  border-top: 7px solid #a2c551;
 }
 .ref-mini-nombre {
-  color: #0061e9;
+  color: #00838f;
   font-size: 0.95rem;
 }
 .ref-mini-velocidad {
@@ -173,7 +173,7 @@ button[type="submit"]:hover {
   line-height: 1.2;
 }
 .ref-mini-precio {
-  color: #0086a3;
+  color: #5f8f23;
   font-size: 1.65rem;
   font-weight: 800;
   line-height: 1.1;
@@ -186,7 +186,7 @@ button[type="submit"]:hover {
   margin: 0 0 15px;
 }
 .ref-mini li::marker {
-  color: #0764ec;
+  color: #009eaa;
 }
 .ref-mini .button {
   width: 100%;
@@ -208,35 +208,35 @@ button[type="submit"]:hover {
 }
 .card,
 .formulario {
-  border: 1px solid #dceafa;
+  border: 1px solid #d3ecee;
   border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(12, 49, 93, 0.1);
+  box-shadow: 0 12px 30px rgba(4, 67, 74, 0.1);
 }
 .package.featured {
-  border: 2px solid #00c2e0;
-  box-shadow: 0 12px 30px rgba(0, 150, 190, 0.2);
+  border: 2px solid #a2c551;
+  box-shadow: 0 12px 30px rgba(162, 197, 81, 0.2);
 }
 .tag {
-  background: #e9f2ff;
-  color: #075bd0;
+  background: #e3f4f5;
+  color: #00838f;
   border-radius: 999px;
 }
 .package.featured .tag {
-  background: #00c2e0;
-  color: #062b62;
+  background: #a2c551;
+  color: #04434a;
 }
 .speed {
-  color: #075be2;
+  color: #00838f;
 }
 .price {
-  color: #0086a3;
+  color: #5f8f23;
 }
 .package ul {
-  color: #23466b;
+  color: #2b4b50;
 }
 .ref-cobertura,
 .ref-testimonio {
-  background: #eaf4ff;
+  background: #e8f6f7;
 }
 .ref-cobertura,
 .ref-beneficios,
@@ -256,7 +256,7 @@ button[type="submit"]:hover {
   width: 100%;
   height: auto;
   border-radius: 18px;
-  box-shadow: 0 12px 30px rgba(12, 49, 93, 0.1);
+  box-shadow: 0 12px 30px rgba(4, 67, 74, 0.1);
 }
 .ref-beneficios .ref-dos {
   grid-template-columns: 1fr 1fr;
@@ -278,37 +278,37 @@ button[type="submit"]:hover {
   height: 42px;
   display: grid;
   place-items: center;
-  border: 1px solid #0563ee;
-  color: #0563ee;
+  border: 1px solid #009eaa;
+  color: #009eaa;
   border-radius: 50%;
   font-style: normal;
   font-size: 1.3rem;
 }
 .ref-beneficios-lista small {
-  color: #486b8e;
+  color: #557579;
 }
 .ref-cita {
   background: #fff;
   padding: 28px;
   border-radius: 18px;
-  box-shadow: 0 10px 28px rgba(12, 49, 93, 0.08);
+  box-shadow: 0 10px 28px rgba(4, 67, 74, 0.08);
 }
 .ref-cita p {
-  color: #0086a3;
+  color: #5f8f23;
   margin: 4px 0;
 }
 .ref-faq details {
-  border: 1px solid #d6e5f5;
+  border: 1px solid #cfe7e9;
   border-radius: 12px;
-  background: #f2f7fd;
+  background: #f3fafa;
   padding: 16px;
   margin-bottom: 10px;
 }
 .ref-faq summary {
-  color: #0a2d60;
+  color: #04434a;
 }
 .ref-contacto {
-  background: #0755c9;
+  background: #00838f;
   color: #fff;
 }
 .ref-contacto h2,
@@ -317,37 +317,37 @@ button[type="submit"]:hover {
   color: #fff;
 }
 .ref-contacto .formulario {
-  color: #12335a;
+  color: #183a3f;
   padding: 28px;
 }
 .ref-contacto .formulario p {
-  color: #365777;
+  color: #3f5f63;
 }
 .ref-contacto .formulario button[type="submit"] {
   width: 100%;
 }
 .cabecera-pagina {
-  background: #eaf4ff;
+  background: #e8f6f7;
 }
 .pie {
   background: #fff;
-  border-top: 1px solid #e4edf7;
+  border-top: 1px solid #dcefef;
 }
 @media (max-width: 980px) {
   .encabezado .nav {
     background: #fff;
   }
   .encabezado .nav a:not(.button) {
-    color: #0a2d60;
+    color: #04434a;
   }
   .encabezado .nav a:not(.button):hover,
   .encabezado .nav a[aria-current="page"]:not(.button) {
-    color: #075bd0;
-    background: #e9f2ff;
+    color: #00838f;
+    background: #e3f4f5;
   }
   .encabezado .nav .button.secondary {
-    color: #075bd0;
-    border-color: #075bd0;
+    color: #00838f;
+    border-color: #00838f;
   }
   .referencia-hero-grid {
     grid-template-columns: 1fr;
@@ -355,8 +355,8 @@ button[type="submit"]:hover {
   }
   .referencia-hero {
     background:
-      linear-gradient(180deg, #0755c9 0, rgba(7, 85, 201, 0) 90px),
-      #0755c9 url("../img/fibra-referencia.svg") center / cover no-repeat;
+      linear-gradient(180deg, #00838f 0, rgba(0, 131, 143, 0) 90px),
+      #00838f url("../img/fibra-referencia.svg") center / cover no-repeat;
   }
 }
 @media (max-width: 760px) {
@@ -434,7 +434,7 @@ button[type="submit"]:hover {
 .package:hover,
 .ref-mini:hover {
   transform: translateY(-4px);
-  box-shadow: 0 18px 38px rgba(7, 94, 232, 0.18);
+  box-shadow: 0 18px 38px rgba(0, 131, 143, 0.18);
 }
 @media (max-width: 980px) {
   .contenedor.mapa-panel {
@@ -453,23 +453,23 @@ button[type="submit"]:hover {
 .encabezado .button:not(.secondary),
 .ref-hero-texto .button:not(.secondary) {
   background: #fff;
-  color: #0755c9;
-  box-shadow: 0 6px 16px rgba(2, 25, 78, 0.25);
+  color: #00838f;
+  box-shadow: 0 6px 16px rgba(1, 50, 56, 0.25);
 }
 .encabezado .button:not(.secondary):hover,
 .ref-hero-texto .button:not(.secondary):hover {
-  background: #eaf3ff;
-  color: #063b9b;
+  background: #e8f6f7;
+  color: #006770;
 }
 
 /* En el menú lateral del celular el fondo es blanco: vuelve a azul */
 @media (max-width: 980px) {
   .encabezado .nav .button:not(.secondary) {
-    background: linear-gradient(135deg, #1f86ff 0%, #075ee8 55%, #0546b8 100%);
+    background: linear-gradient(135deg, #1fb3bf 0%, #009eaa 55%, #007a84 100%);
     color: #fff;
   }
   .encabezado .nav .button:not(.secondary):hover {
-    background: linear-gradient(135deg, #3a95ff 0%, #0a62ee 55%, #063fa5 100%);
+    background: linear-gradient(135deg, #33bfca 0%, #00a9b5 55%, #006c75 100%);
     color: #fff;
   }
 }
@@ -517,9 +517,9 @@ button[type="submit"]:hover {
   transform: none;
 }
 .mapa-capas-caja .mapa-capas-opcion.activa {
-  border-color: #1f86ff;
-  background: #eaf3ff;
-  color: #0a2d60;
+  border-color: #1fb3bf;
+  background: #e8f6f7;
+  color: #04434a;
 }
 .mapa-capas-mini {
   flex: 0 0 34px;
@@ -538,4 +538,830 @@ button[type="submit"]:hover {
     #2d3f22 70%,
     #5a6b4a
   );
+}
+.barra-superior {
+  display: none;
+}
+.encabezado .nav-acciones .button {
+  background: #a2c551;
+  color: #fff;
+  border-color: #a2c551;
+  border-radius: 999px;
+}
+.ref-cob-img {
+  position: relative;
+}
+.ref-cob-chip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: #04434a;
+  line-height: 1.3;
+}
+.ref-cita-laura {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.ref-cita-laura img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: none;
+}
+.ref-cita-laura small {
+  display: block;
+}
+.ref-cita-laura span {
+  color: #3f5f63;
+  font-size: 0.9rem;
+}
+.ref-cita-laura p {
+  color: #a2c551;
+}
+.ref-faq details summary {
+  cursor: pointer;
+}
+.seccion-titulo .button.ref-naranja {
+  margin-top: 10px;
+}
+.ref-avatar {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #a2c551, #009eaa);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.ref-beneficios-lista i svg {
+  display: block;
+}
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* ===== Formulario de contacto del index: compacto, estilo referencia ===== */
+
+.ref-contacto .formulario {
+  padding: 26px;
+}
+/* Sin título ni notas largas, como en la referencia */
+.ref-contacto .formulario h3,
+.ref-contacto .formulario form > p.fine,
+.ref-contacto .campo small {
+  display: none;
+}
+
+/* Campos en 3 columnas */
+.ref-contacto .campos {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 14px;
+}
+.ref-contacto .campos > .campo {
+  grid-column: auto;
+  gap: 4px;
+}
+/* Nombre, Colonia y Calle ocupan 2 columnas; Comentarios todo el ancho */
+.ref-contacto .campos > .campo:nth-child(1),
+.ref-contacto .campos > .campo:nth-child(6),
+.ref-contacto .campos > .campo:nth-child(8) {
+  grid-column: span 2;
+}
+.ref-contacto .campos > .campo:nth-child(10) {
+  grid-column: 1 / -1;
+}
+
+/* Etiquetas y cajas más chicas */
+.ref-contacto .formulario label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #04434a;
+}
+.ref-contacto .formulario input,
+.ref-contacto .formulario select,
+.ref-contacto .formulario textarea {
+  min-height: 40px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  border: 1px solid #cfe7e9;
+  border-radius: 8px;
+}
+.ref-contacto .formulario textarea {
+  min-height: 70px;
+}
+
+/* Casilla del aviso de privacidad */
+.ref-contacto .aceptar {
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.45;
+  margin: 14px 0;
+}
+.ref-contacto .aceptar span {
+  color: #3f5f63;
+}
+.ref-contacto .aceptar input {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+}
+
+/* Botón naranja */
+.ref-contacto .formulario button[type="submit"] {
+  min-height: 48px;
+  background: #a2c551;
+  border-color: #a2c551;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 16px rgba(162, 197, 81, 0.3);
+}
+.ref-contacto .formulario button[type="submit"]:hover {
+  background: #8fb33f;
+  border-color: #8fb33f;
+  box-shadow: 0 10px 22px rgba(162, 197, 81, 0.4);
+}
+
+/* Tablet: 2 columnas */
+@media (max-width: 1100px) {
+  .ref-contacto .campos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .ref-contacto .campos > .campo:nth-child(1),
+  .ref-contacto .campos > .campo:nth-child(6),
+  .ref-contacto .campos > .campo:nth-child(8),
+  .ref-contacto .campos > .campo:nth-child(10) {
+    grid-column: 1 / -1;
+  }
+}
+/* Celular: 1 columna */
+@media (max-width: 760px) {
+  .ref-contacto .campos {
+    grid-template-columns: 1fr;
+  }
+  .ref-contacto .formulario {
+    padding: 20px;
+  }
+}
+
+/* =====================================================================
+   COLORES COSMOS (tomados del logo)
+   Turquesa #009eaa · Verde #a2c551
+   ===================================================================== */
+:root {
+  --azul: #009eaa;
+  --azul-marino: #04434a;
+  --enlace: #00838f;
+  --texto: #183a3f;
+  --texto-suave: #3f5f63;
+  --borde: #cfe7e9;
+  --fondo-gris: #e8f6f7;
+  --foco: #a2c551;
+}
+
+/* Encabezado blanco para que el logo se vea bien */
+.encabezado {
+  background: #fff;
+  border-bottom: 1px solid #dcefef;
+}
+.encabezado .brand,
+.encabezado .nav a:not(.button) {
+  color: #04434a;
+}
+.encabezado .nav a:not(.button):hover,
+.encabezado .nav a[aria-current="page"]:not(.button) {
+  color: #00838f;
+  background: #e8f6f7;
+}
+.menu-toggle {
+  color: #04434a;
+  border-color: #cfe7e9;
+}
+.menu-toggle span {
+  background: #04434a;
+}
+.encabezado .brand img {
+  display: block;
+  width: auto;
+  height: 52px;
+  max-height: none;
+  margin: 0 !important;
+}
+/* El logo ya dice COSMOS: el nombre en texto queda solo para lectores de pantalla */
+.encabezado .brand span,
+.encabezado .brand small {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Botones verdes (texto oscuro para que se lea bien) */
+.encabezado .button:not(.secondary),
+.encabezado .nav-acciones .button,
+.ref-contacto .formulario button[type="submit"] {
+  background: #a2c551;
+  border-color: #a2c551;
+  color: #04434a;
+  box-shadow: 0 6px 16px rgba(162, 197, 81, 0.35);
+}
+.encabezado .button:not(.secondary):hover,
+.encabezado .nav-acciones .button:hover,
+.ref-contacto .formulario button[type="submit"]:hover {
+  background: #8fb33f;
+  border-color: #8fb33f;
+  color: #04434a;
+}
+
+/* Detalles verdes */
+.ref-mini-destacada {
+  border-top-color: #a2c551;
+}
+.package.featured .tag {
+  background: #a2c551;
+  color: #04434a;
+}
+.ref-cita-laura p {
+  color: #8fb33f;
+}
+.ref-avatar {
+  background: linear-gradient(135deg, #a2c551, #009eaa);
+}
+.ref-cob-chip {
+  color: #04434a;
+}
+
+/* ===== Portada: líneas de fibra en tonos turquesa (la imagen original es azul) ===== */
+.referencia-hero {
+  position: relative;
+  isolation: isolate;
+  background: #00838f;
+}
+.referencia-hero::before,
+.referencia-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.referencia-hero::before {
+  background: url("../img/fibra-referencia.svg") right center / 58% 100%
+    no-repeat;
+  filter: hue-rotate(-35deg) saturate(1.05);
+}
+.referencia-hero::after {
+  background:
+    linear-gradient(180deg, #00838f 0, rgba(0, 131, 143, 0) 120px),
+    linear-gradient(90deg, #00838f 0, #00838f 42%, rgba(0, 131, 143, 0) 64%);
+}
+@media (max-width: 980px) {
+  .referencia-hero {
+    background: #00838f;
+  }
+  .referencia-hero::before {
+    background-position: center;
+    background-size: cover;
+  }
+  .referencia-hero::after {
+    background: linear-gradient(180deg, #00838f 0, rgba(0, 131, 143, 0) 90px);
+  }
+}
+
+/* La imagen de la casa ya trae dibujada la etiqueta "Cobertura en tu zona":
+   se oculta la del HTML para que no salga doble */
+.ref-cob-chip {
+  display: none;
+}
+
+/* Imágenes nítidas: que no se estiren más allá de su tamaño real */
+.ref-cob-img img {
+  max-width: 1298px;
+}
+.ref-beneficios .ref-dos > img {
+  max-width: 1032px;
+}
+
+/* =====================================================================
+   FORMULARIO DE CONTACTO SENCILLO (index.html)
+   Nombre | Correo / Teléfono / Mensaje a todo lo ancho
+   ===================================================================== */
+.ref-contacto .campos.campos-contacto {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.ref-contacto .campos.campos-contacto > .campo:nth-child(n) {
+  grid-column: auto;
+}
+.ref-contacto .campos.campos-contacto > .campo.completo {
+  grid-column: 1 / -1;
+}
+.ref-contacto .formulario textarea {
+  min-height: 90px;
+}
+.ref-contacto .formulario input::placeholder,
+.ref-contacto .formulario textarea::placeholder {
+  color: #8aa3a6;
+}
+@media (max-width: 760px) {
+  .ref-contacto .campos.campos-contacto {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =====================================================================
+   PÁGINA "VERIFICA TU COBERTURA" (solicitud.html)
+   ===================================================================== */
+.sol-cabecera {
+  background: #e8f6f7;
+  padding: 44px 0 40px;
+}
+.sol-volver {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #00838f;
+  text-decoration: none;
+}
+.sol-volver::before {
+  content: "‹ ";
+}
+.sol-volver:hover {
+  text-decoration: underline;
+}
+.sol-cabecera h1 {
+  margin: 8px 0 12px;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  color: #04434a;
+}
+.sol-cabecera p {
+  max-width: 62ch;
+  margin: 0;
+  font-size: 1.05rem;
+  color: #3f5f63;
+}
+.sol-cuerpo {
+  padding: 40px 0 70px;
+  background: #fff;
+}
+.sol-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+/* Tarjeta del formulario */
+.sol-form {
+  padding: 32px;
+}
+.sol-paso {
+  min-width: 0;
+  margin: 0 0 26px;
+  padding: 0 0 26px;
+  border: 0;
+  border-bottom: 1px solid #dcefef;
+}
+.sol-paso legend {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+  padding: 0;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #04434a;
+}
+.sol-num {
+  display: grid;
+  place-items: center;
+  flex: 0 0 30px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #009eaa;
+  color: #fff;
+  font-size: 0.9rem;
+}
+.sol-ayuda {
+  margin: 0 0 16px 42px;
+  font-size: 0.92rem;
+  color: #3f5f63;
+}
+.sol-campos {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
+}
+.sol-form label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #04434a;
+}
+.sol-form input,
+.sol-form select,
+.sol-form textarea {
+  min-height: 46px;
+  padding: 10px 14px;
+  font-size: 0.98rem;
+  border: 1px solid #cfe7e9;
+  border-radius: 10px;
+  background: #fbfefe;
+}
+.sol-form input:focus,
+.sol-form select:focus,
+.sol-form textarea:focus {
+  border-color: #009eaa;
+  box-shadow: 0 0 0 3px rgba(0, 158, 170, 0.15);
+}
+.sol-form input::placeholder,
+.sol-form textarea::placeholder {
+  color: #8aa3a6;
+}
+.sol-form textarea {
+  min-height: 96px;
+}
+.sol-form .campo small {
+  font-size: 0.8rem;
+  color: #557579;
+}
+.sol-form .aceptar {
+  margin: 0 0 18px;
+  font-size: 0.9rem;
+  color: #3f5f63;
+}
+.sol-form .aceptar input {
+  width: 18px;
+  height: 18px;
+  min-height: 0;
+  margin-top: 3px;
+}
+.sol-form button[type="submit"] {
+  width: 100%;
+  min-height: 52px;
+  background: #a2c551;
+  border-color: #a2c551;
+  color: #04434a;
+  font-size: 1rem;
+  box-shadow: 0 6px 16px rgba(162, 197, 81, 0.35);
+}
+.sol-form button[type="submit"]:hover {
+  background: #8fb33f;
+  border-color: #8fb33f;
+  color: #04434a;
+}
+.sol-form .fine {
+  margin: 12px auto 0;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Columna lateral */
+.sol-lateral {
+  position: sticky;
+  top: 100px;
+  display: grid;
+  gap: 18px;
+}
+.sol-tarjeta {
+  padding: 24px;
+  border: 1px solid #dcefef;
+  border-radius: 18px;
+  background: #f3fafa;
+}
+.sol-tarjeta h2 {
+  margin: 0 0 14px;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  color: #04434a;
+}
+.sol-pasos {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: paso;
+}
+.sol-pasos li {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  column-gap: 12px;
+  counter-increment: paso;
+}
+.sol-pasos li::before {
+  content: counter(paso);
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 2px solid #009eaa;
+  border-radius: 50%;
+  background: #fff;
+  color: #00838f;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+.sol-pasos strong {
+  font-size: 0.95rem;
+  color: #04434a;
+}
+.sol-pasos span {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #3f5f63;
+}
+.sol-lista {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 0.95rem;
+  color: #183a3f;
+}
+.sol-lista li::marker {
+  color: #8fb33f;
+}
+.sol-nota {
+  margin: 10px 0 0;
+  font-size: 0.88rem;
+  color: #557579;
+}
+.sol-wa {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 14px;
+}
+
+@media (max-width: 980px) {
+  .sol-grid {
+    grid-template-columns: 1fr;
+  }
+  .sol-lateral {
+    position: static;
+  }
+}
+@media (max-width: 760px) {
+  .sol-campos {
+    grid-template-columns: 1fr;
+  }
+  .sol-form {
+    padding: 22px;
+  }
+  .sol-ayuda {
+    margin-left: 0;
+  }
+}
+
+/* =====================================================================
+   SOLICITUD DE CONTRATACIÓN COMPACTA (contacto.html)
+   Mismo estilo que el formulario del inicio: 3 columnas, menos scroll
+   ===================================================================== */
+.dos-columnas:has(.form-compacto) {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+}
+.form-compacto {
+  padding: 26px;
+}
+.form-compacto h2 {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+}
+.form-compacto form > p.fine:first-child {
+  margin: 0 0 14px;
+  font-size: 0.85rem;
+}
+.form-compacto .campos {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 14px;
+}
+.form-compacto .campos > .campo {
+  grid-column: auto;
+  gap: 4px;
+}
+/* Nombre, Colonia y Calle ocupan 2 columnas; Comentarios todo el ancho */
+.form-compacto .campos > .campo:nth-child(1),
+.form-compacto .campos > .campo:nth-child(7),
+.form-compacto .campos > .campo:nth-child(8) {
+  grid-column: span 2;
+}
+.form-compacto .campos > .campo:nth-child(10) {
+  grid-column: 1 / -1;
+}
+.form-compacto label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #04434a;
+}
+.form-compacto input,
+.form-compacto select,
+.form-compacto textarea {
+  min-height: 42px;
+  padding: 8px 12px;
+  font-size: 0.92rem;
+  border: 1px solid #cfe7e9;
+  border-radius: 8px;
+}
+.form-compacto input::placeholder,
+.form-compacto textarea::placeholder {
+  color: #8aa3a6;
+}
+.form-compacto textarea {
+  min-height: 70px;
+}
+.form-compacto .aceptar {
+  margin: 14px 0;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: #3f5f63;
+}
+.form-compacto .aceptar input {
+  width: 16px;
+  height: 16px;
+  min-height: 0;
+  margin-top: 2px;
+}
+.form-compacto button[type="submit"] {
+  width: 100%;
+  min-height: 48px;
+  background: #a2c551;
+  border-color: #a2c551;
+  color: #04434a;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 16px rgba(162, 197, 81, 0.35);
+}
+.form-compacto button[type="submit"]:hover {
+  background: #8fb33f;
+  border-color: #8fb33f;
+  color: #04434a;
+}
+.form-compacto form > p.fine:not(:first-child) {
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+  text-align: center;
+}
+@media (max-width: 1100px) {
+  .form-compacto .campos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .form-compacto .campos > .campo:nth-child(1),
+  .form-compacto .campos > .campo:nth-child(7),
+  .form-compacto .campos > .campo:nth-child(8),
+  .form-compacto .campos > .campo:nth-child(10) {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 980px) {
+  .dos-columnas:has(.form-compacto) {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 760px) {
+  .form-compacto .campos {
+    grid-template-columns: 1fr;
+  }
+  .form-compacto {
+    padding: 20px;
+  }
+}
+
+/* ===== Mensaje del código postal automático ===== */
+.cp-aviso {
+  display: block;
+  min-height: 1.2em;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: #557579;
+}
+.cp-aviso:empty {
+  min-height: 0;
+}
+.cp-aviso-ok {
+  color: #3d7a12;
+  font-weight: 600;
+}
+.cp-aviso-error {
+  color: #b23626;
+}
+
+/* ===== Botón "Mi portal" en el encabezado ===== */
+.encabezado .button.secondary.portal-acceso {
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 18px;
+  border: 1.5px solid #00838f;
+  border-radius: 999px;
+  background: #fff;
+  color: #00838f;
+  box-shadow: none;
+}
+.encabezado .button.secondary.portal-acceso:hover {
+  background: #e8f6f7;
+  color: #04434a;
+  border-color: #04434a;
+}
+.encabezado .nav-acciones {
+  gap: 10px;
+}
+@media (max-width: 980px) {
+  .encabezado .button.secondary.portal-acceso {
+    width: 100%;
+    min-height: 50px;
+  }
+}
+
+/* =====================================================================
+   MI PORTAL (portal.html) en colores COSMOS
+   ===================================================================== */
+#portal-form button[type="submit"] {
+  width: 100%;
+  min-height: 50px;
+  background: #a2c551;
+  border-color: #a2c551;
+  color: #04434a;
+  box-shadow: 0 6px 16px rgba(162, 197, 81, 0.35);
+}
+#portal-form button[type="submit"]:hover {
+  background: #8fb33f;
+  border-color: #8fb33f;
+  color: #04434a;
+}
+#portal-form .actions {
+  margin: 20px 0 12px;
+}
+#portal-form input {
+  border-color: #cfe7e9;
+  border-radius: 10px;
+}
+#portal-form input::placeholder {
+  color: #8aa3a6;
+}
+.portal-encabezado h2 {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+}
+.portal-resumen .card {
+  border-top: 4px solid #009eaa;
+}
+.portal-resumen .card.portal-alerta {
+  border-top-color: #b23626;
+}
+.portal-resumen .price {
+  color: #04434a;
+}
+.portal-tabla th {
+  background: #e8f6f7;
+  color: #04434a;
+}
+.portal-tabla-contenedor,
+.portal-tabla th,
+.portal-tabla td,
+.portal-lista li {
+  border-color: #dcefef;
+}
+.portal-estado {
+  border-radius: 999px;
+  background: #e8f6f7;
+  color: #00838f;
+}
+.portal-pagar button[type="submit"] {
+  background: #a2c551;
+  border-color: #a2c551;
+  color: #04434a;
+}
+.portal-pagar button[type="submit"]:hover {
+  background: #8fb33f;
+  border-color: #8fb33f;
+  color: #04434a;
+}
+/* Colores por estado (se repiten aquí para que no los tape el color base de arriba) */
+.portal-estado.portal-estado-vencida,
+.portal-estado.portal-estado-rechazado {
+  background: #fff0ed;
+  color: #8d291d;
+}
+.portal-estado.portal-estado-pagada,
+.portal-estado.portal-estado-aceptado,
+.portal-estado.portal-estado-aplicado {
+  background: #eef6dc;
+  color: #3d6b12;
+}
+.portal-estado.portal-estado-en-revision,
+.portal-estado.portal-estado-pago-parcial {
+  background: #fff6d9;
+  color: #4f3b00;
+}
+/* Ayuda debajo de la clave de rastreo (portal) */
+.pc-ayuda {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #557579;
 }
