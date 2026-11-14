@@ -1527,3 +1527,87 @@ html.anim .animar.visible {
     transition: none;
   }
 }
+
+/* =====================================================================
+   DETALLES GENERALES
+   ===================================================================== */
+/* Las imágenes nunca se salen de su caja */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Texto oculto a la vista pero que leen los lectores de pantalla */
+.solo-lector {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* Al imprimir (aviso de privacidad, términos, portal): sin colores de fondo
+   y con la dirección de cada enlace escrita al lado */
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    box-shadow: none !important;
+    color: #000 !important;
+  }
+  .encabezado,
+  .menu-toggle,
+  .nav-fondo,
+  .pie-enlaces,
+  .button.wa {
+    display: none !important;
+  }
+  .texto-legal a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+  }
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+  img,
+  tr {
+    break-inside: avoid;
+  }
+}
+/* =====================================================================
+   BOTÓN "ENVIANDO...": circulito girando mientras se manda el formulario
+   ===================================================================== */
+button[type="submit"][disabled],
+button[type="submit"][aria-busy="true"] {
+  position: relative;
+  color: transparent !important;
+  pointer-events: none;
+}
+button[type="submit"][disabled]::after,
+button[type="submit"][aria-busy="true"]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 22px;
+  height: 22px;
+  margin: -11px 0 0 -11px;
+  border: 3px solid rgba(4, 67, 74, 0.25);
+  border-top-color: #04434a;
+  border-radius: 50%;
+  animation: cosmos-girar 0.6s linear infinite;
+}
+@keyframes cosmos-girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  button[type="submit"][disabled]::after,
+  button[type="submit"][aria-busy="true"]::after {
+    animation-duration: 1.5s;
+  }
+}
