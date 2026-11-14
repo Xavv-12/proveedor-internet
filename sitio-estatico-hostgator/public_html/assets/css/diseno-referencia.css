@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap");
+
 /* Diseño basado en las imágenes de referencia. El contenido y las funciones existentes permanecen. */
 :root {
   --azul: #009eaa;
@@ -1364,4 +1366,164 @@ body {
   font-size: 0.8rem;
   line-height: 1.4;
   color: #557579;
+}
+
+/* =====================================================================
+   TIPOGRAFÍA COSMOS (igual que en el aplicativo)
+   ===================================================================== */
+:root {
+  --fuente: "Roboto", system-ui, sans-serif;
+  --fuente-titulos: "Space Grotesk", "Roboto", system-ui, sans-serif;
+  --fuente-mono: "Roboto Mono", ui-monospace, monospace;
+}
+body {
+  font-family: var(--fuente);
+}
+button,
+input,
+select,
+textarea,
+.cobertura-v2,
+.cobertura-v2 button,
+.cobertura-v2 input {
+  font-family: var(--fuente);
+}
+h1,
+h2,
+h3,
+.brand,
+.speed,
+.price,
+.ref-mini-velocidad,
+.ref-mini-precio,
+.sol-num,
+.sol-pasos li::before {
+  font-family: var(--fuente-titulos);
+  letter-spacing: -0.02em;
+}
+.speed,
+.price,
+.ref-mini-precio {
+  font-variant-numeric: tabular-nums;
+}
+.ref-eyebrow,
+.tag,
+.subtitulo {
+  font-family: var(--fuente-titulos);
+  letter-spacing: 0.04em;
+}
+.button,
+button {
+  font-weight: 600;
+}
+.portal-tabla td,
+.pc-ayuda code {
+  font-variant-numeric: tabular-nums;
+}
+code,
+kbd,
+pre,
+.folio {
+  font-family: var(--fuente-mono);
+}
+
+/* =====================================================================
+   PAQUETES EN CELULAR: todo en una columna, alineado a la izquierda
+   ===================================================================== */
+@media (max-width: 760px) {
+  .cuadricula .package {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+  }
+  .cuadricula .package > * {
+    grid-column: auto;
+    text-align: left;
+    justify-self: auto;
+    align-self: auto;
+  }
+  .cuadricula .package .tag {
+    align-self: flex-start;
+  }
+  .cuadricula .package h3 {
+    margin: 10px 0 0;
+  }
+  .cuadricula .package .speed {
+    font-size: 2.6rem;
+    margin: 4px 0 0;
+  }
+  .cuadricula .package .speed small {
+    display: block;
+    font-size: 1.05rem;
+  }
+  .cuadricula .package .price {
+    font-size: 1.7rem;
+    margin: 6px 0 8px;
+  }
+  .cuadricula .package .price small {
+    display: inline;
+  }
+  .cuadricula .package .actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    width: 100%;
+    margin-top: 14px;
+  }
+  .cuadricula .package .actions .button {
+    flex: 1 1 0;
+    width: auto;
+    min-height: 48px;
+  }
+}
+@media (max-width: 380px) {
+  .cuadricula .package .actions {
+    flex-direction: column;
+  }
+  .cuadricula .package .actions .button {
+    width: 100%;
+  }
+}
+
+/* =====================================================================
+   ANIMACIONES AL HACER SCROLL (las activa assets/js/animaciones.js)
+   ===================================================================== */
+html.anim .animar {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--retraso, 0s);
+  will-change: opacity, transform;
+}
+html.anim .animar.desde-izq {
+  transform: translateX(-36px);
+}
+html.anim .animar.desde-der {
+  transform: translateX(36px);
+}
+html.anim .animar.visible {
+  opacity: 1;
+  transform: none;
+}
+/* En celular, todo entra desde abajo (de lado se ve brusco en pantallas angostas) */
+@media (max-width: 760px) {
+  html.anim .animar.desde-izq,
+  html.anim .animar.desde-der {
+    transform: translateY(28px);
+  }
+  html.anim .animar.visible {
+    transform: none;
+  }
+}
+/* Respeta "reducir movimiento" aunque el JS ya se haya cargado */
+@media (prefers-reduced-motion: reduce) {
+  html.anim .animar {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

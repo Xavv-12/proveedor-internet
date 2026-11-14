@@ -5,28 +5,28 @@
   color-scheme: light;
 
   /* Texto */
-  --texto: #1b2a3d;
-  --texto-suave: #34465c;
+  --texto: #183a3f;
+  --texto-suave: #3f5f63;
 
   /* Colores principales */
-  --azul: #0f766e;
-  --azul-oscuro: #0b3e94;
-  --azul-claro: #dfe9fb;
+  --azul: #009eaa;
+  --azul-oscuro: #00838f;
+  --azul-claro: #e8f6f7;
 
   /* Estados */
-  --verde: #15803d;
+  --verde: #00838f;
   --verde-claro: #e2f3e9;
 
   /* Menú y superficies */
-  --carbon: #e9eff6;
-  --carbon-linea: #cbd6e3;
-  --negro: #0b2850;
-  --borde: #b8c7d8;
-  --fondo: #e8eef6;
-  --fondo-tarjeta: #f3f7fb;
+  --carbon: #e8f6f7;
+  --carbon-linea: #cfe7e9;
+  --negro: #04434a;
+  --borde: #cfe7e9;
+  --fondo: #e8f6f7;
+  --fondo-tarjeta: #ffffff;
 
   /* Indicador visible al navegar con teclado */
-  --foco: #b45309;
+  --foco: #00838f;
 
   /* Forma y distribución */
   --redondeo: 18px;
@@ -44,7 +44,7 @@ body {
   background-color: var(--fondo);
   background-image: radial-gradient(
     circle at top left,
-    #d6e4f5 0%,
+    #e8f6f7 0%,
     rgba(214, 228, 245, 0) 55%
   );
   background-attachment: fixed;

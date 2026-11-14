@@ -1,0 +1,237 @@
+/* Fuentes COSMOS (debe ir en la primera línea del archivo) */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+/* Identidad COSMOS: se carga después de las demás hojas. */
+:root {
+  --texto: #183a3f;
+  --texto-suave: #3f5f63;
+  --azul: #009eaa;
+  --azul-oscuro: #00838f;
+  --azul-claro: #e8f6f7;
+  --verde: #a2c551;
+  --verde-claro: #eaf5d8;
+  --carbon: #e8f6f7;
+  --carbon-linea: #cfe7e9;
+  --negro: #04434a;
+  --borde: #cfe7e9;
+  --fondo: #e8f6f7;
+  --fondo-tarjeta: #fff;
+  --foco: #00838f;
+  --redondeo: 18px;
+  --fuente: "Roboto", system-ui, sans-serif;
+  --fuente-titulos: "Space Grotesk", "Roboto", system-ui, sans-serif;
+  --fuente-mono: "Roboto Mono", ui-monospace, monospace;
+  --sombra: 0 4px 20px rgba(4, 67, 74, 0.08);
+}
+body {
+  font-family: var(--fuente);
+  background: #e8f6f7;
+  color: var(--texto);
+}
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* ===== Tipografía ===== */
+h1,
+h2,
+h3,
+h4,
+.lateral .marca,
+.marca-movil {
+  font-family: var(--fuente-titulos);
+  letter-spacing: -0.01em;
+}
+/* Números grandes del tablero */
+.contador strong,
+.contador b,
+.contador .numero,
+.contador .valor {
+  font-family: var(--fuente-titulos);
+  font-variant-numeric: tabular-nums;
+}
+/* Folios y códigos */
+.folio,
+code,
+kbd,
+pre {
+  font-family: var(--fuente-mono);
+}
+/* Cifras alineadas en tablas */
+.tabla td {
+  font-variant-numeric: tabular-nums;
+}
+
+.superior,
+.lateral {
+  background: #fff;
+}
+.lateral .marca {
+  color: #04434a;
+}
+.logo-cosmos {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex: none;
+}
+.boton {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #009eaa, #00838f);
+  border-color: #00838f;
+  color: white;
+  font-weight: 500;
+}
+.boton:hover {
+  background: #00838f;
+  color: white;
+}
+.boton.secundario {
+  background: #fff;
+  color: #00838f;
+  border-color: #00838f;
+}
+.boton.peligro {
+  background: #fff;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+.formulario .acciones .boton[type="submit"]:not(.secundario):not(.peligro),
+.confirmar-acciones .confirmar-aceptar {
+  background: #a2c551;
+  border-color: #a2c551;
+  color: #04434a;
+  border-radius: 999px;
+}
+.bloque:not(.bloque-botones),
+.contador,
+.fila {
+  border-color: #d3ecee;
+  border-radius: 18px;
+  box-shadow: var(--sombra);
+}
+.tabla th {
+  background: #e8f6f7;
+}
+.tono-verde.insignia {
+  background: #eaf5d8;
+  color: #315a16;
+}
+.tono-rojo.insignia {
+  background: #fef2f2;
+  color: #991b1b;
+}
+.tono-ambar.insignia {
+  background: #fef6e4;
+  color: #92400e;
+}
+.en-vivo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  font: 500 0.85rem var(--fuente);
+  color: #8b3434;
+  background: #fff0f0;
+  border: 1px solid #f1caca;
+  border-radius: 999px;
+  padding: 5px 9px;
+}
+.en-vivo::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.en-vivo.conectado {
+  color: #315a16;
+  background: #eaf5d8;
+  border-color: #cde4ac;
+}
+
+/* ===== Logo grande en el login ===== */
+/* Solo aplica en pantallas con campo de contraseña (login y restablecer). */
+body:has(input[type="password"]) :has(> img[src*="logo"]) {
+  width: auto !important;
+  height: auto !important;
+  padding: 0 !important;
+  background: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+body:has(input[type="password"]) img[src*="logo"] {
+  width: 220px !important; /* cambia este número para ajustar el tamaño */
+  height: auto !important;
+  max-width: 80vw;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+  .marco {
+    display: block;
+  }
+  .lateral {
+    display: none;
+  }
+  .superior {
+    justify-content: space-between;
+    padding: 0 12px;
+  }
+  .marca-movil {
+    display: flex;
+  }
+  .menu-movil {
+    display: block;
+  }
+  .menu-movil summary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #00838f;
+    color: white;
+    cursor: pointer;
+  }
+  .menu-movil-panel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    max-height: calc(100vh - 68px);
+    overflow: auto;
+    padding: 8px 12px 20px;
+    background: #fff;
+    box-shadow: var(--sombra);
+  }
+  .cuenta-usuario,
+  .cuenta-enlace {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  .filas,
+  .bloque-formulario .formulario,
+  .datos > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cuenta-usuario {
+    display: none;
+  }
+  .marca-movil span {
+    max-width: 90px;
+  }
+  .en-vivo {
+    font-size: 0.75rem;
+    padding: 4px 6px;
+  }
+  body:has(input[type="password"]) img[src*="logo"] {
+    width: 170px !important;
+  }
+}

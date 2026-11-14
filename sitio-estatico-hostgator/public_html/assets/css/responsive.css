@@ -1,10 +1,32 @@
-/* ===== TABLETS Y PANTALLAS MEDIANAS (hasta 1000px) ===== */
+/* ===== RESPONSIVE DEL SITIO COSMOS =====
+   Archivo: assets/css/responsive.css (sitio web)
+   Cortes: 1200 · 1000 · 980 · 760 · 480 · 360 */
+
+/* ===== PANTALLAS MEDIANAS (hasta 1200px) ===== */
+@media (max-width: 1200px) {
+  .referencia-hero-grid {
+    grid-template-columns: 1fr 1.3fr;
+    gap: 32px;
+  }
+  .ref-mini {
+    padding: 20px 14px;
+  }
+  .ref-dos {
+    gap: 40px;
+  }
+}
+
+/* ===== TABLETS (hasta 1000px) ===== */
 @media (max-width: 1000px) {
   .cuadricula {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
   }
   .card {
     padding: 22px;
+  }
+  .ref-beneficios-lista {
+    gap: 18px;
   }
 }
 
@@ -28,8 +50,9 @@
     margin: 0;
     padding: 84px 20px 28px;
     overflow-y: auto;
+    overscroll-behavior: contain;
     background: var(--fondo-tarjeta);
-    box-shadow: -12px 0 40px rgba(7, 23, 44, 0.25);
+    box-shadow: -12px 0 40px rgba(4, 67, 74, 0.25);
     transform: translateX(100%);
     visibility: hidden;
     transition:
@@ -60,7 +83,7 @@
     position: fixed;
     inset: 0;
     z-index: 50;
-    background: rgba(7, 23, 44, 0.55);
+    background: rgba(4, 67, 74, 0.55);
     opacity: 0;
     visibility: hidden;
     transition:
@@ -70,6 +93,21 @@
   .nav-fondo.visible {
     opacity: 1;
     visibility: visible;
+  }
+  /* Portada en una columna */
+  .ref-hero-texto {
+    text-align: center;
+  }
+  .ref-hero-texto p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .ref-hero-texto .actions {
+    justify-content: center;
+  }
+  /* Imagen arriba y texto abajo en las secciones de dos columnas */
+  .ref-cobertura .ref-dos > .ref-cob-img {
+    order: -1;
   }
 }
 
@@ -88,6 +126,16 @@
   }
   .encabezado-fila {
     min-height: 66px;
+    gap: 12px;
+  }
+  .encabezado .brand img {
+    height: 44px;
+  }
+  /* El botón WhatsApp del encabezado se hace compacto */
+  .encabezado-fila > .button.wa {
+    min-height: 42px;
+    padding: 8px 14px;
+    font-size: 0.92rem;
   }
   .dos-columnas {
     grid-template-columns: 1fr;
@@ -155,5 +203,185 @@
   }
   .speed {
     font-size: 2.6rem;
+  }
+  /* Títulos de sección */
+  h2 {
+    font-size: clamp(1.7rem, 7vw, 2.2rem);
+  }
+  .ref-hero-texto h1 {
+    font-size: clamp(2.2rem, 10vw, 3rem);
+  }
+  /* Beneficios en una columna */
+  .ref-beneficios-lista {
+    grid-template-columns: 1fr;
+  }
+  /* Campos: 16px evita que el iPhone haga zoom al escribir */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+  /* Ventana emergente */
+  .ventana {
+    padding: 22px;
+  }
+}
+
+/* ===== CELULARES CHICOS (hasta 480px) ===== */
+@media (max-width: 480px) {
+  .contenedor {
+    width: calc(100% - 24px);
+  }
+  .encabezado-fila {
+    min-height: 60px;
+  }
+  .encabezado .brand img {
+    height: 38px;
+  }
+  .encabezado-fila > .button.wa {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  .menu-toggle {
+    width: 42px;
+    min-height: 42px;
+  }
+  .referencia-hero-grid {
+    padding: 34px 0;
+    gap: 24px;
+  }
+  .ref-hero-texto h1 {
+    margin: 10px 0 16px;
+  }
+  /* Paquetes: velocidad arriba y precio abajo */
+  .package {
+    display: flex;
+    flex-direction: column;
+  }
+  .package .speed {
+    font-size: 2.4rem;
+  }
+  .package .price {
+    text-align: left;
+    font-size: 1.6rem;
+  }
+  .package .price small {
+    display: inline;
+  }
+  .package .actions {
+    flex-direction: column;
+  }
+  .package .actions .button {
+    width: 100%;
+  }
+  .card,
+  .formulario {
+    padding: 18px;
+    border-radius: 14px;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .actions .button {
+    width: 100%;
+  }
+  .ref-cobertura,
+  .ref-beneficios,
+  .ref-testimonio,
+  .ref-faq,
+  .ref-contacto,
+  .paquetes-inicio {
+    padding: 36px 0;
+  }
+  .ref-cita {
+    padding: 20px;
+  }
+  .ref-cita-laura {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .ref-faq details {
+    padding: 12px 14px;
+  }
+  summary {
+    font-size: 1.02rem;
+  }
+  .pie {
+    padding: 30px 0 18px;
+  }
+  .pie small {
+    font-size: 0.92rem;
+  }
+}
+
+/* ===== PANTALLAS MUY ANGOSTAS (hasta 360px) ===== */
+@media (max-width: 360px) {
+  .encabezado-fila > .button.wa {
+    display: none;
+  }
+  .package .speed {
+    font-size: 2.1rem;
+  }
+  .ref-hero-texto h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ===== Paquetes en celular: todo en una columna, alineado a la izquierda ===== */
+@media (max-width: 760px) {
+  .cuadricula .package {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+  }
+  .cuadricula .package > * {
+    grid-column: auto;
+    text-align: left;
+    justify-self: auto;
+    align-self: auto;
+  }
+  .cuadricula .package .tag {
+    align-self: flex-start;
+  }
+  .cuadricula .package h3 {
+    margin: 10px 0 0;
+  }
+  .cuadricula .package .speed {
+    font-size: 2.6rem;
+    margin: 4px 0 0;
+  }
+  .cuadricula .package .speed small {
+    display: block;
+    font-size: 1.05rem;
+  }
+  .cuadricula .package .price {
+    font-size: 1.7rem;
+    margin: 6px 0 8px;
+  }
+  .cuadricula .package .price small {
+    display: inline;
+  }
+  .cuadricula .package .actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    width: 100%;
+    margin-top: 14px;
+  }
+  .cuadricula .package .actions .button {
+    flex: 1 1 0;
+    width: auto;
+    min-height: 48px;
+  }
+}
+@media (max-width: 380px) {
+  .cuadricula .package .actions {
+    flex-direction: column;
+  }
+  .cuadricula .package .actions .button {
+    width: 100%;
   }
 }

@@ -132,7 +132,13 @@ function crearApp() {
   };
 
   if (process.env.NODE_ENV !== "production") {
-    app.use(require("morgan")("dev", { skip: (req) => req.originalUrl.startsWith("/eventos") || req.originalUrl.startsWith("/api/v1/eventos") }));
+    app.use(
+      require("morgan")("dev", {
+        skip: (req) =>
+          req.originalUrl.startsWith("/eventos") ||
+          req.originalUrl.startsWith("/api/v1/eventos"),
+      }),
+    );
   }
 
   app.use(
@@ -176,6 +182,11 @@ function crearApp() {
         index: false,
       },
     ),
+  );
+
+  // Las vistas piden logo-cosmos.png, pero el logo real es logo.svg
+  app.get("/static/img/logo-cosmos.png", (req, res) =>
+    res.redirect(302, "/static/img/logo.svg"),
   );
 
   app.use(

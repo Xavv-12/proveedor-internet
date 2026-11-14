@@ -1,18 +1,22 @@
-'use strict';
-const { MongoClient, ObjectId } = require('mongodb');
+"use strict";
+const { MongoClient, ObjectId } = require("mongodb");
 
 let cliente = null;
 let base = null;
 
 async function conectar(uri, nombreDb) {
-  cliente = new MongoClient(uri, { maxPoolSize: 30, serverSelectionTimeoutMS: 10000, appName: 'proveedor-internet' });
+  cliente = new MongoClient(uri, {
+    maxPoolSize: 30,
+    serverSelectionTimeoutMS: 10000,
+    appName: "proveedor-internet",
+  });
   await cliente.connect();
   base = cliente.db(nombreDb);
   return base;
 }
 
 function db() {
-  if (!base) throw new Error('La base de datos no está conectada.');
+  if (!base) throw new Error("La base de datos no está conectada.");
   return base;
 }
 
@@ -35,9 +39,16 @@ async function enTransaccion(fn) {
   const sesion = cliente.startSession();
   try {
     let resultado;
-    await sesion.withTransaction(async () => {
-      resultado = await fn(sesion);
-    }, { readConcern: { level: 'snapshot' }, writeConcern: { w: 'majority' }, readPreference: 'primary' });
+    await sesion.withTransaction(
+      async () => {
+        resultado = await fn(sesion);
+      },
+      {
+        readConcern: { level: "snapshot" },
+        writeConcern: { w: "majority" },
+        readPreference: "primary",
+      },
+    );
     return resultado;
   } finally {
     await sesion.endSession();
@@ -46,7 +57,18 @@ async function enTransaccion(fn) {
 
 /** Convierte un texto en ObjectId solo si es un id válido de 24 caracteres hexadecimales. */
 function aId(valor) {
-  return typeof valor === 'string' && /^[0-9a-f]{24}$/i.test(valor) ? new ObjectId(valor) : null;
+  return typeof valor === "string" && /^[0-9a-f]{24}$/i.test(valor)
+    ? new ObjectId(valor)
+    : null;
 }
 
-module.exports = { conectar, db, col, clienteMongo, desconectar, enTransaccion, aId, ObjectId };
+module.exports = {
+  conectar,
+  db,
+  col,
+  clienteMongo,
+  desconectar,
+  enTransaccion,
+  aId,
+  ObjectId,
+};

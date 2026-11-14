@@ -6,7 +6,9 @@ const { textoBusqueda, ErrorValidacion } = require("../lib/util");
 const { siguienteFolio } = require("../lib/folios");
 const { formatearTelefono } = require("../lib/telefono");
 const { formatearFechaHora, rangoDiaMX } = require("../lib/fechas");
-const { HORAS_SIN_CONTACTO: HORAS_SIN_CONTACTO_VISTA } = require("../servicios/seguimiento");
+const {
+  HORAS_SIN_CONTACTO: HORAS_SIN_CONTACTO_VISTA,
+} = require("../servicios/seguimiento");
 
 const CERRADAS_VISTA = ["contratada", "descartada"];
 const { insigniaEstado, opciones } = require("../lib/vistas");
@@ -26,10 +28,18 @@ function filtroVista(vista) {
   const { inicio, fin } = rangoDiaMX();
   if (vista === "sin-contactar") {
     const limite = new Date(Date.now() - HORAS_SIN_CONTACTO_VISTA * 3600e3);
-    return { estado: { $in: ["recibida", "cobertura validada"] }, creado: { $lt: limite } };
+    return {
+      estado: { $in: ["recibida", "cobertura validada"] },
+      creado: { $lt: limite },
+    };
   }
-  if (vista === "seguimiento") return { estado: { $nin: CERRADAS_VISTA }, proximoSeguimiento: { $lt: fin } };
-  if (vista === "agendadas") return { estado: "agendada", fechaInstalacion: { $lt: inicio } };
+  if (vista === "seguimiento")
+    return {
+      estado: { $nin: CERRADAS_VISTA },
+      proximoSeguimiento: { $lt: fin },
+    };
+  if (vista === "agendadas")
+    return { estado: "agendada", fechaInstalacion: { $lt: inicio } };
   return null;
 }
 

@@ -50,12 +50,36 @@ const MENU = [
     grupo: "Mi panel",
     roles: ["tecnico"],
     items: [
-      { modulo: "panel_tecnico", ruta: "/panel-tecnico", texto: "Mis actividades" },
-      { modulo: "panel_tecnico", ruta: "/panel-tecnico/instalaciones", texto: "Instalaciones" },
-      { modulo: "panel_tecnico", ruta: "/panel-tecnico/seguimientos", texto: "Seguimiento" },
-      { modulo: "panel_tecnico", ruta: "/panel-tecnico/atenciones", texto: "Atención a clientes" },
-      { modulo: "panel_tecnico", ruta: "/panel-tecnico/renovaciones", texto: "Renovaciones" },
-      { modulo: "panel_tecnico", ruta: "/panel-tecnico/bajas", texto: "Bajas de contratos" },
+      {
+        modulo: "panel_tecnico",
+        ruta: "/panel-tecnico",
+        texto: "Mis actividades",
+      },
+      {
+        modulo: "panel_tecnico",
+        ruta: "/panel-tecnico/instalaciones",
+        texto: "Instalaciones",
+      },
+      {
+        modulo: "panel_tecnico",
+        ruta: "/panel-tecnico/seguimientos",
+        texto: "Seguimiento",
+      },
+      {
+        modulo: "panel_tecnico",
+        ruta: "/panel-tecnico/atenciones",
+        texto: "Atención a clientes",
+      },
+      {
+        modulo: "panel_tecnico",
+        ruta: "/panel-tecnico/renovaciones",
+        texto: "Renovaciones",
+      },
+      {
+        modulo: "panel_tecnico",
+        ruta: "/panel-tecnico/bajas",
+        texto: "Bajas de contratos",
+      },
     ],
   },
   {
@@ -63,11 +87,31 @@ const MENU = [
     roles: ["admin", "atencion"],
     items: [
       { modulo: "panel_tecnico", ruta: "/panel-tecnico", texto: "Resumen" },
-      { modulo: "panel_tecnico", ruta: "/panel-tecnico/instalaciones", texto: "Instalaciones" },
-      { modulo: "panel_tecnico", ruta: "/panel-tecnico/seguimientos", texto: "Seguimiento" },
-      { modulo: "panel_tecnico", ruta: "/panel-tecnico/atenciones", texto: "Atención a clientes" },
-      { modulo: "panel_tecnico", ruta: "/panel-tecnico/renovaciones", texto: "Renovaciones" },
-      { modulo: "panel_tecnico", ruta: "/panel-tecnico/bajas", texto: "Bajas de contratos" },
+      {
+        modulo: "panel_tecnico",
+        ruta: "/panel-tecnico/instalaciones",
+        texto: "Instalaciones",
+      },
+      {
+        modulo: "panel_tecnico",
+        ruta: "/panel-tecnico/seguimientos",
+        texto: "Seguimiento",
+      },
+      {
+        modulo: "panel_tecnico",
+        ruta: "/panel-tecnico/atenciones",
+        texto: "Atención a clientes",
+      },
+      {
+        modulo: "panel_tecnico",
+        ruta: "/panel-tecnico/renovaciones",
+        texto: "Renovaciones",
+      },
+      {
+        modulo: "panel_tecnico",
+        ruta: "/panel-tecnico/bajas",
+        texto: "Bajas de contratos",
+      },
     ],
   },
   {
@@ -83,10 +127,18 @@ const MENU = [
     grupo: "Clientes",
     items: [
       { modulo: "clientes", ruta: "/clientes", texto: "Clientes" },
-      { modulo: "clientes", ruta: "/clientes/carga-masiva", texto: "Carga masiva" },
+      {
+        modulo: "clientes",
+        ruta: "/clientes/carga-masiva",
+        texto: "Carga masiva",
+      },
       { modulo: "contratos", ruta: "/contratos", texto: "Contratos" },
       { modulo: "equipos", ruta: "/equipos", texto: "Equipos" },
-      { modulo: "contratos_pdf", ruta: "/contratos-escaneados", texto: "Contratos escaneados" },
+      {
+        modulo: "contratos_pdf",
+        ruta: "/contratos-escaneados",
+        texto: "Contratos escaneados",
+      },
     ],
   },
   {
@@ -139,10 +191,12 @@ function puede(usuario, modulo, nivel = "leer") {
 }
 
 function menuPara(usuario) {
-  return MENU.filter((g) => !g.roles || g.roles.includes(usuario.rol)).map((g) => ({
-    grupo: g.grupo,
-    items: g.items.filter((i) => puede(usuario, i.modulo)),
-  })).filter((g) => g.items.length);
+  return MENU.filter((g) => !g.roles || g.roles.includes(usuario.rol))
+    .map((g) => ({
+      grupo: g.grupo,
+      items: g.items.filter((i) => puede(usuario, i.modulo)),
+    }))
+    .filter((g) => g.items.length);
 }
 
 module.exports = {

@@ -27,16 +27,20 @@
     for (const boton of document.querySelectorAll("[data-tema-alternar]")) {
       boton.setAttribute("aria-pressed", tema === "oscuro" ? "true" : "false");
       const texto = boton.querySelector("[data-tema-texto]");
-      if (texto) texto.textContent = tema === "oscuro" ? "Modo suave" : "Modo oscuro";
+      if (texto)
+        texto.textContent = tema === "oscuro" ? "Modo suave" : "Modo oscuro";
     }
   };
 
   aplicar(nombre(leer()));
   // Los botones aún no existen cuando corre este script: se les pone el texto al terminar de cargar.
-  document.addEventListener("DOMContentLoaded", () => aplicar(raiz.getAttribute("data-tema")));
+  document.addEventListener("DOMContentLoaded", () =>
+    aplicar(raiz.getAttribute("data-tema")),
+  );
   document.addEventListener("click", (e) => {
     if (!e.target.closest("[data-tema-alternar]")) return;
-    const nuevo = raiz.getAttribute("data-tema") === "oscuro" ? "suave" : "oscuro";
+    const nuevo =
+      raiz.getAttribute("data-tema") === "oscuro" ? "suave" : "oscuro";
     guardar(nuevo);
     aplicar(nuevo);
   });

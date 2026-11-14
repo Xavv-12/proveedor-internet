@@ -2,6 +2,8 @@
 <section class="bloque bloque-error">
   <h1><%= titulo %></h1>
   <p><%= mensaje %></p>
-  <a class="boton" href="<%= usuario ? '/' : '/login' %>"><%= usuario ? 'Ir al tablero' : 'Ir a iniciar sesión' %></a>
+  <a class="boton" href="<%= usuario ? '/' : '/login' %>"
+    ><%= usuario ? 'Ir al tablero' : 'Ir a iniciar sesión' %></a
+  >
 </section>
 <%- include('partials/pie') %>

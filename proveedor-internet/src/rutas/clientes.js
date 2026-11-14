@@ -35,7 +35,9 @@ module.exports = crearRecurso({
   // Botón Eliminar (borra de la base de datos). Un cliente con contratos no se borra: se desactiva.
   eliminable: true,
   bloqueoEliminar: async (doc) => {
-    const contratos = await col("contratos").countDocuments({ clienteId: doc._id });
+    const contratos = await col("contratos").countDocuments({
+      clienteId: doc._id,
+    });
     if (contratos)
       return `No se puede eliminar: tiene ${contratos} contrato(s). Mejor desactívalo.`;
     if (doc.solicitudId)
@@ -228,7 +230,10 @@ module.exports = crearRecurso({
           { etiqueta: "Código postal", valor: doc.codigoPostal },
           { etiqueta: "Referencias", valor: doc.referencias || "—" },
           { etiqueta: "Notas internas", valor: doc.notas || "—" },
-          { etiqueta: "Número de contrato (papel)", valor: doc.numeroContratoImpreso || "—" },
+          {
+            etiqueta: "Número de contrato (papel)",
+            valor: doc.numeroContratoImpreso || "—",
+          },
         ],
       },
       {

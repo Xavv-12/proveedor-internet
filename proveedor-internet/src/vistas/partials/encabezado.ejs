@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="/static/css/18-contorno.css">
 <link rel="stylesheet" href="/static/css/responsive.css">
 <link rel="stylesheet" href="/static/css/19-tema.css">
-<script src="/static/js/tema.js"></script>
+<link rel="stylesheet" href="/static/css/app-cosmos.css">
 <script src="/static/js/app.js" defer></script>
 </head>
 <body>
@@ -38,15 +38,15 @@
 <% if (usuario) { %>
 <div class="marco">
   <aside class="lateral">
-    <a class="marca" href="/"><%- include('iconos', { icono: 'antena' }) %><span><%= empresa %></span></a>
+    <a class="marca" href="/"><img class="logo-cosmos" src="/static/img/logo-cosmos.png" alt="COSMOS"><span><%= empresa %></span></a>
     <%- include('menu') %>
   </aside>
   <div class="area">
     <header class="superior">
-      <a class="marca marca-movil" href="/"><%- include('iconos', { icono: 'antena' }) %><span><%= empresa %></span></a>
+      <a class="marca marca-movil" href="/"><img class="logo-cosmos" src="/static/img/logo-cosmos.png" alt="COSMOS"><span><%= empresa %></span></a>
       <div class="cuenta">
+        <span class="en-vivo" data-en-vivo role="status" aria-live="polite">Sin conexión</span>
         <span class="cuenta-usuario"><%- include('iconos', { icono: 'usuario' }) %><%= usuario.correo %> · <%= usuario.rol %></span>
-        <button type="button" class="cuenta-enlace boton-tema cuenta-tema" data-tema-alternar aria-pressed="false"><span data-tema-texto>Modo oscuro</span></button>
         <a class="cuenta-enlace" href="/mi-cuenta"><%- include('iconos', { icono: 'engrane' }) %>Mi cuenta</a>
         <form method="post" action="/logout" class="form-salir">
           <input type="hidden" name="_csrf" value="<%= csrf %>">
@@ -55,7 +55,6 @@
         <details class="menu-movil">
           <summary>Menú</summary>
           <div class="menu-movil-panel">
-            <button type="button" class="boton secundario movil-tema" data-tema-alternar aria-pressed="false"><span data-tema-texto>Modo oscuro</span></button>
             <p class="menu-movil-usuario"><%= usuario.correo %> · <%= usuario.rol %> · <a href="/mi-cuenta">Mi cuenta</a></p>
             <%- include('menu') %>
           </div>

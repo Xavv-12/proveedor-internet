@@ -106,9 +106,13 @@ window.addEventListener("pageshow", () => {
 // Si estás escribiendo en un formulario de esa zona, no se toca: solo se avisa.
 (() => {
   const zona = document.querySelector("[data-tiempo-real]");
-  if (!zona) return;
-  const escucha = zona
-    .getAttribute("data-tiempo-real")
+  const indicador = document.querySelector("[data-en-vivo]");
+  if (!indicador) return;
+  const estado = (conectado) => {
+    indicador.textContent = conectado ? "En vivo" : "Sin conexión";
+    indicador.classList.toggle("conectado", conectado);
+  };
+  const escucha = (zona?.getAttribute("data-tiempo-real") || "")
     .split(/\s+/)
     .filter(Boolean);
   let espera = null;
@@ -213,6 +217,11 @@ window.addEventListener("pageshow", () => {
   const conectar = () => {
     if (fuente || !window.EventSource) return;
     fuente = new EventSource("/eventos");
+    fuente.addEventListener("open", () => {
+      estado(true);
+      revisar();
+    });
+    fuente.addEventListener("error", () => estado(false));
     fuente.addEventListener("cambio", (e) => {
       let datos = {};
       try {
@@ -231,6 +240,7 @@ window.addEventListener("pageshow", () => {
     if (!fuente) return;
     fuente.close();
     fuente = null;
+    estado(false);
   };
   const revisar = async () => {
     if (document.visibilityState === "hidden") return;
@@ -265,6 +275,12 @@ window.addEventListener("pageshow", () => {
     }
   });
   window.addEventListener("pagehide", desconectar);
+  window.addEventListener("pageshow", () => {
+    if (document.visibilityState !== "hidden") {
+      conectar();
+      revisar();
+    }
+  });
   if (document.visibilityState !== "hidden") conectar();
   revisar();
   setInterval(revisar, 4000);

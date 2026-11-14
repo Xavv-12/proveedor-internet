@@ -1,9 +1,11 @@
 ﻿@charset "UTF-8";
 
-/* ===== RESPONSIVE DEL PANEL =====
-   Cargar después de app.css. */
+/* ===== RESPONSIVE DEL PANEL COSMOS =====
+   Archivo: public/css/responsive.css (aplicativo)
+   Cargar después de las demás hojas.
+   Cortes: 1450 · 1100 · 1000 · 900 · 760 · 480 · 360 */
 
-/* Listados */
+/* ---------- Listados en columnas ---------- */
 @media (min-width: 780px) {
   .filas {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -22,7 +24,7 @@
   }
 }
 
-/* Escritorio */
+/* ---------- Escritorio (desde 901px) ---------- */
 @media (min-width: 901px) {
   .bloque-formulario .formulario {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -85,7 +87,14 @@
   }
 }
 
-/* Tablets y pantallas medianas */
+/* ---------- Pantallas grandes: contadores en una fila ---------- */
+@media (min-width: 1300px) {
+  .contadores {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+/* ---------- Tablets y pantallas medianas (hasta 1000px) ---------- */
 @media (max-width: 1000px) {
   :root {
     --ancho-lateral: 220px;
@@ -120,9 +129,15 @@
   .datos > div {
     grid-template-columns: 180px 1fr;
   }
+
+  /* La tabla se desliza de lado en vez de aplastarse */
+  .tabla-contenedor {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
-/* Celulares */
+/* ---------- Celulares (hasta 760px) ---------- */
 @media (max-width: 760px) {
   .marco {
     display: block;
@@ -133,14 +148,19 @@
   }
 
   .superior {
+    position: sticky;
+    top: 0;
+    z-index: 40;
     justify-content: space-between;
     min-height: 68px;
     padding: 0 12px;
     gap: 8px;
+    box-shadow: 0 2px 12px rgba(4, 67, 74, 0.08);
   }
 
   .marca-movil {
     display: flex;
+    align-items: center;
     min-width: 0;
     gap: 7px;
     font-size: 0.94rem;
@@ -152,9 +172,11 @@
     text-overflow: ellipsis;
   }
 
-  .marca-movil .icono-marca {
+  .marca-movil .icono-marca,
+  .marca-movil img {
     width: 34px;
     height: 34px;
+    object-fit: contain;
   }
 
   .cuenta {
@@ -184,11 +206,11 @@
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    padding: 8px 12px;
-    border-radius: 10px;
+    padding: 8px 14px;
+    border-radius: 999px;
     background: var(--azul);
     color: #fff;
-    font-weight: 700;
+    font-weight: 600;
     list-style: none;
     cursor: pointer;
   }
@@ -207,12 +229,14 @@
     right: 0;
     top: 100%;
     max-height: calc(100vh - 68px);
+    max-height: calc(100dvh - 68px);
     overflow-y: auto;
+    overscroll-behavior: contain;
     padding: 8px 12px 20px;
     background: #fff;
     color: var(--texto);
     border-bottom: 1px solid var(--borde);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 20px 40px rgba(4, 67, 74, 0.2);
   }
 
   .menu-movil-usuario {
@@ -222,18 +246,20 @@
   }
 
   .menu-movil-usuario a {
-    color: var(--azul);
+    color: var(--azul-oscuro);
   }
 
   .menu-movil .nav-enlace {
     min-height: 46px;
     font-size: 1rem;
     color: var(--texto);
+    border-radius: 10px;
   }
 
-  .menu-movil .nav-enlace:hover {
-    background: #eef4ff;
-    color: #134da7;
+  .menu-movil .nav-enlace:hover,
+  .menu-movil .nav-enlace[aria-current="page"] {
+    background: #e8f6f7;
+    color: #00838f;
   }
 
   /* Contenido */
@@ -248,6 +274,10 @@
   .titulo-pagina {
     margin-bottom: 16px;
     padding-bottom: 12px;
+  }
+
+  .titulo-pagina h1 {
+    font-size: clamp(1.6rem, 7vw, 2.1rem);
   }
 
   .subtitulo {
@@ -307,6 +337,10 @@
   }
 
   /* Tabla convertida en tarjetas */
+  .tabla-contenedor {
+    overflow-x: visible;
+  }
+
   .bloque .tabla-contenedor {
     border: 0;
     border-radius: 0;
@@ -330,10 +364,12 @@
     border: 0;
     text-align: right;
     font-size: 1rem;
+    overflow-wrap: anywhere;
   }
 
   .tabla td::before {
     content: attr(data-etiqueta);
+    flex: none;
     color: var(--texto-suave);
     text-align: left;
   }
@@ -354,29 +390,130 @@
   .acceso-caja {
     padding: 22px;
   }
+
+  /* Campos: 16px evita que el iPhone haga zoom al escribir */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
 }
 
-/* Alto contraste */
+/* ---------- Celulares chicos (hasta 480px) ---------- */
+@media (max-width: 480px) {
+  .superior {
+    min-height: 60px;
+    padding: 0 10px;
+  }
+
+  .menu-movil-panel {
+    max-height: calc(100vh - 60px);
+    max-height: calc(100dvh - 60px);
+  }
+
+  .marca-movil span {
+    max-width: 70px;
+  }
+
+  .en-vivo {
+    padding: 4px 6px;
+    font-size: 0;
+  }
+
+  .en-vivo::before {
+    margin: 0;
+  }
+
+  .contenido {
+    padding: 16px 12px 32px;
+  }
+
+  .contador {
+    min-height: 88px;
+    padding: 12px;
+  }
+
+  .contador-numero {
+    font-size: 1.45rem;
+  }
+
+  .bloque,
+  .fila {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  /* Botones a todo lo ancho */
+  .acciones,
+  .botonera {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .acciones .boton,
+  .botonera .boton,
+  .buscador-fila .boton {
+    width: 100%;
+  }
+
+  .buscador-fila {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filtros label {
+    flex: 1 1 100%;
+  }
+
+  /* Tabla en tarjetas: etiqueta arriba y valor abajo */
+  .tabla td {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    text-align: left;
+  }
+
+  .tabla td::before {
+    font-size: 0.82rem;
+  }
+
+  .acceso-caja {
+    padding: 18px;
+  }
+}
+
+/* ---------- Pantallas muy angostas (hasta 360px) ---------- */
+@media (max-width: 360px) {
+  .contadores {
+    grid-template-columns: 1fr;
+  }
+
+  .marca-movil span {
+    display: none;
+  }
+}
+
+/* ---------- Alto contraste ---------- */
 @media (prefers-contrast: more) {
   :root {
     --texto-suave: var(--texto);
-    --borde: #6f8299;
+    --borde: #4f7377;
   }
 
   .bloque,
   .fila,
   .contador,
   .buscador {
-    border-color: #6f8299;
+    border-color: #4f7377;
     border-width: 2px;
   }
 
   #zona-actualizable > .vacio {
-    border: 2px solid #6f8299;
+    border: 2px solid #4f7377;
   }
 }
 
-/* Movimiento reducido */
+/* ---------- Movimiento reducido ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
