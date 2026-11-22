@@ -21,7 +21,9 @@
   } catch {
     return;
   }
-  const esLocal = ["localhost", "127.0.0.1"].includes(base.hostname);
+  /* En tu computadora o red local (localhost, 127.x, 192.168.x, 10.x, 172.16-31.x) se permite HTTP; en internet se exige HTTPS */
+  const esLocal =
+    /^(localhost|127\.|192\.168\.|10\.|172\.(1[6-9]|2\d|3[01])\.)/.test(base.hostname);
   if (base.protocol !== "https:" && !esLocal) return;
 
   const esc = (t) =>
